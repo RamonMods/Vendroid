@@ -3,6 +3,8 @@ run-name: APK rapido ${{ github.sha }}
 
 on:
   workflow_dispatch:
+  push:
+    branches: [fast-apk]
 
 permissions:
   contents: read
