@@ -4,6 +4,9 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
+        maven(url = "https://maven-central.storage-download.googleapis.com/maven2/") {
+            name = "mavenCentralMirror"
+        }
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
@@ -30,6 +33,9 @@ dependencyResolutionManagement {
             }
         }
         google()
+        maven(url = "https://maven-central.storage-download.googleapis.com/maven2/") {
+            name = "mavenCentralMirror"
+        }
         mavenCentral()
         maven(url = "https://jitpack.io")
     }
