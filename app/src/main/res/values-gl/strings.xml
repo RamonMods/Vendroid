@@ -1,9 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s escrito exitosamente a %2$s</string>
-    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Escritura errada</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
     <string name="cancel" comment="Cancel string, used all over the place">Cancelar</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">Escritura rematada</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s escrito exitosamente a %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Escritura errada</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">Acción requirida</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Úsase para amosar o progreso da tarefa actual</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">Progreso da tarefa</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">Úsase para amosar o resultado dunha tarefa rematada</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">Resultado da tarefa</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Escribindo imaxe…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Verificando imaxe…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Activa as notificacións de progreso • Escribindo %1$s en %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Toca para ver o progreso • Escribindo %1$s en %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s a %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s fronte a %2$s</string>
     <string name="unknown_filename" comment="Placeholder file name">Nome de ficheiro descoñecido</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Permiso denegado para o dispositivo USB %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">O dispositivo USB foi desconectado</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Escribir unha imaxe</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Instalar Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Instalación forzada</string>
+    <string name="installing_ventoy">Instalando Ventoy en</string>
+    <string name="updating_ventoy">Actualizando Ventoy en</string>
+    <string name="ventoy_installed_successfully">Ventoy instalado correctamente</string>
+    <string name="ventoy_updated_successfully">Ventoy actualizado correctamente</string>
+    <string name="install_ventoy_another_drive">Instalar Ventoy noutra unidade</string>
+    <string name="update_ventoy">Actualizar</string>
+    <string name="update_ventoy_title">Actualizar Ventoy</string>
+    <string name="repair_ventoy">Reparar</string>
+    <string name="advanced_options">Opcións avanzadas</string>
+    <string name="volume_label">Etiqueta do volume</string>
+    <string name="exfat_label_limit">1–11 caracteres</string>
+    <string name="cluster_size">Tamaño do clúster</string>
+    <string name="automatic">Automático</string>
+    <string name="reserve_space">Reservar espazo ao final</string>
+    <string name="reserve_space_description">Deixar espazo sen asignar despois das particións de Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Transferencias USB máis pequenas</string>
+    <string name="small_usb_transfers_description">Máis lento, pero pode axudar ás unidades que non superan a verificación ou se desconectan durante a instalación.</string>
+    <string name="maximum_reserved_space">Máximo: %1$d %2$s</string>
+    <string name="reserved_space">Espazo reservado</string>
+    <string name="partitions_aligned_4k">✓ As particións están sempre aliñadas con límites de 4 KiB.</string>
+    <string name="apply">Aplicar</string>
+    <string name="unknown_version">descoñecida</string>
+    <string name="grant_access_to_check_ventoy">Concede acceso USB para comprobar se hai unha instalación existente de Ventoy.</string>
+    <string name="checking_ventoy_installation">Comprobando a unidade USB…</string>
+    <string name="ready_to_install_ventoy_version">Listo para instalar Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s instalado · %2$s dispoñible</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s está instalado e pódese reparar.</string>
+    <string name="ventoy_newer_than_bundled">Esta unidade ten Ventoy %1$s, máis recente que o %2$s de Vendroid. Non se permite a degradación.</string>
+    <string name="ventoy_unknown_version_blocked">Non se puido determinar a versión instalada de Ventoy. A actualización e a reparación están bloqueadas para evitar unha posible degradación.</string>
+    <string name="ventoy_metadata_only_repair">Só se repararán os metadatos danados das particións GPT. A carga útil de Ventoy instalada e os teus ficheiros conservaranse.</string>
+    <string name="existing_partitions_use_force_install">Esta unidade xa ten particións. Volve atrás e escolle «Instalación forzada» para borrala.</string>
+    <string name="could_not_check_ventoy">Non se puido inspeccionar esta unidade USB.</string>
+    <string name="files_will_be_preserved">Os teus ficheiros conservaranse</string>
+    <string name="updating_ventoy_preserves_files">Só se actualizarán os compoñentes de arranque de Ventoy. Mantén a unidade conectada e fai antes unha copia de seguridade dos ficheiros irremplazables.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Etiqueta: %2$s · Clúster: %3$s · Reservado: %4$s</string>
+    <string name="partition_style">Estilo de partición</string>
+    <string name="partition_style_description">Recoméndase MBR por defecto. As unidades de máis de 2 TiB requiren GPT e a beta de Vendroid.</string>
+    <string name="partition_style_mbr">MBR (recomendado)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Experimental: fai unha copia de seguridade da unidade USB antes de instalar con GPT.</string>
+    <string name="gpt_available_in_v_preview">A instalación con GPT está dispoñible na beta de Vendroid en Google Play.</string>
+    <string name="drive_requires_v_preview">Esta unidade require a beta de Vendroid ata que a vía GPT supere as probas físicas.</string>
+    <string name="large_drive_requires_v_preview">As unidades de máis de 2 TiB requiren a beta de Vendroid ata que a compatibilidade con unidades grandes supere as probas físicas.</string>
+    <string name="large_drive_requires_gpt">Esta unidade é maior de 2 TiB. Selecciona GPT para continuar; MBR non pode usar esta capacidade.</string>
+    <string name="get_v_preview">Unirse á beta de Vendroid</string>
+    <string name="privacy_policy">Política de privacidade</string>
+    <string name="check_online_ventoy_update">Comprobar actualización en liña</string>
+    <string name="checking_online_ventoy_update">Comprobando versións de Ventoy…</string>
+    <string name="downloading_online_ventoy">Descargando Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% descargado</string>
+    <string name="using_downloaded_ventoy">Usando Ventoy %1$s verificado en liña</string>
+    <string name="no_newer_ventoy_online">A carga útil de Ventoy seleccionada xa é a última dispoñible.</string>
+    <string name="online_ventoy_update_failed">Non se puido descargar a actualización en liña de Ventoy.</string>
+    <string name="check_again">Comprobar de novo</string>
+    <string name="percent_complete">%1$d%% completado</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Estilo</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Axuste do dispositivo</string>
+    <string name="light" comment="Style menu option that selects the light theme">Claro</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Escuro</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Cores dinámicas</string>
+    <string name="about" comment="Menu option that opens the about page">Acerca de</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">É esta un ISO de Windows\?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Un ISO normal de Windows non funcionará con Vendroid, a menos que fose preparado especificamente para usarse con Vendroid, Etcher ou dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Continuar de todos modos</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Selecciona unha unidade USB</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Conecta unha unidade USB</string>
+    <string name="looking_for_usb_drives">Buscando unidades USB</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Confirmar operación</string>
+    <string name="disk_image">Imaxe de disco</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Imaxe a escribir</string>
+    <string name="usb_drive">Unidade USB</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Dispositivo USB de destino</string>
+    <string name="unknown_device" comment="Device name placeholder">Dispositivo descoñecido</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Conceder acceso</string>
+    <string name="permission_granted">Permiso concedido</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ten coidado!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Instalar Ventoy borrará todos os datos da unidade seleccionada</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Instalar</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Coloca o dispositivo plano sobre unha mesa antes de continuar.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Continuar</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Coloca o dispositivo plano sobre unha mesa e non o toques</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Omitir</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Mover o teléfono ou o seu cable USB pode desconectar a unidade mentres Vendroid escribe nela.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid iníciase por si só cando o teléfono está plano e quieto, ou toca Omitir para comezar agora.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Desenvolvido por %1$s e outros %2$s.\nCódigo fonte dispoñible en %3$s.\nLicenciado baixo a licenza GNU GPLv3.</string>
+    <string name="about_project_summary">Vendroid é unha aplicación Android de código aberto para instalar Ventoy en unidades USB e xestionar ficheiros de imaxe de arranque.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Desenvolvido por %1$s.</string>
+    <string name="project_source">Código fonte do proxecto: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid é unha versión modificada de %1$s, © Davide Depau e colaboradores, usada baixo a GNU GPLv3. Modificada desde o 4 de xullo de 2026; cambios © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">O Ventoy %1$s incluído é software libre baixo a GNU GPLv3. O seu código fonte: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid é software libre baixo a GNU GPLv3. Non ofrece garantía, e podes redistribuílo baixo esta licenza.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">colaboradores</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Verificando imaxe</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Escribindo imaxe</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Evita usar o teu dispositivo</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Queres recibir un aviso cando remate? Só actualizacións de progreso, sen spam nin anuncios.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Non, grazas</string>
+    <string name="sure" comment="Button to accept receiving notifications">Si</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Verificando</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Copiando</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">fronte a</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">a</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Preparándose…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Omitir verificación</string>
+    <string name="image_written_successfully" comment="Title of the success page">Imaxe escrita correctamente!</string>
+    <string name="ventoy_installer_name">Instalador de Ventoy</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Escribir unha recensión</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Dar unha estrela en GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Produciuse un erro</string>
+    <string name="error">Erro</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Comezar de novo</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Tentar de novo</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Eu non a desconectei!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Como ocorreu isto\?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Quizais a porta USB estea sucia, o adaptador estea defectuoso ou o dispositivo non poida subministrar suficiente enerxía. Proba outro adaptador ou dispositivo.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">As unidades USB non son fiables e Android non concede permisos suficientes para recuperarse automaticamente. Temos que nos arranxar co que temos!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Isto é inesperado, probabelmente sexa un erro. Infórmao, por favor!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Para recuperalo, desconecta a unidade USB, volve conectala e concede de novo o permiso de acceso.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Representación dos pasos necesarios: desconectar, volver conectar, conceder permiso</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Conecta o mesmo dispositivo USB que usaches antes!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">Dispositivo USB reconectado, retomando</string>
+    <string name="the_device_is_not_responding" comment="Error message">O dispositivo non responde</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Falta o permiso para acceder ao dispositivo USB</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">A unidade USB é demasiado grande e Vendroid non a admite.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">A imaxe (%1$s) é máis grande que o dispositivo (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Non se puido abrir o ficheiro de orixe</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Produciuse un erro descoñecido: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">A unidade USB foi desconectada</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">A unidade USB deixou de responder</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">O contido do dispositivo USB non coincide coa imaxe</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid escribiu Ventoy na unidade USB, pero ao lela de novo os datos no byte %1$d eran diferentes. A unidade pode ser falsa, estar fallando ou non soportar transferencias grandes. Formatea a unidade para usala de novo. Despois inténtao outra vez con «Transferencias USB máis pequenas» activadas en Opcións avanzadas, ou usa outra unidade.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Escribir outra imaxe</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Confirmar operación</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Non se proporcionou ningún URI de imaxe</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Non se seleccionou ningún dispositivo de destino</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Parece que o proceso de escritura se quedou atascado. Inténtao de novo.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Iniciouse un intento de escritura pero, desafortunadamente, perdeuse información polo camiño. Inténtao de novo.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Se podes, informa deste problema en GitHub xunto cos pasos que levaron a este erro.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Ver incidencias en GitHub</string>
+    <string name="close">Pechar</string>
+    <string name="menu">Menú</string>
+    <string name="language">Idioma</string>
+    <string name="language_automatic">Automático (idioma do dispositivo)</string>
+    <string name="language_english">Inglés</string>
+    <string name="language_arabic">Árabe</string>
+    <string name="privacy_policy_language_note">A política seguinte está dispoñible en inglés.</string>
+    <string name="open_source_licenses">Licenzas de código aberto</string>
+    <string name="licenses_language_note">Estes avisos e textos de licenza están dispoñibles en inglés.</string>
+    <string name="licenses_back">Atrás</string>
+    <string name="project_website">Sitio web do proxecto</string>
+    <string name="help_and_contact">Axuda e contacto</string>
+    <string name="ventoy_mirror_name">Espello de actualizacións de Vendroid</string>
+    <string name="ventoy_mirror_disclosure">As descargas opcionais usan o espello de actualizacións de Vendroid. O servizo recibe o teu enderezo IP e datos da solicitude. Consulta Acerca de → Política de privacidade.</string>
 </resources>

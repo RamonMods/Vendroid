@@ -1,18 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="cancel">Anulare</string>
+    <string name="write_finished">Operațiune de scriere terminat</string>
+    <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
+    <string name="write_failed">Scriere a eșuat</string>
+    <string name="action_required">Actiune ceruta</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
+    <string name="notif_channel_job_progress_name">Acțiune progres</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Folosit pentru afișare rezultat de acțiune terminat</string>
     <string name="notif_channel_job_result_name">Rezultat de acțiune</string>
-    <string name="notif_channel_job_progress_name">Acțiune progres</string>
-    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Folosit pentru afișare progres la curent acțiune</string>
-    <string name="unknown_filename">nume de fișier necunoscut</string>
-    <string name="write_failed">Scriere a eșuat</string>
-    <string name="success_notif_content_text">%1$s scris cu succes pe %2$s</string>
-    <string name="write_finished">Operațiune de scriere terminat</string>
-    <string name="cancel">Anulare</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Se scrie imaginea…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Se verifică imaginea…</string>
     <string name="notification_write_no_notifications_text">Activați notificările pentru continuare • Scriind %1$s to %2$s</string>
-    <string name="action_required">Actiune ceruta</string>
     <string name="notification_write_tap_for_progress_text">Atingeți pentru progres • Writing %1$s to %2$s</string>
     <string name="notification_write_progress_content">%1$s la %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s față de %2$s</string>
+    <string name="unknown_filename">nume de fișier necunoscut</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Permisiune refuzată pentru dispozitivul USB %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">Dispozitivul USB a fost deconectat</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Scrie o imagine</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Instalează Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Instalare forțată</string>
+    <string name="installing_ventoy">Se instalează Ventoy pe</string>
+    <string name="updating_ventoy">Se actualizează Ventoy pe</string>
+    <string name="ventoy_installed_successfully">Ventoy a fost instalat cu succes</string>
+    <string name="ventoy_updated_successfully">Ventoy a fost actualizat cu succes</string>
+    <string name="install_ventoy_another_drive">Instalează Ventoy pe altă unitate</string>
+    <string name="update_ventoy">Actualizează</string>
+    <string name="update_ventoy_title">Actualizează Ventoy</string>
+    <string name="repair_ventoy">Repară</string>
+    <string name="advanced_options">Opțiuni avansate</string>
+    <string name="volume_label">Etichetă volum</string>
+    <string name="exfat_label_limit">1–11 caractere</string>
+    <string name="cluster_size">Dimensiune cluster</string>
+    <string name="automatic">Automat</string>
+    <string name="reserve_space">Rezervă spațiu la final</string>
+    <string name="reserve_space_description">Lasă spațiu nealocat după partițiile Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Transferuri USB mai mici</string>
+    <string name="small_usb_transfers_description">Mai lent, dar poate ajuta unitățile care nu trec verificarea sau se deconectează în timpul instalării.</string>
+    <string name="maximum_reserved_space">Maximum: %1$d %2$s</string>
+    <string name="reserved_space">Spațiu rezervat</string>
+    <string name="partitions_aligned_4k">✓ Partițiile sunt întotdeauna aliniate la limite de 4 KiB.</string>
+    <string name="apply">Aplică</string>
+    <string name="unknown_version">necunoscută</string>
+    <string name="grant_access_to_check_ventoy">Acordă acces USB pentru a verifica dacă există o instalare Ventoy.</string>
+    <string name="checking_ventoy_installation">Se verifică unitatea USB…</string>
+    <string name="ready_to_install_ventoy_version">Pregătit pentru instalarea Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s instalat · %2$s disponibil</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s este instalat și poate fi reparat.</string>
+    <string name="ventoy_newer_than_bundled">Această unitate are Ventoy %1$s, mai nou decât %2$s al Vendroid. Degradarea este blocată.</string>
+    <string name="ventoy_unknown_version_blocked">Nu s-a putut determina versiunea Ventoy instalată. Actualizarea și repararea sunt blocate pentru a preveni o posibilă degradare.</string>
+    <string name="ventoy_metadata_only_repair">Vor fi reparate doar metadatele deteriorate ale partițiilor GPT. Conținutul Ventoy instalat și fișierele dumneavoastră vor fi păstrate.</string>
+    <string name="existing_partitions_use_force_install">Această unitate are deja partiții. Întoarceți-vă și alegeți Instalare forțată pentru a o șterge.</string>
+    <string name="could_not_check_ventoy">Nu s-a putut inspecta această unitate USB.</string>
+    <string name="files_will_be_preserved">Fișierele dumneavoastră vor fi păstrate</string>
+    <string name="updating_ventoy_preserves_files">Vor fi reîmprospătate doar componentele de boot Ventoy. Mențineți unitatea conectată și faceți mai întâi o copie de siguranță a fișierelor irecuperabile.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Etichetă: %2$s · Cluster: %3$s · Rezervat: %4$s</string>
+    <string name="partition_style">Stil de partiționare</string>
+    <string name="partition_style_description">MBR este recomandat în mod implicit. Unitățile mai mari de 2 TiB necesită GPT și beta Vendroid.</string>
+    <string name="partition_style_mbr">MBR (recomandat)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Experimental: faceți o copie de siguranță a unității USB înainte de a instala cu GPT.</string>
+    <string name="gpt_available_in_v_preview">Instalarea cu GPT este disponibilă în beta Vendroid de pe Google Play.</string>
+    <string name="drive_requires_v_preview">Această unitate necesită beta Vendroid până când calea GPT trece testele fizice.</string>
+    <string name="large_drive_requires_v_preview">Unitățile mai mari de 2 TiB necesită beta Vendroid până când suportul pentru unități mari trece testele fizice.</string>
+    <string name="large_drive_requires_gpt">Această unitate este mai mare de 2 TiB. Selectați GPT pentru a continua; MBR nu poate folosi această capacitate.</string>
+    <string name="get_v_preview">Alăturați-vă la beta Vendroid</string>
+    <string name="privacy_policy">Politica de confidențialitate</string>
+    <string name="check_online_ventoy_update">Verifică actualizarea online</string>
+    <string name="checking_online_ventoy_update">Se verifică versiunile Ventoy…</string>
+    <string name="downloading_online_ventoy">Se descarcă Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% descărcat</string>
+    <string name="using_downloaded_ventoy">Se folosește Ventoy %1$s verificat online</string>
+    <string name="no_newer_ventoy_online">Conținutul Ventoy selectat este deja cea mai recentă versiune disponibilă.</string>
+    <string name="online_ventoy_update_failed">Nu s-a putut descărca actualizarea online Ventoy.</string>
+    <string name="check_again">Verifică din nou</string>
+    <string name="percent_complete">%1$d%% finalizat</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Stil</string>
     <string name="device_setting">Setări dispozitiv</string>
     <string name="light">Luminos</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Întunecat</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Culori dinamice</string>
+    <string name="about" comment="Menu option that opens the about page">Despre</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Este acesta un ISO Windows\?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Un ISO Windows obișnuit nu va funcționa cu Vendroid, cu excepția cazului în care a fost pregătit special pentru utilizarea cu Vendroid, Etcher sau dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Continuă oricum</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Selectați o unitate USB</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Conectați o unitate USB</string>
+    <string name="looking_for_usb_drives">Se caută unități USB</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Confirmați operația</string>
+    <string name="disk_image">Imagine disc</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Imagine de scris</string>
+    <string name="usb_drive">Unitate USB</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Dispozitiv USB destinație</string>
+    <string name="unknown_device" comment="Device name placeholder">Dispozitiv necunoscut</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Acordă acces</string>
+    <string name="permission_granted">Permisiune acordată</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Fiți atenți!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Instalarea Ventoy va șterge toate datele de pe unitatea selectată</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Instalează</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Așezați dispozitivul plat pe o masă înainte de a continua.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Continuă</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Așezați dispozitivul plat pe o masă și nu îl atingeți</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Sari peste</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Mișcarea telefonului sau a cablului USB poate deconecta unitatea în timp ce Vendroid scrie pe ea.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid pornește singur când telefonul stă plat și nemișcat, sau atingeți Sari peste pentru a începe acum.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Dezvoltat de %1$s și alți %2$s.\nCod sursă disponibil pe %3$s.\nLicențiat sub GNU GPLv3.</string>
+    <string name="about_project_summary">Vendroid este o aplicație Android open-source pentru instalarea Ventoy pe unități USB și gestionarea fișierelor imagine de boot.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Dezvoltat de %1$s.</string>
+    <string name="project_source">Codul sursă al proiectului: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid este o versiune modificată a %1$s, © Davide Depau și colaboratori, folosită sub GNU GPLv3. Modificată din 4 iulie 2026; modificări © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s inclus este software liber sub GNU GPLv3. Codul său sursă: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid este software liber sub GNU GPLv3. Vine fără nicio garanție, iar dumneavoastră îl puteți redistribui sub această licență.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">colaboratori</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Se verifică imaginea</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Se scrie imaginea</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Vă rugăm să nu folosiți dispozitivul</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Doriți să fiți notificat când se termină? Doar actualizări de progres, fără spam sau reclame.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Nu, mulțumesc</string>
+    <string name="sure" comment="Button to accept receiving notifications">Sigur</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Verificare</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Copiere</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">față de</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">către</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Se pregătește…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Sari peste verificare</string>
+    <string name="image_written_successfully" comment="Title of the success page">Imaginea a fost scrisă cu succes!</string>
+    <string name="ventoy_installer_name">Program de instalare Ventoy</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Scrie o recenzie</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Dă o stea pe GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">A apărut o eroare</string>
+    <string name="error">Eroare</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Începe din nou</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Încearcă din nou</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Eu nu am deconectat-o!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Cum s-a întâmplat asta\?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Poate portul USB este murdar, adaptorul este defect sau dispozitivul nu poate furniza suficientă putere. Încercați un alt adaptor sau dispozitiv.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">Unitățile USB nu sunt fiabile, iar Android nu acordă suficiente permisiuni pentru recuperare automată. Trebuie să ne descurcăm cu ce avem!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Acest lucru este neașteptat, probabil este o eroare. Vă rugăm să o raportați!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Pentru recuperare, deconectați unitatea USB, reconectați-o și acordați din nou permisiunea de acces.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Reprezentarea pașilor necesari: deconectare, reconectare, acordare permisiune</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Conectați același dispozitiv USB pe care l-ați folosit înainte!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">Dispozitivul USB a fost reconectat, se reia</string>
+    <string name="the_device_is_not_responding" comment="Error message">Dispozitivul nu răspunde</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Lipsește permisiunea de acces la dispozitivul USB</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">Unitatea USB este prea mare și Vendroid nu o acceptă.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Imaginea (%1$s) este mai mare decât dispozitivul (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Nu s-a putut deschide fișierul sursă</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">A apărut o eroare necunoscută: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">Unitatea USB a fost deconectată</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">Unitatea USB a încetat să răspundă</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Conținutul dispozitivului USB nu corespunde imaginii</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid a scris Ventoy pe unitatea USB, dar la recitire datele de la octetul %1$d erau diferite. Unitatea poate fi contrafăcută, defectă sau nu poate gestiona transferuri mari. Formatați unitatea pentru a o folosi din nou. Apoi încercați din nou cu Transferuri USB mai mici activate în Opțiuni avansate, sau folosiți altă unitate.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Scrie altă imagine</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Confirmă operația</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Nu a fost furnizat niciun URI al imaginii</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Nu a fost selectat niciun dispozitiv destinație</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Se pare că procesul de scriere s-a blocat. Vă rugăm să încercați din nou.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">A fost începută o încercare de scriere, dar din păcate unele informații s-au pierdut pe parcurs. Vă rugăm să încercați din nou.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Dacă puteți, vă rugăm să raportați această problemă pe GitHub împreună cu pașii care au dus la eroare.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Vezi problemele pe GitHub</string>
+    <string name="close">Închide</string>
+    <string name="menu">Meniu</string>
+    <string name="language">Limbă</string>
+    <string name="language_automatic">Automat (limba dispozitivului)</string>
+    <string name="language_english">Engleză</string>
+    <string name="language_arabic">Arabă</string>
+    <string name="privacy_policy_language_note">Politica de mai jos este furnizată în limba engleză.</string>
+    <string name="open_source_licenses">Licențe open-source</string>
+    <string name="licenses_language_note">Aceste notificări și texte de licență sunt furnizate în limba engleză.</string>
+    <string name="licenses_back">Înapoi</string>
+    <string name="project_website">Site-ul proiectului</string>
+    <string name="help_and_contact">Ajutor și contact</string>
+    <string name="ventoy_mirror_name">Oglinda de actualizare Vendroid</string>
+    <string name="ventoy_mirror_disclosure">Descărcările opționale folosesc oglinda de actualizare Vendroid. Serviciul primește adresa dumneavoastră IP și informații despre solicitare. Consultați Despre → Politica de confidențialitate.</string>
 </resources>

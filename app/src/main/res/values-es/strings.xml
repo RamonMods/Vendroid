@@ -173,4 +173,9 @@
     <string name="help_and_contact">Ayuda y contacto</string>
     <string name="ventoy_mirror_name">Espejo de actualizaciones de Vendroid</string>
     <string name="ventoy_mirror_disclosure">Las descargas opcionales usan el espejo de actualizaciones de Vendroid. El servicio recibe tu dirección IP y datos de la solicitud. Consulta Acerca de → Política de privacidad.</string>
+
+  <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+  <string name="partition_style_gpt" translatable="false">GPT</string>
+  <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+  <string name="developer_name" translatable="false">RamonMods</string>
 </resources>

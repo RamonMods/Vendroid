@@ -1,24 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
     <string name="cancel" comment="Cancel string, used all over the place">Скасувати</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">Запис завершено</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s успішно записано на %2$s</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Помилка запису</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">Потрібні дії</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Використовується для показу прогресу поточного завдання</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">Хід виконання завдання</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">Використовується для показу результату виконаного завдання</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">Результат виконання завдання</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Запис образу…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Перевірка образу…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Увімкніть сповіщення про прогрес • Запис %1$s на %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Натисніть, щоб побачити прогрес • Запис %1$s на %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s на %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s з %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">Невідоме ім\'я файлу</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Відмовлено в доступі до USB-пристрою %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB-пристрій було відключено</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Записати образ</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Встановити Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Примусове встановлення</string>
+    <string name="installing_ventoy">Встановлення Ventoy на</string>
+    <string name="updating_ventoy">Оновлення Ventoy на</string>
+    <string name="ventoy_installed_successfully">Ventoy успішно встановлено</string>
+    <string name="ventoy_updated_successfully">Ventoy успішно оновлено</string>
+    <string name="install_ventoy_another_drive">Встановити Ventoy на інший накопичувач</string>
+    <string name="update_ventoy">Оновити</string>
+    <string name="update_ventoy_title">Оновлення Ventoy</string>
+    <string name="repair_ventoy">Відновити</string>
+    <string name="advanced_options">Додаткові параметри</string>
+    <string name="volume_label">Мітка тому</string>
+    <string name="exfat_label_limit">Від 1 до 11 символів</string>
+    <string name="cluster_size">Розмір кластера</string>
+    <string name="automatic">Автоматично</string>
+    <string name="reserve_space">Залишити місце наприкінці</string>
+    <string name="reserve_space_description">Залишити нерозподілене місце після розділів Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Менші запити USB</string>
+    <string name="small_usb_transfers_description">Повільніше, але може допомогти накопичувачам, які не проходять перевірку або відключаються під час встановлення.</string>
+    <string name="maximum_reserved_space">Максимум: %1$d %2$s</string>
+    <string name="reserved_space">Зарезервоване місце</string>
+    <string name="partitions_aligned_4k">✓ Розділи завжди вирівняні за межами 4 КіБ.</string>
+    <string name="apply">Застосувати</string>
+    <string name="unknown_version">невідомо</string>
+    <string name="grant_access_to_check_ventoy">Надайте доступ до USB, щоб перевірити, чи встановлено Ventoy.</string>
+    <string name="checking_ventoy_installation">Перевірка USB-накопичувача…</string>
+    <string name="ready_to_install_ventoy_version">Готово до встановлення Ventoy %1$s</string>
+    <string name="ventoy_update_available">Встановлено Ventoy %1$s · доступна версія %2$s</string>
+    <string name="ventoy_ready_to_repair">Встановлено Ventoy %1$s, його можна відновити.</string>
+    <string name="ventoy_newer_than_bundled">На цьому накопичувачі встановлено Ventoy %1$s, новіший, ніж версія Vendroid %2$s. Зниження версії заблоковано.</string>
+    <string name="ventoy_unknown_version_blocked">Не вдалося визначити встановлену версію Ventoy. Оновлення та відновлення заблоковані, щоб уникнути можливого зниження версії.</string>
+    <string name="ventoy_metadata_only_repair">Буде відновлено лише пошкоджені метадані розділів GPT. Встановлені компоненти Ventoy та ваші файли збережуться.</string>
+    <string name="existing_partitions_use_force_install">На цьому накопичувачі вже є розділи. Поверніться та виберіть «Примусове встановлення», щоб очистити його.</string>
+    <string name="could_not_check_ventoy">Не вдалося перевірити цей USB-накопичувач.</string>
+    <string name="files_will_be_preserved">Ваші файли буде збережено</string>
+    <string name="updating_ventoy_preserves_files">Оновлюються лише завантажувальні компоненти Ventoy. Не відключайте накопичувач і спочатку створіть резервну копію незамінних файлів.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Мітка: %2$s · Кластер: %3$s · Резерв: %4$s</string>
+    <string name="partition_style">Стиль розділів</string>
+    <string name="partition_style_description">За замовчуванням рекомендовано MBR. Для накопичувачів понад 2 ТіБ потрібні GPT і бета-версія Vendroid.</string>
+    <string name="partition_style_mbr">MBR (рекомендовано)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Експериментально: перед встановленням з GPT створіть резервну копію USB-накопичувача.</string>
+    <string name="gpt_available_in_v_preview">Встановлення з GPT доступне у бета-версії Vendroid у Google Play.</string>
+    <string name="drive_requires_v_preview">Для цього накопичувача потрібна бета-версія Vendroid, доки підтримка GPT не пройде фізичні тести.</string>
+    <string name="large_drive_requires_v_preview">Для накопичувачів понад 2 ТіБ потрібна бета-версія Vendroid, доки підтримка великих накопичувачів не пройде фізичні тести.</string>
+    <string name="large_drive_requires_gpt">Цей накопичувач більший за 2 ТіБ. Виберіть GPT, щоб продовжити; MBR не може використати такий обсяг.</string>
+    <string name="get_v_preview">Приєднатися до бета-версії Vendroid</string>
+    <string name="privacy_policy">Політика конфіденційності</string>
+    <string name="check_online_ventoy_update">Перевірити оновлення онлайн</string>
+    <string name="checking_online_ventoy_update">Перевірка версій Ventoy…</string>
+    <string name="downloading_online_ventoy">Завантаження Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">Завантажено %1$d%%</string>
+    <string name="using_downloaded_ventoy">Використовується перевірена онлайн-версія Ventoy %1$s</string>
+    <string name="no_newer_ventoy_online">Вибрана версія Ventoy вже є найновішою доступною.</string>
+    <string name="online_ventoy_update_failed">Не вдалося завантажити онлайн-оновлення Ventoy.</string>
+    <string name="check_again">Перевірити знову</string>
+    <string name="percent_complete">Виконано %1$d%%</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Стиль</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Як на пристрої</string>
     <string name="light" comment="Style menu option that selects the light theme">Світла</string>
     <string name="dark" comment="Style menu option that selects the dark theme">Темна</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Динамічні кольори</string>
+    <string name="about" comment="Menu option that opens the about page">Про застосунок</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Це ISO-образ Windows\?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Звичайний ISO-образ Windows не працюватиме з Vendroid, якщо його не було спеціально підготовлено для використання з Vendroid, Etcher або dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Усе одно продовжити</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Виберіть USB-накопичувач</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Підключіть USB-накопичувач</string>
+    <string name="looking_for_usb_drives">Пошук USB-накопичувачів</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Підтвердьте операцію</string>
+    <string name="disk_image">Образ диска</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Образ для запису</string>
+    <string name="usb_drive">USB накопичувач</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Цільовий USB накопичувач</string>
+    <string name="unknown_device" comment="Device name placeholder">Невідомий пристрій</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Надати доступ</string>
     <string name="permission_granted">Дозвіл отримано</string>
     <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Будьте обережні!</string>
     <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Запис образу призведе до видалення всіх даних на вибраному диску</string>
     <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Записати образ</string>
     <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Покладіть пристрій рівно на стіл перед продовженням.</string>
-    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Покладіть пристрій рівно на стіл і не торкайтеся його</string>
-    <string name="usb_drive">USB накопичувач</string>
-    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Цільовий USB накопичувач</string>
-    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Образ для запису</string>
-    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Пропустити</string>
     <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Продовжити</string>
-    <string name="unknown_device" comment="Device name placeholder">Невідомий пристрій</string>
-    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Надати доступ</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Покладіть пристрій рівно на стіл і не торкайтеся його</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Пропустити</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Рух телефону або його USB-кабелю може відключити накопичувач, поки Vendroid виконує запис.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid почне сам, коли телефон лежить рівно й нерухомо, або натисніть «Пропустити», щоб почати зараз.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Розроблено %1$s та іншими %2$s.\nВихідний код доступний на %3$s.\nЛіцензія: GNU GPLv3.</string>
+    <string name="about_project_summary">Vendroid — це відкритий застосунок Android для встановлення Ventoy на USB-накопичувачі та керування завантажувальними образами.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Розроблено %1$s.</string>
+    <string name="project_source">Вихідний код проєкту: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid — модифікована версія %1$s, © Davide Depau та учасники, використовується за ліцензією GNU GPLv3. Зміни з 4 липня 2026 року; зміни © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Вбудований Ventoy %1$s — вільне програмне забезпечення за ліцензією GNU GPLv3. його вихідний код: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid — вільне програмне забезпечення за ліцензією GNU GPLv3. Воно надається без гарантій, і ви можете поширювати його за цією ліцензією.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">учасниками</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Перевірка образу</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Запис образу</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Будь ласка, не використовуйте пристрій</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Повідомити по завершенню\? Лише прогрес, без спаму та реклами.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Ні, дякую</string>
+    <string name="sure" comment="Button to accept receiving notifications">Звісно</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Звіряється</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Копіюється</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">з</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">на</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Триває підготовка…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Пропустити перевірку</string>
+    <string name="image_written_successfully" comment="Title of the success page">Образ успішно записано!</string>
+    <string name="ventoy_installer_name">Встановлювач Ventoy</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Написати відгук</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Поставити зірку на GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Сталася помилка</string>
+    <string name="error">Помилка</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Почати спочатку</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Повторити спробу</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Я його не відключав!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Як це сталося\?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Можливо, порт USB забруднено, адаптер несправний або пристрій не може забезпечити достатню потужність. Спробуйте інший адаптер або пристрій.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB-накопичувачі ненадійні, а Android надає недостатньо прав для автоматичного відновлення. Доводиться обходитися тим, що є!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Це неочікувано, ймовірно, помилка. Будь ласка, повідомте про неї!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Для відновлення відключіть USB-накопичувач, підключіть його знову та надайте доступ повторно.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Схема потрібних дій: відключити, підключити знову, надати доступ</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Підключіть той самий USB-пристрій, який використовували раніше!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB-пристрій перепідключено, відновлення запису</string>
+    <string name="the_device_is_not_responding" comment="Error message">Пристрій не відповідає</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Відсутній дозвіл на доступ до USB-пристрою</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB-накопичувач занадто великий, Vendroid не підтримує його.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Образ (%1$s) більший за пристрій (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Не вдалося відкрити вихідний файл</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Сталася невідома помилка: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB-накопичувач відключено</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB-накопичувач перестав відповідати</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Вміст USB-пристрою не відповідає образу</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid записав Ventoy на USB-накопичувач, але під час повторного читання дані на байті %1$d відрізняються. Можливо, накопичувач підроблений, несправний або не справляється з великими записами. Відформатуйте накопичувач, щоб використовувати його знову. Потім спробуйте знову з увімкненим параметром «Менші запити USB» у додаткових налаштуваннях або використайте інший накопичувач.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Записати інший образ</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Підтвердження операції</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">URI образу не вказано</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Цільовий пристрій не вибрано</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Схоже, процес запису завис. Будь ласка, спробуйте знову.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Було розпочато спробу запису, але, на жаль, частину інформації було втрачено. Будь ласка, спробуйте знову.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Якщо можливо, будь ласка, повідомте про цю проблему на GitHub, вказавши кроки, що призвели до помилки.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Перегляд проблем на GitHub</string>
+    <string name="close">Закрити</string>
+    <string name="menu">Меню</string>
+    <string name="language">Мова</string>
+    <string name="language_automatic">Автоматично (мова пристрою)</string>
+    <string name="language_english">Англійська</string>
+    <string name="language_arabic">Арабська</string>
+    <string name="privacy_policy_language_note">Політика нижче подана англійською мовою.</string>
+    <string name="open_source_licenses">Ліцензії з відкритим вихідним кодом</string>
+    <string name="licenses_language_note">Ці повідомлення та тексти ліцензій подані англійською мовою.</string>
+    <string name="licenses_back">Назад</string>
+    <string name="project_website">Сайт проєкту</string>
+    <string name="help_and_contact">Допомога та контакти</string>
+    <string name="ventoy_mirror_name">Дзеркало оновлень Vendroid</string>
+    <string name="ventoy_mirror_disclosure">Необов\'язкові завантаження використовують дзеркало оновлень Vendroid. Сервіс отримує вашу IP-адресу та інформацію про запит. Див. «Про застосунок» → «Політика конфіденційності».</string>
 </resources>

@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="unknown_filename">Ukjent filnavn</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
     <string name="cancel">Avbryt</string>
     <string name="write_finished">Skriving fullført</string>
     <string name="success_notif_content_text">%1$s skrevet til %2$s</string>
     <string name="write_failed">Skriving mislyktes</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Handling kreves</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Bruk for visning av nåværende jobb</string>
     <string name="notif_channel_job_progress_name">Jobb-framdrift</string>
-    <string name="notif_channel_job_result_name">Jobb-utfall</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Brukt for visning av fullført jobbutfall</string>
-    <string name="action_required" comment="Notification title when a recoverable error occurs">Handling kreves</string>
+    <string name="notif_channel_job_result_name">Jobb-utfall</string>
     <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Skriver bilde…</string>
     <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Verifiserer bilde…</string>
     <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Aktiver varsler for fremdrift • Skrive %1$s til %2$s</string>
     <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Trykk for fremdrift • Skrive %1$s til %2$s</string>
     <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s til %2$s</string>
     <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s mot %2$s</string>
+    <string name="unknown_filename">Ukjent filnavn</string>
     <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">Ingen tillatelse for USB-enhet %1$s</string>
     <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB-enheten ble koblet fra</string>
     <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Skriv et bilde</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Installer Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Tvangsinstaller</string>
+    <string name="installing_ventoy">Installerer Ventoy på</string>
+    <string name="updating_ventoy">Oppdaterer Ventoy på</string>
+    <string name="ventoy_installed_successfully">Ventoy er installert</string>
+    <string name="ventoy_updated_successfully">Ventoy er oppdatert</string>
+    <string name="install_ventoy_another_drive">Installer Ventoy på en annen stasjon</string>
+    <string name="update_ventoy">Oppdater</string>
+    <string name="update_ventoy_title">Oppdater Ventoy</string>
+    <string name="repair_ventoy">Reparer</string>
+    <string name="advanced_options">Avanserte innstillinger</string>
+    <string name="volume_label">Volumetikett</string>
+    <string name="exfat_label_limit">1–11 tegn</string>
+    <string name="cluster_size">Klyngestørrelse</string>
+    <string name="automatic">Automatisk</string>
+    <string name="reserve_space">Reserver plass på slutten</string>
+    <string name="reserve_space_description">La ubrukt plass stå igjen etter Ventoy-partisjonene.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Mindre USB-overføringer</string>
+    <string name="small_usb_transfers_description">Langsommere, men kan hjelpe stasjoner som ikke består verifiseringen eller kobles fra under installasjonen.</string>
+    <string name="maximum_reserved_space">Maksimum: %1$d %2$s</string>
+    <string name="reserved_space">Reservert plass</string>
+    <string name="partitions_aligned_4k">✓ Partisjoner er alltid justert etter 4 KiB-grenser.</string>
+    <string name="apply">Bruk</string>
+    <string name="unknown_version">ukjent</string>
+    <string name="grant_access_to_check_ventoy">Gi USB-tilgang for å sjekke om Ventoy allerede er installert.</string>
+    <string name="checking_ventoy_installation">Sjekker USB-stasjonen…</string>
+    <string name="ready_to_install_ventoy_version">Klar til å installere Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s installert · %2$s tilgjengelig</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s er installert og kan repareres.</string>
+    <string name="ventoy_newer_than_bundled">Denne stasjonen har Ventoy %1$s, nyere enn Vendroids %2$s. Nedgradering er blokkert.</string>
+    <string name="ventoy_unknown_version_blocked">Kunne ikke fastslå hvilken Ventoy-versjon som er installert. Oppdatering og reparasjon er blokkert for å unngå mulig nedgradering.</string>
+    <string name="ventoy_metadata_only_repair">Bare skadet GPT-partisjonsmetadata blir reparert. Den installerte Ventoy-pakken og filene dine bevares.</string>
+    <string name="existing_partitions_use_force_install">Denne stasjonen har allerede partisjoner. Gå tilbake og velg Tvangsinstaller for å slette den.</string>
+    <string name="could_not_check_ventoy">Kunne ikke undersøke denne USB-stasjonen.</string>
+    <string name="files_will_be_preserved">Filene dine blir bevart</string>
+    <string name="updating_ventoy_preserves_files">Bare Ventoys oppstartskomponenter blir oppdatert. Hold stasjonen tilkoblet og ta først backup av uerstattelige filer.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Etikett: %2$s · Klynge: %3$s · Reservert: %4$s</string>
+    <string name="partition_style">Partisjonsstil</string>
+    <string name="partition_style_description">MBR er anbefalt som standard. Stasjoner større enn 2 TiB krever GPT og Vendroid-beta.</string>
+    <string name="partition_style_mbr">MBR (anbefalt)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Eksperimentelt: ta backup av USB-stasjonen før du installerer med GPT.</string>
+    <string name="gpt_available_in_v_preview">GPT-installasjon er tilgjengelig i Vendroid-beta på Google Play.</string>
+    <string name="drive_requires_v_preview">Denne stasjonen krever Vendroid-beta inntil GPT-støtten er fysisk testet.</string>
+    <string name="large_drive_requires_v_preview">Stasjoner større enn 2 TiB krever Vendroid-beta inntil støtten for store stasjoner er fysisk testet.</string>
+    <string name="large_drive_requires_gpt">Denne stasjonen er større enn 2 TiB. Velg GPT for å fortsette; MBR kan ikke bruke denne kapasiteten.</string>
+    <string name="get_v_preview">Bli med i Vendroid-beta</string>
+    <string name="privacy_policy">Personvernerklæring</string>
+    <string name="check_online_ventoy_update">Sjekk etter oppdatering på nett</string>
+    <string name="checking_online_ventoy_update">Sjekker Ventoy-utgivelser…</string>
+    <string name="downloading_online_ventoy">Laster ned Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% nedlastet</string>
+    <string name="using_downloaded_ventoy">Bruker verifisert Ventoy %1$s fra nettet</string>
+    <string name="no_newer_ventoy_online">Den valgte Ventoy-pakken er allerede den nyeste tilgjengelige.</string>
+    <string name="online_ventoy_update_failed">Kunne ikke laste ned oppdateringen av Ventoy fra nettet.</string>
+    <string name="check_again">Sjekk igjen</string>
+    <string name="percent_complete">%1$d%% fullført</string>
     <string name="style" comment="Title of the menu that allows selecting the app color scheme">Stil</string>
     <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Innstilling av enhet</string>
     <string name="light" comment="Style menu option that selects the light theme">Lys</string>
@@ -46,4 +105,76 @@
     <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Fortsette</string>
     <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Legg enheten flatt på et bord og ikke berør den</string>
     <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Hoppe over</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Å bevege telefonen eller USB-kabelen kan koble fra stasjonen mens Vendroid skriver til den.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid starter av seg selv når telefonen ligger flatt og stille, eller trykk Hopp over for å starte nå.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Utviklet av %1$s og andre %2$s.\nKildekode tilgjengelig på %3$s.\nLisensiert under GNU GPLv3.</string>
+    <string name="about_project_summary">Vendroid er en åpen kildekode-app for Android for å installere Ventoy på USB-stasjoner og administrere oppstartsbildefiler.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Utviklet av %1$s.</string>
+    <string name="project_source">Prosjektets kildekode: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid er en modifisert versjon av %1$s, © Davide Depau og bidragsytere, brukt under GNU GPLv3. Endret siden 4. juli 2026; endringer © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Den medfølgende Ventoy %1$s er fri programvare under GNU GPLv3. Kildekoden: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid er fri programvare under GNU GPLv3. Den kommer uten garanti, og du kan redistribuere den under denne lisensen.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">bidragsytere</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Verifiserer bilde</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Skriver bilde</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Unngå å bruke enheten din</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Vil du få beskjed når det er ferdig? Bare fremdrift, ingen spam eller reklamer.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Nei takk</string>
+    <string name="sure" comment="Button to accept receiving notifications">Ja</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Verifiserer</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Kopierer</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">mot</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">til</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Gjør seg klar…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Hopp over verifisering</string>
+    <string name="image_written_successfully" comment="Title of the success page">Bildet er skrevet!</string>
+    <string name="ventoy_installer_name">Ventoy-installasjon</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Skriv en anmeldelse</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Gi en stjerne på GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Det oppstod en feil</string>
+    <string name="error">Feil</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Start på nytt</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Prøv igjen</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Jeg koblet den ikke fra!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Hvordan skjedde dette?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Kanskje USB-porten er skitten, adapteren er defekt eller enheten ikke kan gi nok strøm. Prøv en annen adapter eller enhet.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB-stasjoner er upålitelige, og Android gir ikke nok tillatelser til å gjenopprette automatisk. Vi må klare oss med det vi har!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Dette er uventet, det er sannsynligvis en feil. Vennligst rapporter det!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">For å gjenopprette: koble fra USB-stasjonen, koble den til igjen og gi tillatelse på nytt.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Fremstilling av de nødvendige trinnene: koble fra, koble til igjen, gi tillatelse</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Koble til den samme USB-enheten du brukte før!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB-enheten er tilkoblet igjen, fortsetter</string>
+    <string name="the_device_is_not_responding" comment="Error message">Enheten svarer ikke</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Mangler tillatelse til å få tilgang til USB-enheten</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB-stasjonen er for stor og støttes ikke av Vendroid.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Bildet (%1$s) er større enn enheten (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Kunne ikke åpne kildefilen</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">En ukjent feil oppstod: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB-stasjonen ble koblet fra</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB-stasjonen sluttet å svare</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Innholdet på USB-enheten samsvarer ikke med bildet</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid skrev Ventoy til USB-stasjonen, men da den ble lest tilbake, var dataene forskjellige på byte %1$d. Stasjonen kan være falsk, sviktende eller ute av stand til å håndtere store overføringer. Formater stasjonen for å bruke den igjen. Prøv deretter igjen med Mindre USB-overføringer slått på i Avanserte innstillinger, eller bruk en annen stasjon.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Skriv et annet bilde</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Bekreft operasjon</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Ingen bilde-URI er oppgitt</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Ingen målenhet er valgt</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Skriveprosessen ser ut til å ha hengt seg opp. Vennligst prøv igjen.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Et skriveforsøk ble startet, men dessverre gikk noe informasjon tapt underveis. Vennligst prøv igjen.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Hvis du kan, vennligst rapporter dette problemet på GitHub sammen med trinnene som førte til feilen.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Se GitHub-saker</string>
+    <string name="close">Lukk</string>
+    <string name="menu">Meny</string>
+    <string name="language">Språk</string>
+    <string name="language_automatic">Automatisk (enhetens språk)</string>
+    <string name="language_english">Engelsk</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Erklæringen nedenfor er på engelsk.</string>
+    <string name="open_source_licenses">Åpen kildekode-lisenser</string>
+    <string name="licenses_language_note">Disse meldingene og lisensene er på engelsk.</string>
+    <string name="licenses_back">Tilbake</string>
+    <string name="project_website">Prosjektets nettsted</string>
+    <string name="help_and_contact">Hjelp og kontakt</string>
+    <string name="ventoy_mirror_name">Vendroid-oppdateringsspeil</string>
+    <string name="ventoy_mirror_disclosure">Valgfrie nedlastinger bruker Vendroids oppdateringsspeil. Tjenesten mottar IP-adressen din og forespørselsinformasjon. Se Om → Personvernerklæring.</string>
 </resources>

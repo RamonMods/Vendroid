@@ -173,4 +173,9 @@
     <string name="help_and_contact">도움말 및 문의</string>
     <string name="ventoy_mirror_name">Vendroid 업데이트 미러</string>
     <string name="ventoy_mirror_disclosure">선택적 다운로드는 Vendroid 업데이트 미러를 사용합니다. 이 서비스는 IP 주소와 요청 정보를 받습니다. ‘정보’ → ‘개인정보 처리방침’을 참고하세요.</string>
+
+  <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+  <string name="partition_style_gpt" translatable="false">GPT</string>
+  <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+  <string name="developer_name" translatable="false">RamonMods</string>
 </resources>

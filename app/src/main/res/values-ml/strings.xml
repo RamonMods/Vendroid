@@ -1,68 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">ഇത് അപ്രതീക്ഷിതമാണ്, ഇത് ഒരു പിശക് ആയിരിക്കാം. ദയവായി അത് അറിയിക്കുക!</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
     <string name="cancel">റദ്ദാക്കുക</string>
     <string name="write_finished">എഴുതി തീർത്തു</string>
     <string name="success_notif_content_text">%2$s എന്നതിലേക്ക് %1$s വിജയകരമായി എഴുതി</string>
     <string name="write_failed">എഴുത്ത് പരാജയപ്പെട്ടു</string>
+    <string name="action_required">നടപടി ആവശ്യമാണ്</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">നിലവിലെ ജോലിയുടെ പുരോഗതി കാണിക്കാൻ ഉപയോഗിക്കുന്നു</string>
+    <string name="notif_channel_job_progress_name">ജോലിയുടെ പുരോഗതി</string>
     <string name="notif_channel_job_result_desc">പൂർത്തിയാക്കിയ ജോലിയുടെ ഫലം കാണിക്കാൻ ഉപയോഗിക്കുന്നു</string>
     <string name="notif_channel_job_result_name">ജോലിയുടെ ഫലം</string>
+    <string name="notification_write_progress_title">ചിത്രം എഴുതുന്നു…</string>
+    <string name="notification_verify_progress_title">ചിത്രം പരിശോധിക്കുന്നു…</string>
+    <string name="notification_write_no_notifications_text">പുരോഗതിക്കായി അറിയിപ്പുകൾ പ്രവർത്തനക്ഷമമാക്കുക • %1$s മുതൽ %2$s വരെ എഴുതുന്നു</string>
+    <string name="notification_write_tap_for_progress_text">പുരോഗതിക്കായി ടാപ്പ് ചെയ്യുക • %1$s മുതൽ %2$s വരെ എഴുതുന്നു</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s മുതൽ %2$s വരെ</string>
     <string name="notification_verify_progress_content">%2$s എന്നതിനെതിരെ %1$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">അറിയപ്പെടാത്ത ഫയല്‍പേര്</string>
     <string name="permission_denied_for_usb_device">%1$s എന്ന യുഎസ്ബി ഉപകരണത്തിന് അനുമതി നിരസിച്ചു</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB ഉപകരണം അൺപ്ലഗ് ചെയ്തു</string>
+    <string name="write_an_image">ഒരു ചിത്രം എഴുതുക</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy ഇൻസ്റ്റാൾ ചെയ്യുക</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">നിർബന്ധിത ഇൻസ്റ്റാൾ</string>
+    <string name="installing_ventoy">Ventoy ഇൻസ്റ്റാൾ ചെയ്യുന്നു</string>
+    <string name="updating_ventoy">Ventoy അപ്ഡേറ്റ് ചെയ്യുന്നു</string>
+    <string name="ventoy_installed_successfully">Ventoy വിജയകരമായി ഇൻസ്റ്റാൾ ചെയ്തു</string>
+    <string name="ventoy_updated_successfully">Ventoy വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു</string>
+    <string name="install_ventoy_another_drive">മറ്റൊരു ഡ്രൈവിൽ Ventoy ഇൻസ്റ്റാൾ ചെയ്യുക</string>
+    <string name="update_ventoy">അപ്ഡേറ്റ് ചെയ്യുക</string>
+    <string name="update_ventoy_title">Ventoy അപ്ഡേറ്റ് ചെയ്യുക</string>
+    <string name="repair_ventoy">നന്നാക്കുക</string>
+    <string name="advanced_options">വിപുലമായ ഓപ്ഷനുകൾ</string>
+    <string name="volume_label">വോളിയം ലേബൽ</string>
+    <string name="exfat_label_limit">1–11 പ്രതീകങ്ങൾ</string>
+    <string name="cluster_size">ക്ലസ്റ്റർ വലുപ്പം</string>
+    <string name="automatic">യാന്ത്രികം</string>
+    <string name="reserve_space">അവസാനം ഇടം കരുതിവയ്ക്കുക</string>
+    <string name="reserve_space_description">Ventoy പാർട്ടീഷനുകൾക്ക് ശേഷം വിനിയോഗിക്കാത്ത ഇടം വിടുക.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">ചെറിയ USB കൈമാറ്റങ്ങൾ</string>
+    <string name="small_usb_transfers_description">മന്ദഗതിയിലാണ്, എന്നാൽ പരിശോധനയിൽ പരാജയപ്പെടുന്ന അല്ലെങ്കിൽ ഇൻസ്റ്റലേഷനിടെ വിച്ഛേദിക്കപ്പെടുന്ന ഡ്രൈവുകളെ സഹായിക്കും.</string>
+    <string name="maximum_reserved_space">പരമാവധി: %1$d %2$s</string>
+    <string name="reserved_space">കരുതിവച്ച ഇടം</string>
+    <string name="partitions_aligned_4k">✓ പാർട്ടീഷനുകൾ എപ്പോഴും 4 KiB അതിരുകളിൽ ക്രമീകരിച്ചിരിക്കുന്നു.</string>
+    <string name="apply">പ്രയോഗിക്കുക</string>
+    <string name="unknown_version">അറിയപ്പെടാത്തത്</string>
+    <string name="grant_access_to_check_ventoy">Ventoy ഇതിനകം ഇൻസ്റ്റാൾ ചെയ്തിട്ടുണ്ടോയെന്ന് പരിശോധിക്കാൻ USB ആക്സസ് നൽകുക.</string>
+    <string name="checking_ventoy_installation">USB ഡ്രൈവ് പരിശോധിക്കുന്നു…</string>
+    <string name="ready_to_install_ventoy_version">Ventoy %1$s ഇൻസ്റ്റാൾ ചെയ്യാൻ തയ്യാറാണ്</string>
+    <string name="ventoy_update_available">Ventoy %1$s ഇൻസ്റ്റാൾ ചെയ്തിട്ടുണ്ട് · %2$s ലഭ്യമാണ്</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s ഇൻസ്റ്റാൾ ചെയ്തിട്ടുണ്ട്, നന്നാക്കാവുന്നതുമാണ്.</string>
+    <string name="ventoy_newer_than_bundled">ഈ ഡ്രൈവിൽ Vendroid-ന്റെ %2$s എന്നതിനേക്കാൾ പുതിയ Ventoy %1$s ഉണ്ട്. ഡൗൺഗ്രേഡ് തടഞ്ഞിരിക്കുന്നു.</string>
+    <string name="ventoy_unknown_version_blocked">ഇൻസ്റ്റാൾ ചെയ്ത Ventoy പതിപ്പ് നിർണ്ണയിക്കാനായില്ല. സാധ്യമായ ഡൗൺഗ്രേഡ് തടയാൻ അപ്ഡേറ്റും നന്നാക്കലും തടഞ്ഞിരിക്കുന്നു.</string>
+    <string name="ventoy_metadata_only_repair">കേടായ GPT പാർട്ടീഷൻ മെറ്റാഡാറ്റ മാത്രമേ നന്നാക്കൂ. ഇൻസ്റ്റാൾ ചെയ്ത Ventoy ഉം നിങ്ങളുടെ ഫയലുകളും സംരക്ഷിക്കപ്പെടും.</string>
+    <string name="existing_partitions_use_force_install">ഈ ഡ്രൈവിൽ ഇതിനകം പാർട്ടീഷനുകൾ ഉണ്ട്. തിരികെപ്പോയി മായ്ക്കാൻ നിർബന്ധിത ഇൻസ്റ്റാൾ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="could_not_check_ventoy">ഈ USB ഡ്രൈവ് പരിശോധിക്കാനായില്ല.</string>
+    <string name="files_will_be_preserved">നിങ്ങളുടെ ഫയലുകൾ സംരക്ഷിക്കപ്പെടും</string>
+    <string name="updating_ventoy_preserves_files">Ventoy-യുടെ ബൂട്ട് ഘടകങ്ങൾ മാത്രമേ പുതുക്കപ്പെടൂ. ഡ്രൈവ് ബന്ധിപ്പിച്ചിട്ട് വയ്ക്കുക, മാറ്റാനാകാത്ത ഫയലുകളുടെ ബാക്കപ്പ് മുൻപ് എടുക്കുക.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · ലേബൽ: %2$s · ക്ലസ്റ്റർ: %3$s · കരുതിവച്ചത്: %4$s</string>
+    <string name="partition_style">പാർട്ടീഷൻ ശൈലി</string>
+    <string name="partition_style_description">MBR ആണ് ശുപാർശ ചെയ്ത ഡിഫോൾട്ട്. 2 TiB-ൽ വലിയ ഡ്രൈവുകൾക്ക് GPTയും Vendroid ബീറ്റയും ആവശ്യമാണ്.</string>
+    <string name="partition_style_mbr">MBR (ശുപാർശ ചെയ്തത്)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">പരീക്ഷണാത്മകം: GPT ഉപയോഗിച്ച് ഇൻസ്റ്റാൾ ചെയ്യുന്നതിന് മുൻപ് USB ഡ്രൈവിന്റെ ബാക്കപ്പ് എടുക്കുക.</string>
+    <string name="gpt_available_in_v_preview">Google Play-ലെ Vendroid ബീറ്റയിൽ GPT ഇൻസ്റ്റലേഷൻ ലഭ്യമാണ്.</string>
+    <string name="drive_requires_v_preview">GPT രീതി ഭൗതിക പരിശോധനകൾ വിജയിക്കുന്നതുവരെ ഈ ഡ്രൈവിന് Vendroid ബീറ്റ ആവശ്യമാണ്.</string>
+    <string name="large_drive_requires_v_preview">വലിയ ഡ്രൈവ് പിന്തുണ ഭൗതിക പരിശോധനകൾ വിജയിക്കുന്നതുവരെ 2 TiB-ൽ വലിയ ഡ്രൈവുകൾക്ക് Vendroid ബീറ്റ ആവശ്യമാണ്.</string>
+    <string name="large_drive_requires_gpt">ഈ ഡ്രൈവ് 2 TiB-ൽ വലുതാണ്. തുടരാൻ GPT തിരഞ്ഞെടുക്കുക; MBR-ന് ഈ ശേഷി ഉപയോഗിക്കാനാകില്ല.</string>
+    <string name="get_v_preview">Vendroid ബീറ്റയിൽ ചേരുക</string>
+    <string name="privacy_policy">സ്വകാര്യതാ നയം</string>
+    <string name="check_online_ventoy_update">ഓൺലൈൻ അപ്ഡേറ്റ് പരിശോധിക്കുക</string>
+    <string name="checking_online_ventoy_update">Ventoy റിലീസുകൾ പരിശോധിക്കുന്നു…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s ഡൗൺലോഡ് ചെയ്യുന്നു…</string>
+    <string name="online_ventoy_download_percent">%1$d%% ഡൗൺലോഡ് ചെയ്തു</string>
+    <string name="using_downloaded_ventoy">പരിശോധിച്ച ഓൺലൈൻ Ventoy %1$s ഉപയോഗിക്കുന്നു</string>
+    <string name="no_newer_ventoy_online">തിരഞ്ഞെടുത്ത Ventoy ഇതിനകം ലഭ്യമായ ഏറ്റവും പുതിയതാണ്.</string>
+    <string name="online_ventoy_update_failed">ഓൺലൈൻ Ventoy അപ്ഡേറ്റ് ഡൗൺലോഡ് ചെയ്യാനായില്ല.</string>
+    <string name="check_again">വീണ്ടും പരിശോധിക്കുക</string>
+    <string name="percent_complete">%1$d%% പൂർത്തിയായി</string>
     <string name="style">ശൈലി</string>
     <string name="device_setting">ഉപകരണ ക്രമീകരണം</string>
     <string name="light">വെളിച്ചം</string>
-    <string name="is_this_a_windows_iso">ഇതൊരു വിൻഡോസ് ഐഎസ്ഒ ആണോ\?</string>
+    <string name="dark">ഇരുട്ട്</string>
+    <string name="dynamic_colors">ചലനാത്മകമായ നിറങ്ങൾ</string>
     <string name="about">കുറിച്ച്</string>
+    <string name="is_this_a_windows_iso">ഇതൊരു വിൻഡോസ് ഐഎസ്ഒ ആണോ\?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">സാധാരണ Windows ISO Vendroid-ൽ പ്രവർത്തിക്കില്ല, Vendroid, Etcher അല്ലെങ്കിൽ dd എന്നിവയിൽ ഉപയോഗിക്കാൻ പ്രത്യേകം തയ്യാറാക്കിയിട്ടില്ലെങ്കിൽ.</string>
     <string name="continue_anyway">എന്തായാലും തുടരുക</string>
-    <string name="unknown_device">അറിയപ്പെടാത്ത ഉപകരണം</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">USB ഡ്രൈവ് തിരഞ്ഞെടുക്കുക</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">USB ഡ്രൈവ് ബന്ധിപ്പിക്കുക</string>
+    <string name="looking_for_usb_drives">USB ഡ്രൈവുകൾ തേടുന്നു</string>
+    <string name="confirm_operation">പ്രവർത്തനം സ്ഥിരീകരിക്കുക</string>
     <string name="disk_image">ഡിസ്ക് ചിത്രം</string>
+    <string name="image_to_write">എഴുതാനുള്ള ചിത്രം</string>
+    <string name="usb_drive">USB ഡ്രൈവ്</string>
     <string name="destination_usb_device">ലക്ഷ്യസ്ഥാനം യുഎസ്ബി ഉപകരണം</string>
+    <string name="unknown_device">അറിയപ്പെടാത്ത ഉപകരണം</string>
+    <string name="grant_access">പ്രവേശനം അനുവദിക്കുക</string>
     <string name="permission_granted">അനുമതി നൽകി</string>
     <string name="be_careful">ശ്രദ്ധാലുവായിരിക്കുക!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ventoy ഇൻസ്റ്റാൾ ചെയ്യുന്നത് തിരഞ്ഞെടുത്ത ഡ്രൈവിലെ എല്ലാ ഡാറ്റയും മായ്ക്കും</string>
     <string name="write_image">ചിത്രം എഴുതുക</string>
     <string name="lay_your_device_flat_no_accel">തുടരുന്നതിന് മുമ്പ് നിങ്ങളുടെ ഉപകരണം ഒരു മേശപ്പുറത്ത് കിടത്തുക.</string>
+    <string name="continue_">തുടരുക</string>
     <string name="lay_your_device_flat">നിങ്ങളുടെ ഉപകരണം മേശപ്പുറത്ത് വയ്ക്കുക, അതിൽ തൊടരുത്</string>
+    <string name="skip">ഒഴിവാക്കുക</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">ഫోണോ അതിന്റെ USB കേബിളോ ചലിപ്പിക്കുന്നത് Vendroid എഴുതുമ്പോൾ ഡ്രൈവ് വിച്ഛേദിക്കപ്പെടാൻ ഇടയാക്കും.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">ഫോൺ സമതലമായും നിശ്ചലമായും കിടക്കുമ്പോൾ Vendroid സ്വയം ആരംഭിക്കും, അല്ലെങ്കിൽ ഇപ്പോൾ തുടങ്ങാൻ ഒഴിവാക്കുക എന്നത് ടാപ്പ് చేయുക.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">%1$s ഉം മറ്റ് %2$s ഉം വികസിപ്പിച്ചത്.\nഉറവിട കോഡ് %3$s-ൽ ലഭ്യമാണ്.\nGNU GPLv3 ലൈസൻസിന് കീഴിൽ.</string>
+    <string name="about_project_summary">USB ഡ്രൈവുകളിൽ Ventoy ഇൻസ്റ്റാൾ ചെയ്യുന്നതിനും ബൂട്ട് ഇമേജ് ഫയലുകൾ കൈകാര്യം ചെയ്യുന്നതിനുമുള്ള ഒരു ഓപ്പൺ-സോഴ്സ് Android ആപ്പാണ് Vendroid.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">%1$s വികസിപ്പിച്ചത്.</string>
+    <string name="project_source">പ്രോജക്ടിന്റെ ഉറവിട കോഡ്: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid എന്നത് %1$s ന്റെ പരിഷ്കരിച്ച പതിപ്പാണ്, © Davide Depauയും സംഭാവകരും, GNU GPLv3 പ്രകാരം ഉപയോഗിക്കുന്നു. 4 ജൂലൈ 2026 മുതൽ പരിഷ്കരിച്ചു; മാറ്റങ്ങൾ © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">ഉൾപ്പെടുത്തിയ Ventoy %1$s GNU GPLv3 പ്രകാരമുള്ള സ്വതന്ത്ര സോഫ്റ്റ്വെയറാണ്. അതിന്റെ ഉറവിട കോഡ്: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid GNU GPLv3 പ്രകാരമുള്ള സ്വതന്ത്ര സോഫ്റ്റ്വെയറാണ്. ഇത് വാറന്റിയില്ലാതെയാണ് വരുന്നത്, ആ ലൈസൻസ് പ്രകാരം നിങ്ങൾക്ക് ഇത് പുനർവിതരണം ചെയ്യാം.</string>
     <string name="contributors">സംഭാവന ചെയ്യുന്നവർ</string>
-    <string name="writing_image">ചിത്രം എഴുതുന്നു</string>
     <string name="verifying_image">ചിത്രം പരിശോധിക്കുന്നു</string>
+    <string name="writing_image">ചിത്രം എഴുതുന്നു</string>
+    <string name="please_avoid_using_your_device">നിങ്ങളുടെ ഉപകരണം ഉപയോഗിക്കുന്നത് ഒഴിവാക്കുക</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">പൂർത്തിയാകുമ്പോൾ അറിയിപ്പ് ലഭിക്കണോ? പുരോഗതി മാത്രം, സ്പാമോ പരസ്യങ്ങളോ ഇല്ല.</string>
+    <string name="no_thanks">വേണ്ട, നന്ദി</string>
     <string name="sure">സമ്മതിച്ചു</string>
-    <string name="skip_verification">സ്ഥിരീകരണം ഒഴിവാക്കുക</string>
-    <string name="getting_ready">തയ്യാറെടുക്കുന്നു…</string>
+    <string name="verifying">സ്ഥിരീകരിക്കുന്നു</string>
+    <string name="copying">പകർത്തുന്നു</string>
     <string name="against">എതിരായി</string>
-    <string name="try_again">വീണ്ടും ശ്രമിക്കുക</string>
-    <string name="start_over">വീണ്ടും ആരംഭിക്കുക</string>
-    <string name="error">പിശക്</string>
-    <string name="there_was_an_error">ഒരു പിശകുണ്ടായി</string>
+    <string name="to">ലേക്ക്</string>
+    <string name="getting_ready">തയ്യാറെടുക്കുന്നു…</string>
+    <string name="skip_verification">സ്ഥിരീകരണം ഒഴിവാക്കുക</string>
+    <string name="image_written_successfully">ചിത്രം വിജയകരമായി എഴുതി!</string>
+    <string name="ventoy_installer_name">Ventoy ഇൻസ്റ്റാളർ</string>
     <string name="write_a_review">ഒരു അവലോകനം എഴുതുക</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">GitHub-ൽ സ്റ്റാർ നൽകുക</string>
+    <string name="there_was_an_error">ഒരു പിശകുണ്ടായി</string>
+    <string name="error">പിശക്</string>
+    <string name="start_over">വീണ്ടും ആരംഭിക്കുക</string>
+    <string name="try_again">വീണ്ടും ശ്രമിക്കുക</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">ഞാൻ അൺപ്ലഗ് ചെയ്തില്ല!</string>
+    <string name="how_did_this_happen">ഇത് എങ്ങനെ സംഭവിച്ചു\?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">ഒരുപക്ഷേ USB പോർട്ട് വൃത്തികേടാണ്, അഡാപ്റ്റർ തകരാറിലാണ്, അല്ലെങ്കിൽ ഉപകരണത്തിന് മതിയായ വൈദ്യുതി നൽകാനാകുന്നില്ല. മറ്റൊരു അഡാപ്റ്റർ ആണ് ഉപകരണം പരീക്ഷിക്കുക.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB ഡ്രൈവുകൾ വിശ്വസനീയമല്ല, സ്വയം വീണ്ടെടുക്കാൻ Android മതിയായ അനുമതി നൽകുന്നില്ല. നമുക്കുള്ളത് കൊണ്ട് ഭരിക്കേണ്ടി വരും!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">ഇത് അപ്രതീക്ഷിതമാണ്, ഇത് ഒരു പിശക് ആയിരിക്കാം. ദയവായി അത് അറിയിക്കുക!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">വീണ്ടെടുക്കാൻ, USB ഡ്രൈവ് അൺപ്ലഗ് ചെയ്ത് വീണ്ടും പ്ലഗ് ചെയ്ത് പ്രവേശന അനുമതി വീണ്ടും നൽകുക.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">ആവശ്യമായ ഘട്ടങ്ങളുടെ പ്രാതിനിധ്യം: അൺപ്ലഗ് ചെയ്യുക, വീണ്ടും ബന്ധിപ്പിക്കുക, അനുമതി നൽകുക</string>
+    <string name="plug_in_the_same_usb">നിങ്ങൾ മുമ്പ് ഉപയോഗിച്ച അതേ യുഎസ്ബി ഉപകരണം പ്ലഗ് ഇൻ ചെയ്യുക!</string>
+    <string name="usb_device_reconnected_resuming">യുഎസ്ബി ഉപകരണം വീണ്ടും ബന്ധിപ്പിച്ചു, പുനരാരംഭിക്കുന്നു</string>
     <string name="the_device_is_not_responding">ഉപകരണം പ്രതികരിക്കുന്നില്ല</string>
     <string name="missing_permission_to_access_the_usb_device">യുഎസ്ബി ഉപകരണം പ്രവേശന അനുമതി നഷ്‌ടമായി</string>
-    <string name="write_another_image">മറ്റൊരു ചിത്രം എഴുതുക</string>
-    <string name="grant_access">പ്രവേശനം അനുവദിക്കുക</string>
-    <string name="plug_in_the_same_usb">നിങ്ങൾ മുമ്പ് ഉപയോഗിച്ച അതേ യുഎസ്ബി ഉപകരണം പ്ലഗ് ഇൻ ചെയ്യുക!</string>
-    <string name="an_unknown_error_occurred">ഒരു അജ്ഞാത പിശക് സംഭവിച്ചു: %1$s</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB ഡ്രൈവ് വളരെ വലുതാണ്, Vendroid ഇതിനെ പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="the_image_is_is_larger_than_the_device">ചിത്രം (%1$s) ഉപകരണത്തേക്കാൾ വലുതാണ് (%2$s)</string>
-    <string name="how_did_this_happen">ഇത് എങ്ങനെ സംഭവിച്ചു\?</string>
-    <string name="image_written_successfully">ചിത്രം വിജയകരമായി എഴുതി!</string>
-    <string name="to">ലേക്ക്</string>
-    <string name="copying">പകർത്തുന്നു</string>
-    <string name="please_avoid_using_your_device">നിങ്ങളുടെ ഉപകരണം ഉപയോഗിക്കുന്നത് ഒഴിവാക്കുക</string>
-    <string name="verifying">സ്ഥിരീകരിക്കുന്നു</string>
-    <string name="no_thanks">വേണ്ട, നന്ദി</string>
-    <string name="action_required">നടപടി ആവശ്യമാണ്</string>
-    <string name="notification_write_no_notifications_text">പുരോഗതിക്കായി അറിയിപ്പുകൾ പ്രവർത്തനക്ഷമമാക്കുക • %1$s മുതൽ %2$s വരെ എഴുതുന്നു</string>
-    <string name="notif_channel_job_progress_desc" comment="Notification channel description">നിലവിലെ ജോലിയുടെ പുരോഗതി കാണിക്കാൻ ഉപയോഗിക്കുന്നു</string>
-    <string name="notif_channel_job_progress_name">ജോലിയുടെ പുരോഗതി</string>
-    <string name="notification_write_progress_title">ചിത്രം എഴുതുന്നു…</string>
-    <string name="notification_verify_progress_title">ചിത്രം പരിശോധിക്കുന്നു…</string>
-    <string name="notification_write_tap_for_progress_text">പുരോഗതിക്കായി ടാപ്പ് ചെയ്യുക • %1$s മുതൽ %2$s വരെ എഴുതുന്നു</string>
-    <string name="write_an_image">ഒരു ചിത്രം എഴുതുക</string>
-    <string name="dark">ഇരുട്ട്</string>
-    <string name="continue_">തുടരുക</string>
-    <string name="dynamic_colors">ചലനാത്മകമായ നിറങ്ങൾ</string>
-    <string name="confirm_operation">പ്രവർത്തനം സ്ഥിരീകരിക്കുക</string>
-    <string name="image_to_write">എഴുതാനുള്ള ചിത്രം</string>
-    <string name="skip">ഒഴിവാക്കുക</string>
-    <string name="usb_device_reconnected_resuming">യുഎസ്ബി ഉപകരണം വീണ്ടും ബന്ധിപ്പിച്ചു, പുനരാരംഭിക്കുന്നു</string>
+    <string name="could_not_open_the_source_file" comment="Error message">ഉറവിട ഫയൽ തുറക്കാനായില്ല</string>
+    <string name="an_unknown_error_occurred">ഒരു അജ്ഞാത പിശക് സംഭവിച്ചു: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB ഡ്രൈവ് അൺപ്ലഗ് ചെയ്തു</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB ഡ്രൈവ് പ്രതികരിക്കുന്നത് നിർത്തി</string>
     <string name="the_usb_device_content_does_not_match_the_image">യുഎസ്ബി ഉപകരണത്തിന്റെ ഉള്ളടക്കം ചിത്രവുമായി പൊരുത്തപ്പെടുന്നില്ല</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid USB ഡ്രൈവിലേക്ക് Ventoy എഴുതി, എന്നാൽ വീണ്ടും വായിക്കുമ്പോൾ %1$d ആം ബൈറ്റിലെ ഡാറ്റ വ്യത്യസ്തമായിരുന്നു. ഡ്രൈവ് വ്യാജമോ, തകരാറിലോ, വലിയ കൈമാറ്റങ്ങൾ കൈകാര്യം ചെയ്യാൻ കഴിയാത്തതോ ആകാം. വീണ്ടും ഉപയോഗിക്കാൻ ഡ്രൈവ് ഫോർമാറ്റ് ചെയ്യുക. തുടർന്ന് വിപുലമായ ഓപ്ഷനുകളിൽ ചെറിയ USB കൈമാറ്റങ്ങൾ ഓണാക്കി വീണ്ടും ശ്രമിക്കുക, അല്ലെങ്കിൽ മറ്റൊരു ഡ്രൈവ് ഉപയോഗിക്കുക.</string>
+    <string name="write_another_image">മറ്റൊരു ചിത്രം എഴുതുക</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">പ്രവർത്തനം സ്ഥിരീകരിക്കുക</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">ചിത്ര URI നൽകിയിട്ടില്ല</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">ലക്ഷ്യ ഉപകരണം തിരഞ്ഞെടുത്തിട്ടില്ല</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">എഴുത്ത് പ്രക്രിയ കുടുങ്ങിപ്പോയതായി തോന്നുന്നു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">ഒരു എഴുത്ത് ശ്രമം ആരംഭിച്ചു, എന്നാൽ ദൗർഭാഗ്യവശാൽ ചില വിവരങ്ങൾ വഴിയിൽ നഷ്ടമായി. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">കഴിയുമെങ്കിൽ, ഈ പ്രശ്നം GitHub-ൽ ഈ പിശകിലേക്ക് നയിച്ച ഘട്ടങ്ങൾക്കൊപ്പം റിപ്പോർട്ട് ചെയ്യുക.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub പ്രശ്നങ്ങൾ കാണുക</string>
+    <string name="close">അടയ്ക്കുക</string>
+    <string name="menu">മെനു</string>
+    <string name="language">ഭാഷ</string>
+    <string name="language_automatic">യാന്ത്രികം (ഉപകരണ ഭാഷ)</string>
+    <string name="language_english">ഇംഗ്ലീഷ്</string>
+    <string name="language_arabic">അറബിക്</string>
+    <string name="privacy_policy_language_note">താഴെയുള്ള നയം ഇംഗ്ലീഷിലാണ് നൽകിയിരിക്കുന്നത്.</string>
+    <string name="open_source_licenses">ഓപ്പൺ-സോഴ്സ് ലൈസൻസുകൾ</string>
+    <string name="licenses_language_note">ഈ അറിയിപ്പുകളും ലൈസൻസ് ടെക്സ്റ്റുകളും ഇംഗ്ലീഷിലാണ്.</string>
+    <string name="licenses_back">തിരികെ</string>
+    <string name="project_website">പ്രോജക്ട് വെബ്സൈറ്റ്</string>
+    <string name="help_and_contact">സഹായവും ബന്ധവും</string>
+    <string name="ventoy_mirror_name">Vendroid അപ്ഡേറ്റ് മിറർ</string>
+    <string name="ventoy_mirror_disclosure">ഓപ്ഷണൽ ഡൗൺലോഡുകൾ Vendroid-ന്റെ അപ്ഡേറ്റ് മിറർ ഉപയോഗിക്കുന്നു. സേവനത്തിന് നിങ്ങളുടെ IP വിലാസവും അഭ്യർത്ഥനാ വിവരങ്ങളും ലഭിക്കുന്നു. കുറിച്ച് → സ്വകാര്യതാ നയം കാണുക.</string>
 </resources>

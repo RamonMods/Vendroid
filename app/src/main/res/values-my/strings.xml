@@ -1,7 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
     <string name="cancel" comment="Cancel string, used all over the place">မလုပ်တော့</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">လုပ်ဆောင်မှုပြီးစီးပါက အသိပေးရန်</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s ရေးသားမှုအောင်မြင်ပါသည် %2$s</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">ရေးသားမှု မအောင်မြင်ပါ</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">လုပ်ဆောင်ချက် လိုအပ်ပါသည်</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">လက်ရှိလုပ်ငန်း၏ တိုးတက်မှုကို ပြသရန် အသုံးပြုသည်</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">လုပ်ငန်း တိုးတက်မှု</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">ပြီးစီးသော လုပ်ငန်း၏ ရလဒ်ကို ပြသရန် အသုံးပြုသည်</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">လုပ်ငန်း ရလဒ်</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">ပုံရိပ် ရေးသားနေသည်…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">ပုံရိပ် စစ်ဆေးနေသည်…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">တိုးတက်မှုအတွက် အကြောင်းကြားချက်များ ဖွင့်ပါ • %1$s ကို %2$s သို့ ရေးသားနေသည်</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">တိုးတက်မှုအတွက် နှိပ်ပါ • %1$s ကို %2$s သို့ ရေးသားနေသည်</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s မှ %2$s သို့</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s နှင့် %2$s တိုက်စစ်ဆေးခြင်း</string>
+    <string name="unknown_filename" comment="Placeholder file name">မသိသော ဖိုင်အမည်</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"USB စက်ပစ္စည်း %1$s အတွက် ခွင့်ပြုချက် ငြင်းပယ်ထားသည်"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB စက်ပစ္စည်း ဖြုတ်ထားသည်</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">ပုံရိပ်တစ်ခု ရေးသားပါ</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy ကို ထည့်သွင်းပါ</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">အတင်းအကျပ် ထည့်သွင်းပါ</string>
+    <string name="installing_ventoy">Ventoy ကို ထည့်သွင်းနေသည်</string>
+    <string name="updating_ventoy">Ventoy ကို အပ်ဒိတ်လုပ်နေသည်</string>
+    <string name="ventoy_installed_successfully">Ventoy အောင်မြင်စွာ ထည့်သွင်းပြီးပါသည်</string>
+    <string name="ventoy_updated_successfully">Ventoy အောင်မြင်စွာ အပ်ဒိတ်လုပ်ပြီးပါသည်</string>
+    <string name="install_ventoy_another_drive">အခြား drive တွင် Ventoy ထည့်သွင်းပါ</string>
+    <string name="update_ventoy">အပ်ဒိတ်လုပ်ပါ</string>
+    <string name="update_ventoy_title">Ventoy ကို အပ်ဒိတ်လုပ်ပါ</string>
+    <string name="repair_ventoy">ပြင်ဆင်ပါ</string>
+    <string name="advanced_options">အဆင့်မြင့် ရွေးချယ်စရာများ</string>
+    <string name="volume_label">Volume အမည်</string>
+    <string name="exfat_label_limit">စာလုံး ၁–၁၁ လုံး</string>
+    <string name="cluster_size">Cluster အရွယ်အစား</string>
+    <string name="automatic">အလိုအလျောက်</string>
+    <string name="reserve_space">အဆုံးတွင် နေရာ လျှို့ထားပါ</string>
+    <string name="reserve_space_description">Ventoy partition များပြီးနောက် ခွဲဝေမထားသော နေရာ ထားခဲ့ပါ။</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">USB လွှဲပြောင်းမှု အသေးစားများ</string>
+    <string name="small_usb_transfers_description">ပိုနှေးသော်လည်း အတည်ပြုချက် မအောင်မြင်သော သို့မဟုတ် ထည့်သွင်းနေစဉ် ဖြုတ်ထွက်တတ်သော drive များအတွက် အထောက်အကူ ဖြစ်နိုင်ပါသည်။</string>
+    <string name="maximum_reserved_space">အများဆုံး: %1$d %2$s</string>
+    <string name="reserved_space">လျှို့ထားသော နေရာ</string>
+    <string name="partitions_aligned_4k">✓ Partition များကို 4 KiB နယ်နိမိတ်တွင် အမြဲ ညှိထားပါသည်။</string>
+    <string name="apply">သုံးပါ</string>
+    <string name="unknown_version">မသိရပါ</string>
+    <string name="grant_access_to_check_ventoy">Ventoy ထည့်သွင်းပြီးသား ဖြစ်မဖြစ် စစ်ဆေးရန် USB ဝင်ရောက်ခွင့် ပေးပါ။</string>
+    <string name="checking_ventoy_installation">USB drive ကို စစ်ဆေးနေသည်…</string>
+    <string name="ready_to_install_ventoy_version">Ventoy %1$s ကို ထည့်သွင်းရန် အဆင်သင့်ဖြစ်ပါသည်</string>
+    <string name="ventoy_update_available">Ventoy %1$s ထည့်သွင်းထားသည် · %2$s ရနိုင်ပါသည်</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s ထည့်သွင်းထားပြီး ပြင်ဆင်နိုင်ပါသည်။</string>
+    <string name="ventoy_newer_than_bundled">ဒီ drive တွင် Vendroid ၏ %2$s ထက် ပိုအသစ်သော Ventoy %1$s ရှိနေသည်။ ဗားရှင်းလျှော့ချခြင်းကို ပိတ်ထားသည်။</string>
+    <string name="ventoy_unknown_version_blocked">ထည့်သွင်းထားသော Ventoy ဗားရှင်းကို မသိရပါ။ ဖြစ်နိုင်ခြေရှိသော ဗားရှင်းလျှော့ချမှုကို ကာကွယ်ရန် အပ်ဒိတ်နှင့် ပြင်ဆင်မှုကို ပိတ်ထားသည်။</string>
+    <string name="ventoy_metadata_only_repair">ပျက်စီးနေသော GPT partition metadata ကိုသာ ပြင်ဆင်ပါမည်။ ထည့်သွင်းထားသော Ventoy နှင့် သင့်ဖိုင်များကို ထိန်းသိမ်းပေးပါမည်။</string>
+    <string name="existing_partitions_use_force_install">ဒီ drive တွင် partition များ ရှိပြီးဖြစ်သည်။ ပြန်သွားပြီး ဖျက်ရန် အတင်းအကျပ် ထည့်သွင်းပါကို ရွေးပါ။</string>
+    <string name="could_not_check_ventoy">ဒီ USB drive ကို စစ်ဆေးလို့ မရပါ။</string>
+    <string name="files_will_be_preserved">သင့်ဖိုင်များကို ထိန်းသိမ်းပေးပါမည်</string>
+    <string name="updating_ventoy_preserves_files">Ventoy ၏ boot အစိတ်အပိုင်းများကိုသာ အသစ်ပြုပါမည်။ Drive ကို ဆက်တွဲထားပြီး အစားထိုးလို့မရသော ဖိုင်များကို ကြိုတင် backup ယူပါ။</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · အမည်: %2$s · Cluster: %3$s · လျှို့ထားသည်: %4$s</string>
+    <string name="partition_style">Partition ပုံစံ</string>
+    <string name="partition_style_description">MBR ကို မူရင်းအဖြစ် အကြံပြုထားသည်။ 2 TiB ထက်ကြီးသော drive များအတွက် GPT နှင့် Vendroid beta လိုအပ်သည်။</string>
+    <string name="partition_style_mbr">MBR (အကြံပြုထားသည်)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">စမ်းသပ်ဆင့်: GPT ဖြင့် မထည့်သွင်းမီ USB drive ကို backup ယူပါ။</string>
+    <string name="gpt_available_in_v_preview">GPT ထည့်သွင်းမှုကို Google Play ရှိ Vendroid beta တွင် ရနိုင်ပါသည်။</string>
+    <string name="drive_requires_v_preview">GPT လမ်းကြောင်း ရုပ်ပိုင်းဆိုင်ရာ စမ်းသပ်မှုများ မအောင်မြင်မချင်း ဒီ drive အတွက် Vendroid beta လိုအပ်သည်။</string>
+    <string name="large_drive_requires_v_preview">Drive အကြီးစား ပံ့ပိုးမှု ရုပ်ပိုင်းဆိုင်ရာ စမ်းသပ်မှုများ မအောင်မြင်မချင်း 2 TiB ထက်ကြီးသော drive များအတွက် Vendroid beta လိုအပ်သည်။</string>
+    <string name="large_drive_requires_gpt">ဒီ drive က 2 TiB ထက် ကြီးပါသည်။ ဆက်လုပ်ရန် GPT ကို ရွေးပါ။ MBR က ဒီပမာဏကို သုံးလို့ မရပါ။</string>
+    <string name="get_v_preview">Vendroid beta သို့ ဝင်ရောက်ပါ</string>
+    <string name="privacy_policy">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
+    <string name="check_online_ventoy_update">အွန်လိုင်း အပ်ဒိတ်ကို စစ်ဆေးပါ</string>
+    <string name="checking_online_ventoy_update">Ventoy ထုတ်ဝေမှုများကို စစ်ဆေးနေသည်…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s ကို ဒေါင်းလုဒ်လုပ်နေသည်…</string>
+    <string name="online_ventoy_download_percent">%1$d%% ဒေါင်းလုဒ်လုပ်ပြီး</string>
+    <string name="using_downloaded_ventoy">အတည်ပြုထားသော အွန်လိုင်း Ventoy %1$s ကို အသုံးပြုနေသည်</string>
+    <string name="no_newer_ventoy_online">ရွေးချယ်ထားသော Ventoy သည် ရနိုင်သမျှ နောက်ဆုံးပေါ် ဖြစ်နေပြီ။</string>
+    <string name="online_ventoy_update_failed">အွန်လိုင်း Ventoy အပ်ဒိတ်ကို ဒေါင်းလုဒ်လုပ်လို့ မရပါ။</string>
+    <string name="check_again">ပြန်စစ်ဆေးပါ</string>
+    <string name="percent_complete">%1$d%% ပြီးစီးပါသည်</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">ပုံစံ</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">စက်ပစ္စည်း သတ်မှတ်ချက်</string>
+    <string name="light" comment="Style menu option that selects the light theme">အလင်း</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">အမှောင်</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">ပြောင်းလဲနေသော အရောင်များ</string>
+    <string name="about" comment="Menu option that opens the about page">အကြောင်း</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">ဒါက Windows ISO လား?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">သာမန် Windows ISO ကို Vendroid နဲ့ အလုပ်လုပ်မှာ မဟုတ်ပါ။ Vendroid, Etcher သို့မဟုတ် dd တို့နဲ့ အသုံးပြုဖို့ သီးသန့် ပြင်ဆင်ထားမှသာ အဆင်ပြေပါမည်။</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">ထို့နောက်လည်း ဆက်လုပ်ပါ</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">USB drive တစ်ခုကို ရွေးပါ</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">USB drive တစ်ခုကို တွဲပါ</string>
+    <string name="looking_for_usb_drives">USB drive များကို ရှာနေသည်</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">လုပ်ငန်းကို အတည်ပြုပါ</string>
+    <string name="disk_image">Disk ပုံရိပ်</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">ရေးသားမည့် ပုံရိပ်</string>
+    <string name="usb_drive">USB drive</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">ရည်ရွယ်ရာ USB စက်ပစ္စည်း</string>
+    <string name="unknown_device" comment="Device name placeholder">မသိသော စက်ပစ္စည်း</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">ဝင်ရောက်ခွင့် ပေးပါ</string>
+    <string name="permission_granted">ခွင့်ပြုချက် ရပြီ</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">သတိထားပါ!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ventoy ထည့်သွင်းခြင်းက ရွေးထားသော drive ပေါ်က အချက်အလက်အားလုံးကို ဖျက်ပစ်ပါမည်</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">ထည့်သွင်းပါ</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">ဆက်လုပ်မီ သင့်စက်ပစ္စည်းကို စားပွဲပေါ် ညာလိုက် ချထားပါ။</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">ဆက်လုပ်ပါ</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">စက်ပစ္စည်းကို စားပွဲပေါ် ညာလိုက် ချထားပြီး မထိပါနှင့်</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">ကျော်လိုက်ပါ</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">ဖုန်း သို့မဟုတ် ၎င်း၏ USB ကြိုးကို ရွှေ့ခြင်းက Vendroid ရေးသားနေစဉ် drive ကို ဖြုတ်ထွက်စေနိုင်သည်။</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">ဖုန်း ညာလိုက်နှင့် တည်ငြိမ်နေပါက Vendroid ကိုယ်တိုင် စတင်ပါမည်။ အခုပဲ စတင်လိုပါက ကျော်လိုက်ပါ ကို နှိပ်ပါ။</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">%1$s နှင့် အခြား %2$s တို့ ဖန်တီးထားသည်။\nရင်းမြစ်ကုဒ်ကို %3$s တွင် ရနိုင်ပါသည်။\nGNU GPLv3 လိုင်စင်အောက်တွင် ဖြန့်ဝေထားသည်။</string>
+    <string name="about_project_summary">Vendroid သည် USB drive များတွင် Ventoy ထည့်သွင်းရန်နှင့် boot image ဖိုင်များကို စီမံခန့်ခွဲရန်အတွက် open-source Android အက်ပ်တစ်ခု ဖြစ်ပါသည်။</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">%1$s ဖန်တီးထားသည်။</string>
+    <string name="project_source">ပရောဂျက်၏ ရင်းမြစ်ကုဒ်: %1$s။</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid သည် %1$s ၏ ပြင်ဆင်ထားသော ဗားရှင်းဖြစ်ပြီး၊ © Davide Depau နှင့် ပံ့ပိုးသူများ၊ GNU GPLv3 အောက်တွင် အသုံးပြုထားသည်။ 2026 ခုနှစ် ဇူလိုင်လ ၄ ရက်မှစ၍ ပြင်ဆင်ထားသည်။ ပြောင်းလဲမှုများ © 2026 %2$s။</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">ပါဝင်သော Ventoy %1$s သည် GNU GPLv3 အောက်ရှိ အခမဲ့ software ဖြစ်သည်။ ၎င်း၏ ရင်းမြစ်ကုဒ်: %2$s။</string>
+    <string name="gpl_license_notice">Vendroid သည် GNU GPLv3 အောက်ရှိ အခမဲ့ software ဖြစ်ပါသည်။ အာမခံချက်မပါဝင်ပါ။ ထိုလိုင်စင်အောက်တွင် ပြန်လည်ဖြန့်ဝေနိုင်ပါသည်။</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">ပံ့ပိုးသူများ</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">ပုံရိပ်ကို စစ်ဆေးနေသည်</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">ပုံရိပ်ကို ရေးသားနေသည်</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">ကျေးဇူးပြု၍ သင့်စက်ပစ္စည်းကို အသုံးမပြုပါနှင့်</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">ပြီးဆုံးသောအခါ အကြောင်းကြားချက် လိုချင်ပါသလား? တိုးတက်မှုသာ ဖြစ်ပါသည်။ Spam သို့မဟုတ် ကြော်ငြာ မရှိပါ။</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">မလိုပါ၊ ကျေးဇူးတင်ပါသည်</string>
+    <string name="sure" comment="Button to accept receiving notifications">သေချာပါသည်</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">စစ်ဆေးနေသည်</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">ကူးယူနေသည်</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">နှင့် တိုက်စစ်ဆေးလျက်</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">သို့</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">ပြင်ဆင်နေသည်…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">စစ်ဆေးမှုကို ကျော်ပါ</string>
+    <string name="image_written_successfully" comment="Title of the success page">ပုံရိပ် အောင်မြင်စွာ ရေးသားပြီးပါသည်!</string>
+    <string name="ventoy_installer_name">Ventoy ထည့်သွင်းသူ</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">သုံးသပ်ချက်ရေးပါ</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">GitHub တွင် ကြယ်ပေးပါ</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">အမှားတစ်ခု ဖြစ်ပွားပါသည်</string>
+    <string name="error">အမှား</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">အစကနေ ပြန်လုပ်ပါ</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">ပြန်ကြိုးစားပါ</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">ကျွန်တော် မဖြုတ်ခဲ့ပါ!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">ဒါ ဘယ်လိုဖြစ်လဲ?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">ဖြစ်နိုင်ခြေရှိသည်မှာ သင့် USB port ညစ်နေခြင်း၊ adapter ချို့ယွင်းနေခြင်း သို့မဟုတ် စက်ပစ္စည်းက လုံလောက်သော လျှပ်စစ်ဓာတ်အား မပေးနိုင်ခြင်း ဖြစ်ပါသည်။ အခြား adapter သို့မဟုတ် စက်ပစ္စည်းကို စမ်းကြည့်ပါ။</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB drive များသည် ယုံကြည်စိတ်ချရသော မဟုတ်ပါ။ Android ကလည်း အလိုအလျောက် ပြန်လည်ရယူနိုင်ရန် လုံလောက်သော ခွင့်ပြုချက် မပေးပါ။ ရှိသမျှနဲ့ပဲ လိုက်လျောညီထွေ နေကြရပါမယ်!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">ဒါက မမျှော်လင့်ထားတာပါ။ ဖြစ်နိုင်ခြေရှိတာက bug တစ်ခုပါ။ ကျေးဇူးပြု၍ အကြောင်းကြားပါ!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">ပြန်လည်ရယူရန် သင့် USB drive ကို ဖြုတ်ပါ၊ ပြန်တွဲပါ၊ ဝင်ရောက်ခွင့်ကို ထပ်မံပေးပါ။</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">လိုအပ်သော အဆင့်များ ဖော်ပြချက်: ဖြုတ်ပါ၊ ပြန်တွဲပါ၊ ခွင့်ပြုပါ</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">အရင်က သုံးခဲ့တဲ့ USB စက်ပစ္စည်းကိုပဲ ပြန်တွဲပါ!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB စက်ပစ္စည်း ပြန်တွဲပြီး၊ ဆက်လုပ်နေသည်</string>
+    <string name="the_device_is_not_responding" comment="Error message">စက်ပစ္စည်းက တုံ့ပြန်မနေပါ</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">USB စက်ပစ္စည်းကို ဝင်ရောက်ရန် ခွင့်ပြုချက် မရှိပါ</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB drive က အလွန်ကြီးပါသည်။ Vendroid က ပံ့ပိုးမထားပါ။</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">ပုံရိပ် (%1$s) သည် စက်ပစ္စည်း (%2$s) ထက် ပိုကြီးပါသည်</string>
+    <string name="could_not_open_the_source_file" comment="Error message">မူရင်းဖိုင်ကို ဖွင့်လို့ မရပါ</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">မသိသော အမှားတစ်ခု ဖြစ်ပွားပါသည်: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB drive ကို ဖြုတ်ထားပါသည်</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB drive က တုံ့ပြန်မှု ရပ်သွားပါသည်</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">USB စက်ပစ္စည်းပေါ်က အကြောင်းအရာက ပုံရိပ်နှင့် မကိုက်ညီပါ</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid က USB drive ထဲသို့ Ventoy ကို ရေးသားခဲ့သော်လည်း ပြန်ဖတ်သောအခါ byte %1$d တွင် မတူညီသော အချက်အလက် တွေ့ရပါသည်။ Drive သည် အတုဖြစ်နေခြင်း၊ ချို့ယွင်းနေခြင်း သို့မဟုတ် အကြီးစား လွှဲပြောင်းမှုများကို မကိုင်တွယ်နိုင်ခြင်း ဖြစ်နိုင်ပါသည်။ ပြန်သုံးလိုပါက drive ကို format လုပ်ပါ။ ထို့နောက် အဆင့်မြင့် ရွေးချယ်စရာများတွင် USB လွှဲပြောင်းမှု အသေးစားများကို ဖွင့်ပြီး ပြန်ကြိုးစားပါ၊ သို့မဟုတ် အခြား drive တစ်ခုကို အသုံးပြုပါ။</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">နောက်ထပ် ပုံရိပ်တစ်ခု ရေးသားပါ</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">လုပ်ငန်းကို အတည်ပြုပါ</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">ပုံရိပ် URI မပေးထားပါ</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">ရည်ရွယ်ရာ စက်ပစ္စည်း မရွေးထားပါ</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">ရေးသားသည့် လုပ်ငန်းစဉ် ကပ်နေသလို ဖြစ်နေပါသည်။ ကျေးဇူးပြု၍ ပြန်ကြိုးစားပါ။</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">ရေးသားရန် ကြိုးစားမှုတစ်ခု စတင်ခဲ့သော်လည်း ကံဆိုးစွာဖြင့် အချက်အလက်အချို့ လမ်းမှာ ပျောက်ဆုံးသွားပါသည်။ ကျေးဇူးပြု၍ ပြန်ကြိုးစားပါ။</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">ဖြစ်နိုင်ပါက ဒီပြဿနာကို GitHub တွင် ဒီအမှားဖြစ်ရသည့် အဆင့်များနှင့်အတူ အကြောင်းကြားပေးပါ။</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub ပြဿနာများ ကြည့်ပါ</string>
+    <string name="close">ပိတ်ပါ</string>
+    <string name="menu">မီနူး</string>
+    <string name="language">ဘာသာစကား</string>
+    <string name="language_automatic">အလိုအလျောက် (စက်ပစ္စည်းဘာသာစကား)</string>
+    <string name="language_english">အင်္ဂလိပ်</string>
+    <string name="language_arabic">အာရဗီ</string>
+    <string name="privacy_policy_language_note">အောက်ပါ မူဝါဒကို အင်္ဂလိပ်ဘာသာဖြင့် ပေးထားပါသည်။</string>
+    <string name="open_source_licenses">Open-source လိုင်စင်များ</string>
+    <string name="licenses_language_note">ဒီအကြောင်းကြားချက်များနှင့် လိုင်စင်စာသားများကို အင်္ဂလိပ်ဘာသာဖြင့် ပေးထားပါသည်။</string>
+    <string name="licenses_back">ပြန်သွားပါ</string>
+    <string name="project_website">ပရောဂျက် ဝက်ဘ်ဆိုက်နေရာ</string>
+    <string name="help_and_contact">အကူအညီနှင့် ဆက်သွယ်ရန်</string>
+    <string name="ventoy_mirror_name">Vendroid အပ်ဒိတ် mirror</string>
+    <string name="ventoy_mirror_disclosure">ရွေးချယ်နိုင်သော ဒေါင်းလုဒ်များသည် Vendroid ၏ အပ်ဒိတ် mirror ကို အသုံးပြုပါသည်။ ဝန်ဆောင်မှုသည် သင့် IP လိပ်စာနှင့် တောင်းဆိုမှု အချက်အလက်များကို ရရှိပါသည်။ အကြောင်း → ကိုယ်ရေးကိုယ်တာ မူဝါဒ ကို ကြည့်ပါ။</string>
 </resources>

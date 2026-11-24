@@ -95,4 +95,89 @@
     <string name="please_report_fatal_issue">Por favor, relate esse problema no GitHub junto com as etapas que levaram a esse erro, se possível.</string>
     <string name="view_github_issues">Ver problemas no GitHub</string>
     <string name="the_usb_drive_is_too_large" comment="Error message">A unidade USB é grande demais e o Vendroid não a apoia.</string>
+
+  <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+  <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Instalar Ventoy</string>
+  <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Instalação forçada</string>
+  <string name="installing_ventoy">Instalando o Ventoy em</string>
+  <string name="updating_ventoy">Atualizando o Ventoy em</string>
+  <string name="ventoy_installed_successfully">Ventoy instalado com sucesso</string>
+  <string name="ventoy_updated_successfully">Ventoy atualizado com sucesso</string>
+  <string name="install_ventoy_another_drive">Instalar o Ventoy em outro dispositivo</string>
+  <string name="update_ventoy">Atualizar</string>
+  <string name="update_ventoy_title">Atualizar Ventoy</string>
+  <string name="repair_ventoy">Reparar</string>
+  <string name="advanced_options">Opções avançadas</string>
+  <string name="volume_label">Rótulo do volume</string>
+  <string name="exfat_label_limit">1 a 11 caracteres</string>
+  <string name="cluster_size">Tamanho do cluster</string>
+  <string name="automatic">Automático</string>
+  <string name="reserve_space">Reservar espaço no final</string>
+  <string name="reserve_space_description">Deixa espaço não alocado após as partições do Ventoy.</string>
+  <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Transferências USB menores</string>
+  <string name="small_usb_transfers_description">Mais lento, mas pode ajudar dispositivos que falham na verificação ou se desconectam durante a instalação.</string>
+  <string name="maximum_reserved_space">Máximo: %1$d %2$s</string>
+  <string name="reserved_space">Espaço reservado</string>
+  <string name="partitions_aligned_4k">✓ As partições são sempre alinhadas a limites de 4 KiB.</string>
+  <string name="apply">Aplicar</string>
+  <string name="unknown_version">desconhecida</string>
+  <string name="grant_access_to_check_ventoy">Conceda acesso ao USB para verificar se já existe uma instalação do Ventoy.</string>
+  <string name="checking_ventoy_installation">Verificando o dispositivo USB…</string>
+  <string name="ready_to_install_ventoy_version">Pronto para instalar o Ventoy %1$s</string>
+  <string name="ventoy_update_available">Ventoy %1$s instalado · %2$s disponível</string>
+  <string name="ventoy_ready_to_repair">O Ventoy %1$s está instalado e pode ser reparado.</string>
+  <string name="ventoy_newer_than_bundled">Este dispositivo tem o Ventoy %1$s, mais recente que o %2$s do Vendroid. O downgrade está bloqueado.</string>
+  <string name="ventoy_unknown_version_blocked">Não foi possível determinar a versão do Ventoy instalada. A atualização e o reparo estão bloqueados para evitar um possível downgrade.</string>
+  <string name="ventoy_metadata_only_repair">Somente os metadados de partição GPT danificados serão reparados. Os dados do Ventoy instalado e seus arquivos serão preservados.</string>
+  <string name="existing_partitions_use_force_install">Este dispositivo já tem partições. Volte e escolha Instalação forçada para apagá-lo.</string>
+  <string name="could_not_check_ventoy">Não foi possível inspecionar este dispositivo USB.</string>
+  <string name="files_will_be_preserved">Seus arquivos serão preservados</string>
+  <string name="updating_ventoy_preserves_files">Somente os componentes de inicialização do Ventoy serão atualizados. Mantenha o dispositivo conectado e faça backup dos arquivos insubstituíveis antes.</string>
+  <string name="ventoy_options_summary">%1$s · exFAT · Rótulo: %2$s · Cluster: %3$s · Reservado: %4$s</string>
+  <string name="partition_style">Estilo de partição</string>
+  <string name="partition_style_description">MBR é o padrão recomendado. Dispositivos maiores que 2 TiB exigem GPT e a versão beta do Vendroid.</string>
+  <string name="partition_style_mbr">MBR (Recomendado)</string>
+  <string name="partition_style_gpt" translatable="false">GPT</string>
+  <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+  <string name="gpt_preview_warning">Experimental: faça backup do dispositivo USB antes de instalar com GPT.</string>
+  <string name="gpt_available_in_v_preview">A instalação com GPT está disponível na versão beta do Vendroid no Google Play.</string>
+  <string name="drive_requires_v_preview">Este dispositivo exige a versão beta do Vendroid até que o suporte a GPT passe por testes físicos.</string>
+  <string name="large_drive_requires_v_preview">Dispositivos maiores que 2 TiB exigem a versão beta do Vendroid até que o suporte a dispositivos grandes passe por testes físicos.</string>
+  <string name="large_drive_requires_gpt">Este dispositivo tem mais de 2 TiB. Selecione GPT para continuar; o MBR não suporta essa capacidade.</string>
+  <string name="get_v_preview">Participar da versão beta do Vendroid</string>
+  <string name="privacy_policy">Política de privacidade</string>
+  <string name="check_online_ventoy_update">Verificar atualização online</string>
+  <string name="checking_online_ventoy_update">Verificando versões do Ventoy…</string>
+  <string name="downloading_online_ventoy">Baixando o Ventoy %1$s…</string>
+  <string name="online_ventoy_download_percent">%1$d%% baixado</string>
+  <string name="using_downloaded_ventoy">Usando o Ventoy %1$s verificado online</string>
+  <string name="no_newer_ventoy_online">O Ventoy selecionado já é a versão mais recente disponível.</string>
+  <string name="online_ventoy_update_failed">Não foi possível baixar a atualização online do Ventoy.</string>
+  <string name="check_again">Verificar novamente</string>
+  <string name="percent_complete">%1$d%% concluído</string>
+  <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Mover o celular ou o cabo USB pode desconectar o dispositivo enquanto o Vendroid grava nele.</string>
+  <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">O Vendroid começa automaticamente quando o celular está deitado e parado, ou toque em Pular para começar agora.</string>
+  <string name="about_project_summary">O Vendroid é um aplicativo Android de código aberto para instalar o Ventoy em dispositivos USB e gerenciar arquivos de imagem de inicialização.</string>
+  <string name="developer_name" translatable="false">RamonMods</string>
+  <string name="developer_credit">Desenvolvido por %1$s.</string>
+  <string name="project_source">Código-fonte do projeto: %1$s.</string>
+  <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">O Vendroid é uma versão modificada do %1$s, © Davide Depau e colaboradores, usada sob a GNU GPLv3. Modificado desde 4 de julho de 2026; alterações © 2026 %2$s.</string>
+  <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">O Ventoy %1$s incluído é software livre sob a GNU GPLv3. Seu código-fonte: %2$s.</string>
+  <string name="gpl_license_notice">O Vendroid é software livre sob a GNU GPLv3. Ele vem sem garantia, e você pode redistribuí-lo sob essa licença.</string>
+  <string name="ventoy_installer_name">Instalador do Ventoy</string>
+  <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">O Vendroid gravou o Ventoy no dispositivo USB, mas a leitura retornou dados diferentes no byte %1$d. O dispositivo pode ser falsificado, estar com defeito ou não suportar transferências grandes. Formate o dispositivo para usá-lo novamente. Depois, tente de novo com Transferências USB menores ativadas em Opções avançadas, ou use outro dispositivo.</string>
+  <string name="close">Fechar</string>
+  <string name="menu">Menu</string>
+  <string name="language">Idioma</string>
+  <string name="language_automatic">Automático (idioma do dispositivo)</string>
+  <string name="language_english">Inglês</string>
+  <string name="language_arabic">العربية</string>
+  <string name="privacy_policy_language_note">A política abaixo está disponível em inglês.</string>
+  <string name="open_source_licenses">Licenças de código aberto</string>
+  <string name="licenses_language_note">Estes avisos e textos de licença estão disponíveis em inglês.</string>
+  <string name="licenses_back">Voltar</string>
+  <string name="project_website">Site do projeto</string>
+  <string name="help_and_contact">Ajuda e contato</string>
+  <string name="ventoy_mirror_name">Espelho de atualizações do Vendroid</string>
+  <string name="ventoy_mirror_disclosure">Os downloads opcionais usam o espelho de atualizações do Vendroid. O serviço recebe seu endereço IP e informações da solicitação. Veja Sobre → Política de privacidade.</string>
 </resources>
