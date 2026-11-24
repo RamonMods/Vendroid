@@ -15,6 +15,9 @@
   <a href="#google-play-beta"><img src="https://img.shields.io/badge/Google%20Play-closed%20beta-34a853?logo=googleplay&logoColor=white" alt="Beta fechada no Google Play"></a>
   <img src="https://img.shields.io/badge/Android-6.0%2B-3ddc84?logo=android&logoColor=white" alt="Android 6.0 ou mais recente">
   <a href="LICENSE"><img src="https://img.shields.io/github/license/RamonMods/Vendroid" alt="Licença: GPL-3.0"></a>
+</p>
+
+<p align="center">
   <a href="https://pixgg.com/ramon"><img src="https://img.shields.io/badge/Pix-pixgg.com%2Framon-32BCAD?style=for-the-badge&logo=pix&logoColor=white" alt="Apoiar o projeto" /></a>
 </p>
 
