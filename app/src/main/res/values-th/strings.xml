@@ -92,4 +92,90 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">เริ่มเขียนแล้ว แต่น่าเสียดายที่ข้อมูลบางส่วนสูญหายไประหว่างทาง โปรดลองอีกครั้ง</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">หากทำได้ โปรดรายงานปัญหานี้บน GitHub พร้อมขั้นตอนที่นำไปสู่ข้อผิดพลาดนี้</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">ดูปัญหาของบน GitHub</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">ติดตั้ง Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">บังคับติดตั้ง</string>
+    <string name="installing_ventoy">กำลังติดตั้ง Ventoy บน</string>
+    <string name="updating_ventoy">กำลังอัปเดต Ventoy บน</string>
+    <string name="ventoy_installed_successfully">ติดตั้ง Ventoy สำเร็จแล้ว</string>
+    <string name="ventoy_updated_successfully">อัปเดต Ventoy สำเร็จแล้ว</string>
+    <string name="install_ventoy_another_drive">ติดตั้ง Ventoy บนไดรฟ์อื่น</string>
+    <string name="update_ventoy">อัปเดต</string>
+    <string name="update_ventoy_title">อัปเดต Ventoy</string>
+    <string name="repair_ventoy">ซ่อมแซม</string>
+    <string name="advanced_options">ตัวเลือกขั้นสูง</string>
+    <string name="volume_label">ชื่อวอลุ่ม</string>
+    <string name="exfat_label_limit">1–11 อักขระ</string>
+    <string name="cluster_size">ขนาดคลัสเตอร์</string>
+    <string name="automatic">อัตโนมัติ</string>
+    <string name="reserve_space">สำรองพื้นที่ไว้ที่ท้าย</string>
+    <string name="reserve_space_description">เว้นพื้นที่ที่ยังไม่ได้จัดสรรไว้หลังพาร์ติชัน Ventoy</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">ถ่ายโอน USB ขนาดเล็กลง</string>
+    <string name="small_usb_transfers_description">ช้ากว่า แต่อาจช่วยไดรฟ์ที่ไม่ผ่านการตรวจสอบหรือขาดการเชื่อมต่อระหว่างการติดตั้ง</string>
+    <string name="maximum_reserved_space">สูงสุด: %1$d %2$s</string>
+    <string name="reserved_space">พื้นที่ที่สำรองไว้</string>
+    <string name="partitions_aligned_4k">✓ พาร์ติชันจะจัดแนวตามขอบเขต 4 KiB เสมอ</string>
+    <string name="apply">ใช้</string>
+    <string name="unknown_version">ไม่ทราบ</string>
+    <string name="grant_access_to_check_ventoy">ให้สิทธิ์เข้าถึง USB เพื่อตรวจสอบว่ามีการติดตั้ง Ventoy อยู่แล้วหรือไม่</string>
+    <string name="checking_ventoy_installation">กำลังตรวจสอบไดรฟ์ USB…</string>
+    <string name="ready_to_install_ventoy_version">พร้อมติดตั้ง Ventoy %1$s</string>
+    <string name="ventoy_update_available">ติดตั้ง Ventoy %1$s แล้ว · มีเวอร์ชัน %2$s ให้ใช้</string>
+    <string name="ventoy_ready_to_repair">ติดตั้ง Ventoy %1$s แล้วและสามารถซ่อมแซมได้</string>
+    <string name="ventoy_newer_than_bundled">ไดรฟ์นี้มี Ventoy %1$s ซึ่งใหม่กว่า %2$s ของ Vendroid การถอยเวอร์ชันถูกบล็อก</string>
+    <string name="ventoy_unknown_version_blocked">ไม่สามารถระบุเวอร์ชัน Ventoy ที่ติดตั้งได้ การอัปเดตและซ่อมแซมถูกบล็อกเพื่อป้องกันการถอยเวอร์ชันที่อาจเกิดขึ้น</string>
+    <string name="ventoy_metadata_only_repair">จะซ่อมแซมเฉพาะข้อมูลเมตาของพาร์ติชัน GPT ที่เสียหาย ข้อมูล Ventoy ที่ติดตั้งและไฟล์ของคุณจะยังคงอยู่</string>
+    <string name="existing_partitions_use_force_install">ไดรฟ์นี้มีพาร์ติชันอยู่แล้ว ให้ย้อนกลับแล้วเลือกบังคับติดตั้งเพื่อลบข้อมูลทั้งหมด</string>
+    <string name="could_not_check_ventoy">ไม่สามารถตรวจสอบไดรฟ์ USB นี้ได้</string>
+    <string name="files_will_be_preserved">ไฟล์ของคุณจะยังคงอยู่</string>
+    <string name="updating_ventoy_preserves_files">จะรีเฟรชเฉพาะส่วนประกอบบูตของ Ventoy ให้เสียบไดรฟ์ไว้และสำรองไฟล์ที่ไม่สามารถทดแทนได้ก่อน</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · ชื่อ: %2$s · คลัสเตอร์: %3$s · สำรอง: %4$s</string>
+    <string name="partition_style">รูปแบบพาร์ติชัน</string>
+    <string name="partition_style_description">MBR เป็นค่าเริ่มต้นที่แนะนำ ไดรฟ์ที่ใหญ่กว่า 2 TiB ต้องใช้ GPT และ Vendroid เวอร์ชันเบตา</string>
+    <string name="partition_style_mbr">MBR (แนะนำ)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">ทดลอง: ให้สำรองไดรฟ์ USB ก่อนติดตั้งด้วย GPT</string>
+    <string name="gpt_available_in_v_preview">การติดตั้ง GPT มีให้ใช้ใน Vendroid เวอร์ชันเบตาบน Google Play</string>
+    <string name="drive_requires_v_preview">ไดรฟ์นี้ต้องใช้ Vendroid เวอร์ชันเบตาจนกว่าการใช้งาน GPT จะผ่านการทดสอบจริง</string>
+    <string name="large_drive_requires_v_preview">ไดรฟ์ที่ใหญ่กว่า 2 TiB ต้องใช้ Vendroid เวอร์ชันเบตาจนกว่าการรองรับไดรฟ์ขนาดใหญ่จะผ่านการทดสอบจริง</string>
+    <string name="large_drive_requires_gpt">ไดรฟ์นี้ใหญ่กว่า 2 TiB เลือก GPT เพื่อดำเนินการต่อ เนื่องจาก MBR ใช้ความจุนี้ไม่ได้</string>
+    <string name="get_v_preview">เข้าร่วม Vendroid เวอร์ชันเบตา</string>
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="check_online_ventoy_update">ตรวจสอบการอัปเดตออนไลน์</string>
+    <string name="checking_online_ventoy_update">กำลังตรวจสอบเวอร์ชัน Ventoy…</string>
+    <string name="downloading_online_ventoy">กำลังดาวน์โหลด Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">ดาวน์โหลดแล้ว %1$d%%</string>
+    <string name="using_downloaded_ventoy">กำลังใช้ Ventoy %1$s ที่ตรวจสอบแล้วจากออนไลน์</string>
+    <string name="no_newer_ventoy_online">ไฟล์ Ventoy ที่เลือกเป็นเวอร์ชันล่าสุดที่มีอยู่แล้ว</string>
+    <string name="online_ventoy_update_failed">ไม่สามารถดาวน์โหลดการอัปเดต Ventoy ออนไลน์ได้</string>
+    <string name="check_again">ตรวจสอบอีกครั้ง</string>
+    <string name="percent_complete">เสร็จแล้ว %1$d%%</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">การเคลื่อนมือถือหรือสาย USB อาจทำให้ไดรฟ์ขาดการเชื่อมต่อขณะที่ Vendroid กำลังเขียนข้อมูล</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid จะเริ่มเองเมื่อมือถือวางราบและนิ่ง หรือแตะข้ามเพื่อเริ่มตอนนี้</string>
+    <string name="about_project_summary">Vendroid เป็นแอป Android แบบโอเพนซอร์สสำหรับติดตั้ง Ventoy บนไดรฟ์ USB และจัดการไฟล์อิมเมจบูต</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">พัฒนาโดย %1$s</string>
+    <string name="project_source">ซอร์สโค้ดของโปรเจกต์: %1$s</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid เป็นเวอร์ชันที่ดัดแปลงจาก %1$s © Davide Depau และผู้ร่วมพัฒนา ใช้งานภายใต้สัญญาอนุญาต GNU GPLv3 ดัดแปลงตั้งแต่ 4 กรกฎาคม 2026 การเปลี่ยนแปลง © 2026 %2$s</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s ที่รวมมาด้วยเป็นซอฟต์แวร์เสรีภายใต้สัญญาอนุญาต GNU GPLv3 ซอร์สโค้ด: %2$s</string>
+    <string name="gpl_license_notice">Vendroid เป็นซอฟต์แวร์เสรีภายใต้สัญญาอนุญาต GNU GPLv3 ไม่มีการรับประกัน และคุณสามารถแจกจ่ายซ้ำภายใต้สัญญาอนุญาตดังกล่าว</string>
+    <string name="ventoy_installer_name">ตัวติดตั้ง Ventoy</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">ไดรฟ์ USB ใหญ่เกินไปและ Vendroid ไม่รองรับ</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid เขียน Ventoy ลงไดรฟ์ USB แต่เมื่ออ่านกลับพบข้อมูลต่างกันที่ไบต์ %1$d ไดรฟ์อาจเป็นของปลอม เสียหาย หรือไม่รองรับการถ่ายโอนขนาดใหญ่ ให้ฟอร์แมตไดรฟ์ก่อนใช้งานอีกครั้ง จากนั้นลองใหม่โดยเปิดตัวเลือกถ่ายโอน USB ขนาดเล็กลงในตัวเลือกขั้นสูง หรือใช้ไดรฟ์อื่น</string>
+    <string name="close">ปิด</string>
+    <string name="menu">เมนู</string>
+    <string name="language">ภาษา</string>
+    <string name="language_automatic">อัตโนมัติ (ภาษาของอุปกรณ์)</string>
+    <string name="language_english">อังกฤษ</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">นโยบายด้านล่างนี้ให้บริการเป็นภาษาอังกฤษ</string>
+    <string name="open_source_licenses">สัญญาอนุญาตโอเพนซอร์ส</string>
+    <string name="licenses_language_note">ประกาศและข้อความสัญญาอนุญาตเหล่านี้ให้บริการเป็นภาษาอังกฤษ</string>
+    <string name="licenses_back">ย้อนกลับ</string>
+    <string name="project_website">เว็บไซต์โปรเจกต์</string>
+    <string name="help_and_contact">ความช่วยเหลือและติดต่อ</string>
+    <string name="ventoy_mirror_name">มิเรอร์อัปเดตของ Vendroid</string>
+    <string name="ventoy_mirror_disclosure">การดาวน์โหลดแบบไม่บังคับใช้มิเรอร์อัปเดตของ Vendroid บริการจะได้รับที่อยู่ IP และข้อมูลคำขอของคุณ ดูเกี่ยวกับ → นโยบายความเป็นส่วนตัว</string>
 </resources>

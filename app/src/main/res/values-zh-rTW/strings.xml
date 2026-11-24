@@ -93,4 +93,89 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">進行寫入程序時不幸碰上資料遺失問題，請稍後再試。</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">請力所能及地前往 GitHub 回報問題，附上在招致錯誤前做過的事情。</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">查看 GitHub 問題板</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">安裝 Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">強制安裝</string>
+    <string name="installing_ventoy">正在於下列裝置安裝 Ventoy</string>
+    <string name="updating_ventoy">正在於下列裝置更新 Ventoy</string>
+    <string name="ventoy_installed_successfully">Ventoy 安裝成功</string>
+    <string name="ventoy_updated_successfully">Ventoy 更新成功</string>
+    <string name="install_ventoy_another_drive">在其他磁碟機安裝 Ventoy</string>
+    <string name="update_ventoy">更新</string>
+    <string name="update_ventoy_title">更新 Ventoy</string>
+    <string name="repair_ventoy">修復</string>
+    <string name="advanced_options">進階選項</string>
+    <string name="volume_label">磁碟區標籤</string>
+    <string name="exfat_label_limit">1–11 個字元</string>
+    <string name="cluster_size">叢集大小</string>
+    <string name="automatic">自動</string>
+    <string name="reserve_space">在結尾保留空間</string>
+    <string name="reserve_space_description">在 Ventoy 分割區之後保留未配置的空間。</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">較小的 USB 傳輸</string>
+    <string name="small_usb_transfers_description">速度較慢，但可能有助於無法通過驗證或在安裝期間中斷連線的磁碟機。</string>
+    <string name="maximum_reserved_space">最大值：%1$d %2$s</string>
+    <string name="reserved_space">已保留空間</string>
+    <string name="partitions_aligned_4k">✓ 分割區一律對齊至 4 KiB 邊界。</string>
+    <string name="apply">套用</string>
+    <string name="unknown_version">未知</string>
+    <string name="grant_access_to_check_ventoy">授予 USB 存取權限以檢查是否已有 Ventoy 安裝。</string>
+    <string name="checking_ventoy_installation">正在檢查 USB 磁碟機…</string>
+    <string name="ready_to_install_ventoy_version">準備安裝 Ventoy %1$s</string>
+    <string name="ventoy_update_available">已安裝 Ventoy %1$s · 可用版本 %2$s</string>
+    <string name="ventoy_ready_to_repair">已安裝 Ventoy %1$s，可以修復。</string>
+    <string name="ventoy_newer_than_bundled">此磁碟機上的 Ventoy %1$s 比 Vendroid 隨附的 %2$s 更新。已封鎖降級。</string>
+    <string name="ventoy_unknown_version_blocked">無法判斷已安裝的 Ventoy 版本。為了避免可能的降級，更新與修復已被封鎖。</string>
+    <string name="ventoy_metadata_only_repair">只會修復損毀的 GPT 分割區中繼資料。已安裝的 Ventoy 內容與您的檔案都會保留。</string>
+    <string name="existing_partitions_use_force_install">此磁碟機已有分割區。請返回並選擇「強制安裝」以清除它。</string>
+    <string name="could_not_check_ventoy">無法檢查此 USB 磁碟機。</string>
+    <string name="files_will_be_preserved">您的檔案將會保留</string>
+    <string name="updating_ventoy_preserves_files">只會更新 Ventoy 開機元件。請保持磁碟機連線，並先備份無法取代的檔案。</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · 標籤：%2$s · 叢集：%3$s · 保留：%4$s</string>
+    <string name="partition_style">分割區樣式</string>
+    <string name="partition_style_description">建議使用 MBR 作為預設值。大於 2 TiB 的磁碟機需要 GPT 與 Vendroid 測試版。</string>
+    <string name="partition_style_mbr">MBR（建議）</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">實驗功能：使用 GPT 安裝前請先備份 USB 磁碟機。</string>
+    <string name="gpt_available_in_v_preview">GPT 安裝功能可在 Google Play 上的 Vendroid 測試版中使用。</string>
+    <string name="drive_requires_v_preview">此磁碟機需要 Vendroid 測試版，直到 GPT 流程通過實際測試為止。</string>
+    <string name="large_drive_requires_v_preview">大於 2 TiB 的磁碟機需要 Vendroid 測試版，直到大容量磁碟機支援通過實際測試為止。</string>
+    <string name="large_drive_requires_gpt">此磁碟機大於 2 TiB。請選擇 GPT 以繼續；MBR 無法使用此容量。</string>
+    <string name="get_v_preview">加入 Vendroid 測試版</string>
+    <string name="privacy_policy">隱私權政策</string>
+    <string name="check_online_ventoy_update">檢查線上更新</string>
+    <string name="checking_online_ventoy_update">正在檢查 Ventoy 版本…</string>
+    <string name="downloading_online_ventoy">正在下載 Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">已下載 %1$d%%</string>
+    <string name="using_downloaded_ventoy">使用已驗證的線上 Ventoy %1$s</string>
+    <string name="no_newer_ventoy_online">所選的 Ventoy 內容已是最新版本。</string>
+    <string name="online_ventoy_update_failed">無法下載線上的 Ventoy 更新。</string>
+    <string name="check_again">重新檢查</string>
+    <string name="percent_complete">已完成 %1$d%%</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Vendroid 寫入時，移動手機或其 USB 連接線可能導致磁碟機中斷連線。</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">手機平放且靜止時，Vendroid 會自動開始；也可以點選「跳過」立即開始。</string>
+    <string name="about_project_summary">Vendroid 是一款開放原始碼的 Android 應用程式，用於在 USB 磁碟機上安裝 Ventoy 及管理開機映像檔。</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">由 %1$s 開發。</string>
+    <string name="project_source">專案原始碼：%1$s。</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid 是 %1$s 的修改版本，© Davide Depau 與貢獻者，依 GNU GPLv3 授權使用。自 2026 年 7 月 4 日起修改；變更 © 2026 %2$s。</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">隨附的 Ventoy %1$s 是 GNU GPLv3 授權下的自由軟體。其原始碼：%2$s。</string>
+    <string name="gpl_license_notice">Vendroid 是 GNU GPLv3 授權下的自由軟體。不提供任何保證，您可以依該授權重新散佈。</string>
+    <string name="ventoy_installer_name">Ventoy 安裝程式</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid 已將 Ventoy 寫入 USB 磁碟機，但讀回時在位元組 %1$d 處出現不同資料。此磁碟機可能是仿冒品、故障，或無法處理大型傳輸。請格式化磁碟機後再使用。然後在「進階選項」中開啟「較小的 USB 傳輸」後重試，或改用其他磁碟機。</string>
+    <string name="close">關閉</string>
+    <string name="menu">選單</string>
+    <string name="language">語言</string>
+    <string name="language_automatic">自動（裝置語言）</string>
+    <string name="language_english">英文</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">以下政策以英文提供。</string>
+    <string name="open_source_licenses">開放原始碼授權</string>
+    <string name="licenses_language_note">這些宣告與授權條文以英文提供。</string>
+    <string name="licenses_back">返回</string>
+    <string name="project_website">專案網站</string>
+    <string name="help_and_contact">說明與聯絡</string>
+    <string name="ventoy_mirror_name">Vendroid 更新鏡像</string>
+    <string name="ventoy_mirror_disclosure">選用下載會使用 Vendroid 的更新鏡像。該服務會接收您的 IP 位址與要求資訊。請參閱「關於」→「隱私權政策」。</string>
 </resources>

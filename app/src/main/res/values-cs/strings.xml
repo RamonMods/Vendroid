@@ -93,4 +93,89 @@
     <string name="the_usb_drive_stopped_responding" comment="Error message">Disk USB přestal odpovídat</string>
     <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Zápis dalšího obrazu</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Zobrazit problémy na GitHubu</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Nainstalovat Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Vynucená instalace</string>
+    <string name="installing_ventoy">Instaluji Ventoy na</string>
+    <string name="updating_ventoy">Aktualizuji Ventoy na</string>
+    <string name="ventoy_installed_successfully">Ventoy byl úspěšně nainstalován</string>
+    <string name="ventoy_updated_successfully">Ventoy byl úspěšně aktualizován</string>
+    <string name="install_ventoy_another_drive">Nainstalovat Ventoy na jiný disk</string>
+    <string name="update_ventoy">Aktualizovat</string>
+    <string name="update_ventoy_title">Aktualizovat Ventoy</string>
+    <string name="repair_ventoy">Opravit</string>
+    <string name="advanced_options">Rozšířené možnosti</string>
+    <string name="volume_label">Popisek svazku</string>
+    <string name="exfat_label_limit">1–11 znaků</string>
+    <string name="cluster_size">Velikost clusteru</string>
+    <string name="automatic">Automaticky</string>
+    <string name="reserve_space">Rezervovat místo na konci</string>
+    <string name="reserve_space_description">Za oddíly Ventoy ponechte nepřidělený prostor.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Menší přenosy USB</string>
+    <string name="small_usb_transfers_description">Pomalejší, ale může pomoci diskům, které neprojdou ověřením nebo se během instalace odpojí.</string>
+    <string name="maximum_reserved_space">Maximum: %1$d %2$s</string>
+    <string name="reserved_space">Rezervovaný prostor</string>
+    <string name="partitions_aligned_4k">✓ Oddíly jsou vždy zarovnány na hranice 4 KiB.</string>
+    <string name="apply">Použít</string>
+    <string name="unknown_version">neznámá</string>
+    <string name="grant_access_to_check_ventoy">Udělete přístup k USB pro kontrolu existující instalace Ventoy.</string>
+    <string name="checking_ventoy_installation">Kontroluji USB disk…</string>
+    <string name="ready_to_install_ventoy_version">Připraveno k instalaci Ventoy %1$s</string>
+    <string name="ventoy_update_available">Nainstalován Ventoy %1$s · dostupná verze %2$s</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s je nainstalován a lze ho opravit.</string>
+    <string name="ventoy_newer_than_bundled">Tento disk obsahuje Ventoy %1$s, novější než %2$s od Vendroidu. Downgrade je zablokován.</string>
+    <string name="ventoy_unknown_version_blocked">Nainstalovanou verzi Ventoy se nepodařilo určit. Aktualizace a oprava jsou zablokovány, aby se zabránilo možnému downgradu.</string>
+    <string name="ventoy_metadata_only_repair">Opravena bude pouze poškozená metadata oddílu GPT. Nainstalovaný obsah Ventoy a vaše soubory budou zachovány.</string>
+    <string name="existing_partitions_use_force_install">Tento disk již obsahuje oddíly. Vraťte se a pro vymazání zvolte Vynucenou instalaci.</string>
+    <string name="could_not_check_ventoy">Tento USB disk se nepodařilo zkontrolovat.</string>
+    <string name="files_will_be_preserved">Vaše soubory budou zachovány</string>
+    <string name="updating_ventoy_preserves_files">Obnoví se pouze zaváděcí komponenty Ventoy. Nechte disk připojený a nejprve si zálohujte nenahraditelné soubory.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Popisek: %2$s · Cluster: %3$s · Rezerva: %4$s</string>
+    <string name="partition_style">Styl oddílů</string>
+    <string name="partition_style_description">MBR je doporučený výchozí styl. Disky větší než 2 TiB vyžadují GPT a beta verzi Vendroidu.</string>
+    <string name="partition_style_mbr">MBR (doporučeno)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Experimentální: před instalací s GPT si zálohujte USB disk.</string>
+    <string name="gpt_available_in_v_preview">Instalace GPT je dostupná v beta verzi Vendroidu na Google Play.</string>
+    <string name="drive_requires_v_preview">Tento disk vyžaduje beta verzi Vendroidu, dokud cesta GPT neprojde fyzickým testováním.</string>
+    <string name="large_drive_requires_v_preview">Disky větší než 2 TiB vyžadují beta verzi Vendroidu, dokud podpora velkých disků neprojde fyzickým testováním.</string>
+    <string name="large_drive_requires_gpt">Tento disk je větší než 2 TiB. Pro pokračování vyberte GPT; MBR nedokáže tuto kapacitu využít.</string>
+    <string name="get_v_preview">Připojit se k beta verzi Vendroidu</string>
+    <string name="privacy_policy">Zásady ochrany osobních údajů</string>
+    <string name="check_online_ventoy_update">Kontrola online aktualizace</string>
+    <string name="checking_online_ventoy_update">Kontroluji vydání Ventoy…</string>
+    <string name="downloading_online_ventoy">Stahuji Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">Staženo %1$d%%</string>
+    <string name="using_downloaded_ventoy">Používám ověřený online Ventoy %1$s</string>
+    <string name="no_newer_ventoy_online">Vybraný obsah Ventoy je již nejnovější dostupnou verzí.</string>
+    <string name="online_ventoy_update_failed">Online aktualizaci Ventoy se nepodařilo stáhnout.</string>
+    <string name="check_again">Zkontrolovat znovu</string>
+    <string name="percent_complete">%1$d%% dokončeno</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Pohyb telefonu nebo jeho kabelu USB může během zápisu Vendroidu odpojit disk.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid se spustí sám, jakmile bude telefon ležet naplocho a nehybně, nebo klepněte na Přeskočit a spusťte hned.</string>
+    <string name="about_project_summary">Vendroid je open-source aplikace pro Android určená k instalaci Ventoy na USB disky a správě souborů zaváděcích obrazů.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Vyvinul %1$s.</string>
+    <string name="project_source">Zdrojový kód projektu: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid je upravená verze %1$s, © Davide Depau a přispěvatelé, použité pod licencí GNU GPLv3. Upravováno od 4. července 2026; změny © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Součástí je Ventoy %1$s, svobodný software pod licencí GNU GPLv3. Jeho zdrojový kód: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid je svobodný software pod licencí GNU GPLv3. Poskytuje se bez záruky a můžete jej šířit podle této licence.</string>
+    <string name="ventoy_installer_name">Instalátor Ventoy</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid zapsal Ventoy na USB disk, ale při zpětném čtení se na bajtu %1$d objevila jiná data. Disk může být padělaný, vadný nebo nemusí zvládat velké přenosy. Pro další použití disk naformátujte. Poté to zkuste znovu se zapnutou možností Menší přenosy USB v Rozšířených možnostech, nebo použijte jiný disk.</string>
+    <string name="close">Zavřít</string>
+    <string name="menu">Nabídka</string>
+    <string name="language">Jazyk</string>
+    <string name="language_automatic">Automaticky (jazyk zařízení)</string>
+    <string name="language_english">Angličtina</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Níže uvedené zásady jsou v angličtině.</string>
+    <string name="open_source_licenses">Licence open source</string>
+    <string name="licenses_language_note">Tyto oznámení a texty licencí jsou v angličtině.</string>
+    <string name="licenses_back">Zpět</string>
+    <string name="project_website">Web projektu</string>
+    <string name="help_and_contact">Nápověda a kontakt</string>
+    <string name="ventoy_mirror_name">Zrcadlo aktualizací Vendroidu</string>
+    <string name="ventoy_mirror_disclosure">Volitelné stahování používá zrcadlo aktualizací Vendroidu. Služba obdrží vaši IP adresu a informace o požadavku. Viz O aplikaci → Zásady ochrany osobních údajů.</string>
 </resources>

@@ -95,4 +95,89 @@
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">הצגת תקלות ב־GitHub</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">אם אפשר, נא לדווח על התקלה הזאת ב־GitHub בצירוף צעדים שהובילו לשגיאה הזאת.</string>
     <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">כנראה שתהליך הכתיבה נתקע. נא לנסות שוב.</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">התקנת Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">התקנה בכוח</string>
+    <string name="installing_ventoy">מתקין Ventoy ב־</string>
+    <string name="updating_ventoy">מעדכן Ventoy ב־</string>
+    <string name="ventoy_installed_successfully">Ventoy הותקן בהצלחה</string>
+    <string name="ventoy_updated_successfully">Ventoy עודכן בהצלחה</string>
+    <string name="install_ventoy_another_drive">התקנת Ventoy בכונן אחר</string>
+    <string name="update_ventoy">עדכון</string>
+    <string name="update_ventoy_title">עדכון Ventoy</string>
+    <string name="repair_ventoy">תיקון</string>
+    <string name="advanced_options">אפשרויות מתקדמות</string>
+    <string name="volume_label">תווית כרך</string>
+    <string name="exfat_label_limit">1–11 תווים</string>
+    <string name="cluster_size">גודל אשכול</string>
+    <string name="automatic">אוטומטי</string>
+    <string name="reserve_space">שמירת מקום בסוף</string>
+    <string name="reserve_space_description">השאר שטח לא מוקצה אחרי מחיצות Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">העברות USB קטנות יותר</string>
+    <string name="small_usb_transfers_description">איטי יותר, אך עשוי לעזור לכוננים שנכשלים באימות או מתנתקים במהלך ההתקנה.</string>
+    <string name="maximum_reserved_space">מקסימום: %1$d %2$s</string>
+    <string name="reserved_space">שטח שמור</string>
+    <string name="partitions_aligned_4k">✓ המחיצות תמיד מיושרות לגבולות של 4 ק"ב.</string>
+    <string name="apply">החל</string>
+    <string name="unknown_version">לא ידוע</string>
+    <string name="grant_access_to_check_ventoy">הענק גישה ל־USB כדי לבדוק אם קיימת התקנת Ventoy.</string>
+    <string name="checking_ventoy_installation">בודק את כונן ה־USB…</string>
+    <string name="ready_to_install_ventoy_version">מוכן להתקנת Ventoy %1$s</string>
+    <string name="ventoy_update_available">מותקן Ventoy %1$s · זמין %2$s</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s מותקן וניתן לתיקון.</string>
+    <string name="ventoy_newer_than_bundled">בכונן הזה יש Ventoy %1$s, חדש יותר מ־%2$s של Vendroid. הורדת גרסה חסומה.</string>
+    <string name="ventoy_unknown_version_blocked">לא ניתן היה לזהות את גרסת Ventoy המותקנת. העדכון והתיקון חסומים כדי למנוע הורדת גרסה אפשרית.</string>
+    <string name="ventoy_metadata_only_repair">רק מטא־נתונים פגומים של מחיצת GPT יתוקנו. מטען Ventoy המותקן והקבצים שלך יישמרו.</string>
+    <string name="existing_partitions_use_force_install">בכונן הזה כבר יש מחיצות. חזור ובחר התקנה בכוח כדי למחוק אותו.</string>
+    <string name="could_not_check_ventoy">לא ניתן היה לבדוק את כונן ה־USB הזה.</string>
+    <string name="files_will_be_preserved">הקבצים שלך יישמרו</string>
+    <string name="updating_ventoy_preserves_files">רק רכיבי האתחול של Ventoy ירועננו. השאר את הכונן מחובר וגבה תחילה קבצים שאין להם תחליף.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · תווית: %2$s · אשכול: %3$s · שמור: %4$s</string>
+    <string name="partition_style">סגנון מחיצה</string>
+    <string name="partition_style_description">MBR הוא ברירת המחדל המומלצת. כוננים גדולים מ־2 TiB דורשים GPT וגרסת בטא של Vendroid.</string>
+    <string name="partition_style_mbr">MBR (מומלץ)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">ניסיוני: גבה את כונן ה־USB לפני התקנה עם GPT.</string>
+    <string name="gpt_available_in_v_preview">התקנת GPT זמינה בגרסת הבטא של Vendroid ב־Google Play.</string>
+    <string name="drive_requires_v_preview">כונן זה דורש גרסת בטא של Vendroid עד שנתיב GPT יעבור בדיקה פיזית.</string>
+    <string name="large_drive_requires_v_preview">כוננים גדולים מ־2 TiB דורשים גרסת בטא של Vendroid עד שתמיכה בכוננים גדולים תעבור בדיקה פיזית.</string>
+    <string name="large_drive_requires_gpt">כונן זה גדול מ־2 TiB. בחר GPT כדי להמשיך; MBR אינו יכול להשתמש בקיבולת זו.</string>
+    <string name="get_v_preview">הצטרף לגרסת הבטא של Vendroid</string>
+    <string name="privacy_policy">מדיניות פרטיות</string>
+    <string name="check_online_ventoy_update">בדיקה עדכון מקוון</string>
+    <string name="checking_online_ventoy_update">בודק גרסאות Ventoy…</string>
+    <string name="downloading_online_ventoy">מוריד Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">הורדו %1$d%%</string>
+    <string name="using_downloaded_ventoy">משתמש ב־Ventoy %1$s מאומת מהרשת</string>
+    <string name="no_newer_ventoy_online">מטען Ventoy שנבחר הוא כבר העדכני ביותר הזמין.</string>
+    <string name="online_ventoy_update_failed">לא ניתן היה להוריד את עדכון Ventoy מהרשת.</string>
+    <string name="check_again">בדוק שוב</string>
+    <string name="percent_complete">הושלמו %1$d%%</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">הזזת הטלפון או כבל ה־USB שלו עלולה לנתק את הכונן בזמן ש־Vendroid כותב אליו.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid מתחיל מעצמו ברגע שהטלפון מונח שטוח ודומם, או הקש על דלג כדי להתחיל עכשיו.</string>
+    <string name="about_project_summary">Vendroid הוא יישום אנדרואיד בקוד פתוח להתקנת Ventoy על כונני USB ולניהול קבצי תמונת אתחול.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">פותח על ידי %1$s.</string>
+    <string name="project_source">קוד המקור של הפרויקט: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid הוא גרסה שונה של %1$s, © Davide Depau ותורמים, בשימוש לפי רישיון GNU GPLv3. שונה מאז 4 ביולי 2026; שינויים © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s המצורף הוא תוכנה חופשית לפי רישיון GNU GPLv3. קוד המקור שלו: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid הוא תוכנה חופשית לפי רישיון GNU GPLv3. הוא מגיע ללא אחריות, ואתה רשאי להפיץ אותו לפי רישיון זה.</string>
+    <string name="ventoy_installer_name">מתקין Ventoy</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid כתב את Ventoy לכונן ה־USB, אך קריאה חוזרת החזירה נתונים שונים בבית %1$d. ייתכן שהכונן מזויף, פגום או שאינו מסוגל להתמודד עם העברות גדולות. פרמל את הכונן כדי להשתמש בו שוב. ואז נסה שוב עם העברות USB קטנות יותר מופעלות באפשרויות מתקדמות, או השתמש בכונן אחר.</string>
+    <string name="close">סגור</string>
+    <string name="menu">תפריט</string>
+    <string name="language">שפה</string>
+    <string name="language_automatic">אוטומטי (שפת המכשיר)</string>
+    <string name="language_english">אנגלית</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">המדיניות שלהלן מסופקת באנגלית.</string>
+    <string name="open_source_licenses">רישיונות קוד פתוח</string>
+    <string name="licenses_language_note">הודעות אלה וטקסטי הרישיון מסופקים באנגלית.</string>
+    <string name="licenses_back">חזור</string>
+    <string name="project_website">אתר הפרויקט</string>
+    <string name="help_and_contact">עזרה ויצירת קשר</string>
+    <string name="ventoy_mirror_name">מראה עדכונים של Vendroid</string>
+    <string name="ventoy_mirror_disclosure">הורדות אופציונליות משתמשות במראת העדכונים של Vendroid. השירות מקבל את כתובת ה־IP שלך ומידע על הבקשה. ראה אודות → מדיניות פרטיות.</string>
 </resources>

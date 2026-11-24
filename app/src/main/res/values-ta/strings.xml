@@ -93,4 +93,89 @@
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">உங்களால் முடிந்தால், இந்த பிழைக்கு வழிவகுத்த படிகளுடன் இந்த சிக்கலை கிதுபில் புகாரளிக்கவும்.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">அறிவிலிமையம் சிக்கல்களைக் காண்க</string>
     <string name="the_usb_drive_is_too_large" comment="Error message">USB இயக்கி மிகவும் பெரியது மற்றும் Vendroid அதை ஆதரிக்காது.</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy ஐ நிறுவு</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">கட்டாய நிறுவல்</string>
+    <string name="installing_ventoy">இதில் Ventoy நிறுவப்படுகிறது</string>
+    <string name="updating_ventoy">இதில் Ventoy புதுப்பிக்கப்படுகிறது</string>
+    <string name="ventoy_installed_successfully">Ventoy வெற்றிகரமாக நிறுவப்பட்டது</string>
+    <string name="ventoy_updated_successfully">Ventoy வெற்றிகரமாக புதுப்பிக்கப்பட்டது</string>
+    <string name="install_ventoy_another_drive">மற்றொரு இயக்ககத்தில் Ventoy நிறுவு</string>
+    <string name="update_ventoy">புதுப்பி</string>
+    <string name="update_ventoy_title">Ventoy ஐ புதுப்பி</string>
+    <string name="repair_ventoy">பழுதுபார்</string>
+    <string name="advanced_options">மேம்பட்ட விருப்பங்கள்</string>
+    <string name="volume_label">தொகுதி லேபிள்</string>
+    <string name="exfat_label_limit">1–11 எழுத்துக்கள்</string>
+    <string name="cluster_size">க்ளஸ்டர் அளவு</string>
+    <string name="automatic">தானியங்கி</string>
+    <string name="reserve_space">இறுதியில் இடம் ஒதுக்கு</string>
+    <string name="reserve_space_description">Ventoy பகிர்வுகளுக்குப் பிறகு ஒதுக்கப்படாத இடத்தை விட்டுவிட்டு செல்.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">சிறிய USB பரிமாற்றங்கள்</string>
+    <string name="small_usb_transfers_description">மெதுவாக இருக்கும், ஆனால் சரிபார்ப்பில் தோல்வியடையும் அல்லது நிறுவலின் போது துண்டிக்கப்படும் இயக்ககங்களுக்கு உதவக்கூடும்.</string>
+    <string name="maximum_reserved_space">அதிகபட்சம்: %1$d %2$s</string>
+    <string name="reserved_space">ஒதுக்கப்பட்ட இடம்</string>
+    <string name="partitions_aligned_4k">✓ பகிர்வுகள் எப்போதும் 4 KiB எல்லைகளுடன் சீரமைக்கப்படும்.</string>
+    <string name="apply">பயன்படுத்து</string>
+    <string name="unknown_version">தெரியாதது</string>
+    <string name="grant_access_to_check_ventoy">ஏற்கனவே உள்ள Ventoy நிறுவலைச் சரிபார்க்க USB அணுகலை வழங்கவும்.</string>
+    <string name="checking_ventoy_installation">USB இயக்ககத்தைப் பார்க்கிறது…</string>
+    <string name="ready_to_install_ventoy_version">Ventoy %1$s ஐ நிறுவத் தயார்</string>
+    <string name="ventoy_update_available">Ventoy %1$s நிறுவப்பட்டுள்ளது · %2$s கிடைக்கிறது</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s நிறுவப்பட்டுள்ளது, பழுதுபார்க்கலாம்.</string>
+    <string name="ventoy_newer_than_bundled">இந்த இயக்ககத்தில் Vendroid இன் %2$s ஐ விட புதிய Ventoy %1$s உள்ளது. குறைந்த பதிப்பிற்கு மாற்றுவது தடுக்கப்பட்டுள்ளது.</string>
+    <string name="ventoy_unknown_version_blocked">நிறுவப்பட்ட Ventoy பதிப்பைக் கண்டறிய முடியவில்லை. சாத்தியமான பதிப்பு குறைப்பைத் தடுக்க புதுப்பிப்பும் பழுதுபார்ப்பும் தடுக்கப்பட்டுள்ளன.</string>
+    <string name="ventoy_metadata_only_repair">GPT பகிர்வு மெட்டாடேட்டா சேதமானதை மட்டுமே பழுதுபார்க்கும். நிறுவப்பட்ட Ventoy உள்ளடக்கமும் உங்கள் கோப்புகளும் பாதுகாக்கப்படும்.</string>
+    <string name="existing_partitions_use_force_install">இந்த இயக்ககத்தில் ஏற்கனவே பகிர்வுகள் உள்ளன. திரும்பிச் சென்று அதை அழிக்க கட்டாய நிறுவலைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="could_not_check_ventoy">இந்த USB இயக்ககத்தை ஆய்வு செய்ய முடியவில்லை.</string>
+    <string name="files_will_be_preserved">உங்கள் கோப்புகள் பாதுகாக்கப்படும்</string>
+    <string name="updating_ventoy_preserves_files">Ventoy தொடக்கக் கூறுகள் மட்டுமே புதுப்பிக்கப்படும். இயக்ககத்தை இணைத்து வைத்திருக்கவும், மாற்ற முடியாத கோப்புகளை முதலில் காப்புப் பிரதி எடுக்கவும்.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · லேபிள்: %2$s · க்ளஸ்டர்: %3$s · ஒதுக்கப்பட்டது: %4$s</string>
+    <string name="partition_style">பகிர்வு நடை</string>
+    <string name="partition_style_description">MBR பரிந்துரைக்கப்பட்ட இயல்புநிலை ஆகும். 2 TiB ஐ விட பெரிய இயக்ககங்களுக்கு GPT மற்றும் Vendroid beta தேவை.</string>
+    <string name="partition_style_mbr">MBR (பரிந்துரைக்கப்பட்டது)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">சோதனை: GPT உடன் நிறுவுவதற்கு முன் USB இயக்ககத்தை காப்புப் பிரதி எடுக்கவும்.</string>
+    <string name="gpt_available_in_v_preview">Google Play இல் Vendroid beta இல் GPT நிறுவல் கிடைக்கிறது.</string>
+    <string name="drive_requires_v_preview">GPT பாதை இயற்பியல் சோதனையில் வெற்றி பெறும் வரை இந்த இயக்ககத்திற்கு Vendroid beta தேவை.</string>
+    <string name="large_drive_requires_v_preview">2 TiB ஐ விட பெரிய இயக்ககங்களுக்கு, பெரிய இயக்கக ஆதரவு இயற்பியல் சோதனையில் வெற்றி பெறும் வரை Vendroid beta தேவை.</string>
+    <string name="large_drive_requires_gpt">இந்த இயக்ககம் 2 TiB ஐ விட பெரியது. தொடர GPT ஐத் தேர்ந்தெடுக்கவும்; MBR இந்த கொள்ளளவைப் பயன்படுத்த முடியாது.</string>
+    <string name="get_v_preview">Vendroid beta இல் சேர்</string>
+    <string name="privacy_policy">தனியுரிமைக் கொள்கை</string>
+    <string name="check_online_ventoy_update">இணையப் புதுப்பிப்பைச் சரிபார்</string>
+    <string name="checking_online_ventoy_update">Ventoy வெளியீடுகளைச் சரிபார்க்கிறது…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s பதிவிறக்கப்படுகிறது…</string>
+    <string name="online_ventoy_download_percent">%1$d%% பதிவிறக்கம் செய்யப்பட்டது</string>
+    <string name="using_downloaded_ventoy">சரிபார்க்கப்பட்ட இணைய Ventoy %1$s பயன்படுத்தப்படுகிறது</string>
+    <string name="no_newer_ventoy_online">தேர்ந்தெடுக்கப்பட்ட Ventoy உள்ளடக்கம் ஏற்கனவே கிடைக்கும் சமீபத்தியதாகும்.</string>
+    <string name="online_ventoy_update_failed">இணைய Ventoy புதுப்பிப்பைப் பதிவிறக்க முடியவில்லை.</string>
+    <string name="check_again">மீண்டும் சரிபார்</string>
+    <string name="percent_complete">%1$d%% நிறைவு</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Vendroid எழுதும் போது தொலைபேசி அல்லது அதன் USB கேபிளை நகர்த்தினால் இயக்ககம் துண்டிக்கப்படலாம்.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">தொலைபேசி தட்டையாகவும் அசையாமலும் இருந்தவுடன் Vendroid தானாகவே தொடங்கும், அல்லது இப்போது தொடங்க தாவு என்பதைத் தட்டவும்.</string>
+    <string name="about_project_summary">Vendroid என்பது USB இயக்ககங்களில் Ventoy ஐ நிறுவவும் தொடக்க இமேஜ் கோப்புகளை நிர்வகிக்கவும் உதவும் ஒரு திறந்த மூல Android ஆப்ஸ் ஆகும்.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">%1$s உருவாக்கியது.</string>
+    <string name="project_source">திட்ட மூலக் குறியீடு: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid என்பது %1$s இன் மாற்றியமைக்கப்பட்ட பதிப்பாகும், © Davide Depau மற்றும் பங்கேற்பாளர்கள், GNU GPLv3 உரிமத்தின் கீழ் பயன்படுத்தப்படுகிறது. 4 ஜூலை 2026 முதல் மாற்றியமைக்கப்பட்டது; மாற்றங்கள் © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">உள்ளடக்கிய Ventoy %1$s என்பது GNU GPLv3 உரிமத்தின் கீழ் உள்ள இலவச மென்பொருள். அதன் மூலக் குறியீடு: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid என்பது GNU GPLv3 உரிமத்தின் கீழ் உள்ள இலவச மென்பொருள். இது எந்த உத்தரவாதமும் இல்லாமல் வருகிறது, மேலும் நீங்கள் அந்த உரிமத்தின் கீழ் அதை விநியோகிக்கலாம்.</string>
+    <string name="ventoy_installer_name">Ventoy நிறுவி</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid USB இயக்ககத்தில் Ventoy ஐ எழுதியது, ஆனால் மீண்டும் படிக்கையில் %1$d வது பைட்டில் வேறுபட்ட தரவு கிடைத்தது. இயக்ககம் போலியாக இருக்கலாம், பழுதடைந்திருக்கலாம், அல்லது பெரிய பரிமாற்றங்களைக் கையாள முடியாமல் இருக்கலாம். மீண்டும் பயன்படுத்த இயக்ககத்தை வடிவமைக்கவும். பிறகு மேம்பட்ட விருப்பங்களில் சிறிய USB பரிமாற்றங்களை இயக்கி மீண்டும் முயற்சிக்கவும், அல்லது வேறு இயக்ககத்தைப் பயன்படுத்தவும்.</string>
+    <string name="close">மூடு</string>
+    <string name="menu">மெனு</string>
+    <string name="language">மொழி</string>
+    <string name="language_automatic">தானியங்கி (சாதன மொழி)</string>
+    <string name="language_english">ஆங்கிலம்</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">கீழுள்ள கொள்கை ஆங்கிலத்தில் வழங்கப்பட்டுள்ளது.</string>
+    <string name="open_source_licenses">திறந்த மூல உரிமங்கள்</string>
+    <string name="licenses_language_note">இந்த அறிவிப்புகளும் உரிம உரைகளும் ஆங்கிலத்தில் வழங்கப்பட்டுள்ளன.</string>
+    <string name="licenses_back">பின்</string>
+    <string name="project_website">திட்ட இணையதளம்</string>
+    <string name="help_and_contact">உதவி மற்றும் தொடர்பு</string>
+    <string name="ventoy_mirror_name">Vendroid புதுப்பிப்பு கண்ணாடி</string>
+    <string name="ventoy_mirror_disclosure">விருப்ப பதிவிறக்கங்கள் Vendroid இன் புதுப்பிப்பு கண்ணாடியைப் பயன்படுத்துகின்றன. இந்த சேவை உங்கள் IP முகவரியையும் கோரிக்கைத் தகவலையும் பெறுகிறது. பற்றி → தனியுரிமைக் கொள்கையைப் பார்க்கவும்.</string>
 </resources>

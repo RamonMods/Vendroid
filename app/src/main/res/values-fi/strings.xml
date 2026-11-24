@@ -93,4 +93,89 @@
     <string name="missing_permission_to_access_the_usb_device" comment="Error message">Ei käyttöoikeutta USB-laiteeseen</string>
     <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Levykuvan URI:tä ei määritetty</string>
     <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Kohde laitetta ei määritetty</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Asenna Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Pakkoasennus</string>
+    <string name="installing_ventoy">Asennetaan Ventoy kohteeseen</string>
+    <string name="updating_ventoy">Päivitetään Ventoy kohteeseen</string>
+    <string name="ventoy_installed_successfully">Ventoy asennettu onnistuneesti</string>
+    <string name="ventoy_updated_successfully">Ventoy päivitetty onnistuneesti</string>
+    <string name="install_ventoy_another_drive">Asenna Ventoy toiselle asemalle</string>
+    <string name="update_ventoy">Päivitä</string>
+    <string name="update_ventoy_title">Päivitä Ventoy</string>
+    <string name="repair_ventoy">Korjaa</string>
+    <string name="advanced_options">Lisäasetukset</string>
+    <string name="volume_label">Tason nimike</string>
+    <string name="exfat_label_limit">1–11 merkkiä</string>
+    <string name="cluster_size">Klusterin koko</string>
+    <string name="automatic">Automaattinen</string>
+    <string name="reserve_space">Varaa tilaa loppuun</string>
+    <string name="reserve_space_description">Jätä varaamatonta tilaa Ventoy-osioiden jälkeen.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Pienemmät USB-siirrot</string>
+    <string name="small_usb_transfers_description">Hitaampi, mutta voi auttaa asemissa, jotka eivät läpäise varmennusta tai katkeavat asennuksen aikana.</string>
+    <string name="maximum_reserved_space">Enintään: %1$d %2$s</string>
+    <string name="reserved_space">Varattu tila</string>
+    <string name="partitions_aligned_4k">✓ Osiot on aina linjattu 4 KiB rajoihin.</string>
+    <string name="apply">Käytä</string>
+    <string name="unknown_version">tuntematon</string>
+    <string name="grant_access_to_check_ventoy">Myönnä USB-käyttöoikeus olemassa olevan Ventoy-asennuksen tarkistamiseksi.</string>
+    <string name="checking_ventoy_installation">Tarkistetaan USB-asemaa…</string>
+    <string name="ready_to_install_ventoy_version">Valmis asentamaan Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s asennettu · %2$s saatavilla</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s on asennettu ja voidaan korjata.</string>
+    <string name="ventoy_newer_than_bundled">Tässä asemassa on Ventoy %1$s, joka on uudempi kuin Vendroidin %2$s. Alennus on estetty.</string>
+    <string name="ventoy_unknown_version_blocked">Asennetun Ventoy-version määritys epäonnistui. Päivitys ja korjaus on estetty mahdollisen alennuksen vuoksi.</string>
+    <string name="ventoy_metadata_only_repair">Vain vaurioituneen GPT-osiotaulukon metatiedot korjataan. Asennettu Ventoy ja tiedostosi säilytetään.</string>
+    <string name="existing_partitions_use_force_install">Tässä asemassa on jo osioita. Palaa takaisin ja valitse Pakkoasennus pyyhkiäksesi sen.</string>
+    <string name="could_not_check_ventoy">USB-aseman tarkistus epäonnistui.</string>
+    <string name="files_will_be_preserved">Tiedostosi säilytetään</string>
+    <string name="updating_ventoy_preserves_files">Vain Ventoy-käynnistyskomponentit päivitetään. Pidä asema kytkettynä ja varmuuskopioi korvaamattomat tiedostot ensin.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Nimike: %2$s · Klusteri: %3$s · Varattu: %4$s</string>
+    <string name="partition_style">Osiointityyli</string>
+    <string name="partition_style_description">MBR on suositeltu oletus. Yli 2 TiB:n asemat vaativat GPT:n ja Vendroid betan.</string>
+    <string name="partition_style_mbr">MBR (suositeltu)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Kokeellinen: varmuuskopioi USB-asema ennen asennusta GPT:llä.</string>
+    <string name="gpt_available_in_v_preview">GPT-asennus on saatavilla Vendroid betassa Google Playssa.</string>
+    <string name="drive_requires_v_preview">Tämä asema vaatii Vendroid betan, kunnes GPT-polku on testattu fyysisesti.</string>
+    <string name="large_drive_requires_v_preview">Yli 2 TiB:n asemat vaativat Vendroid betan, kunnes suurten asemien tuki on testattu fyysisesti.</string>
+    <string name="large_drive_requires_gpt">Tämä asema on yli 2 TiB. Valitse GPT jatkaaksesi; MBR ei voi käyttää tätä kapasiteettia.</string>
+    <string name="get_v_preview">Liity Vendroid betaan</string>
+    <string name="privacy_policy">Tietosuojakäytäntö</string>
+    <string name="check_online_ventoy_update">Tarkista päivitys verkossa</string>
+    <string name="checking_online_ventoy_update">Tarkistetaan Ventoy-julkaisuja…</string>
+    <string name="downloading_online_ventoy">Ladataan Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% ladattu</string>
+    <string name="using_downloaded_ventoy">Käytetään vahvistettua verkkoversiota Ventoy %1$s</string>
+    <string name="no_newer_ventoy_online">Valittu Ventoy-paketti on jo uusin saatavilla oleva.</string>
+    <string name="online_ventoy_update_failed">Verkkopäivityksen Ventoy lataus epäonnistui.</string>
+    <string name="check_again">Tarkista uudelleen</string>
+    <string name="percent_complete">%1$d%% valmis</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Puhelimen tai sen USB-kaapelin liikuttaminen voi katkaista aseman yhteyden Vendroidin kirjoittaessa siihen.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid käynnistyy itsestään, kun puhelin on tasaisesti ja paikallaan, tai napauta Ohita aloittaaksesi nyt.</string>
+    <string name="about_project_summary">Vendroid on avoimen lähdekoodin Android-sovellus Ventoy asentamiseen USB-asemille ja käynnistyskuvatiedostojen hallintaan.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Kehittäjä %1$s.</string>
+    <string name="project_source">Projektin lähdekoodi: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid on muunnos ohjelmasta %1$s, © Davide Depau ja avustajat, käytetty GNU GPLv3 -lisenssillä. Muutettu 4.7.2026 lähtien; muutokset © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Mukana toimitettu Ventoy %1$s on vapaa ohjelmisto GNU GPLv3 -lisenssillä. Lähdekoodi: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid on vapaa ohjelmisto GNU GPLv3 -lisenssillä. Se tulee ilman takuuta, ja voit jakaa sitä kyseisellä lisenssillä.</string>
+    <string name="ventoy_installer_name">Ventoy-asennusohjelma</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid kirjoitti Ventoyn USB-asemalle, mutta takaisinluvinta palautti eri tiedot tavussa %1$d. Asema voi olla väärennös, viallinen tai kykenemätön käsittelemään suuria siirtoja. Alusta asema käyttääksesi sitä uudelleen. Yritä sitten uudelleen Pienemmät USB-siirrot käytössä -asetuksella Lisäasetuksissa, tai käytä toista asemaa.</string>
+    <string name="close">Sulje</string>
+    <string name="menu">Valikko</string>
+    <string name="language">Kieli</string>
+    <string name="language_automatic">Automaattinen (laitteen kieli)</string>
+    <string name="language_english">Englanti</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Alla oleva käytäntö on englanniksi.</string>
+    <string name="open_source_licenses">Avoin lähdekoodi -lisenssit</string>
+    <string name="licenses_language_note">Nämä ilmoitukset ja lisenssitekstit ovat englanniksi.</string>
+    <string name="licenses_back">Takaisin</string>
+    <string name="project_website">Projektin verkkosivusto</string>
+    <string name="help_and_contact">Apua ja yhteystiedot</string>
+    <string name="ventoy_mirror_name">Vendroid-päivityspeili</string>
+    <string name="ventoy_mirror_disclosure">Valinnaiset lataukset käyttävät Vendroidin päivityspeiliä. Palvelu saa IP-osoitteesi ja pyyntötiedot. Katso Tietoa → Tietosuojakäytäntö.</string>
 </resources>

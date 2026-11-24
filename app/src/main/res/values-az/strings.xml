@@ -95,4 +95,89 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Diskə yazma prosesi başlandı, lakin təəssüf ki, proses zamanı bəzi məlumatlar itdi. Zəhmət olmasa, yenidən cəhd edin.</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Əgər mümkündürsə, bu problemi GitHub-da və bu xətaya gətirib çıxaran addımlarla birlikdə qeyd edin.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">\"GitHub issues\" -də görüntülə</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy quraşdır</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Məcburi quraşdırma</string>
+    <string name="installing_ventoy">Ventoy quraşdırılır:</string>
+    <string name="updating_ventoy">Ventoy yenilənir:</string>
+    <string name="ventoy_installed_successfully">Ventoy uğurla quraşdırıldı</string>
+    <string name="ventoy_updated_successfully">Ventoy uğurla yeniləndi</string>
+    <string name="install_ventoy_another_drive">Ventoy-u başqa diska quraşdır</string>
+    <string name="update_ventoy">Yenilə</string>
+    <string name="update_ventoy_title">Ventoy-u yenilə</string>
+    <string name="repair_ventoy">Təmir et</string>
+    <string name="advanced_options">Qabaqcıl seçimlər</string>
+    <string name="volume_label">Həcm etiketi</string>
+    <string name="exfat_label_limit">1–11 simvol</string>
+    <string name="cluster_size">Klaster ölçüsü</string>
+    <string name="automatic">Avtomatik</string>
+    <string name="reserve_space">Sonda yer ayır</string>
+    <string name="reserve_space_description">Ventoy bölmələrindən sonra ayrılmamış yer buraxın.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Daha kiçik USB köçürmələri</string>
+    <string name="small_usb_transfers_description">Daha yavaşdır, lakin yoxlamadan keçməyən və ya quraşdırma zamanı əlaqəsi kəsilən disklərə kömək edə bilər.</string>
+    <string name="maximum_reserved_space">Maksimum: %1$d %2$s</string>
+    <string name="reserved_space">Ayrılmış yer</string>
+    <string name="partitions_aligned_4k">✓ Bölmələr həmişə 4 KiB sərhədlərinə uyğunlaşdırılır.</string>
+    <string name="apply">Tətbiq et</string>
+    <string name="unknown_version">naməlum</string>
+    <string name="grant_access_to_check_ventoy">Mövcud Ventoy quraşdırmasını yoxlamaq üçün USB girişi verin.</string>
+    <string name="checking_ventoy_installation">USB diski yoxlanılır…</string>
+    <string name="ready_to_install_ventoy_version">Ventoy %1$s quraşdırmağa hazır</string>
+    <string name="ventoy_update_available">Ventoy %1$s quraşdırılıb · %2$s mövcuddur</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s quraşdırılıb və təmir edilə bilər.</string>
+    <string name="ventoy_newer_than_bundled">Bu diskdə Vendroid-in %2$s versiyasından daha yeni Ventoy %1$s var. Endirmə bloklanıb.</string>
+    <string name="ventoy_unknown_version_blocked">Quraşdırılmış Ventoy versiyası müəyyən edilə bilmədi. Mümkün endirmənin qarşısını almaq üçün yeniləmə və təmir bloklanıb.</string>
+    <string name="ventoy_metadata_only_repair">Yalnız zədələnmiş GPT bölmə metadata-sı təmir ediləcək. Quraşdırılmış Ventoy məzmunu və fayllarınız qorunacaq.</string>
+    <string name="existing_partitions_use_force_install">Bu diskdə artıq bölmələr var. Geri qayıdıb silmək üçün Məcburi quraşdırmanı seçin.</string>
+    <string name="could_not_check_ventoy">Bu USB diski yoxlanıla bilmədi.</string>
+    <string name="files_will_be_preserved">Fayllarınız qorunacaq</string>
+    <string name="updating_ventoy_preserves_files">Yalnız Ventoy yükləmə komponentləri yenilənəcək. Diski qoşulu saxlayın və əvvəlcə əvəzolunmaz faylların ehtiyat nüsxəsini çıxarın.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Etiket: %2$s · Klaster: %3$s · Ayrılan: %4$s</string>
+    <string name="partition_style">Bölmə stili</string>
+    <string name="partition_style_description">MBR tövsiyə olunan standartdır. 2 TiB-dən böyük disklər GPT və Vendroid beta tələb edir.</string>
+    <string name="partition_style_mbr">MBR (Tövsiyə olunur)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Eksperimental: GPT ilə quraşdırmadan əvvəl USB diskin ehtiyat nüsxəsini çıxarın.</string>
+    <string name="gpt_available_in_v_preview">GPT quraşdırması Google Play-də Vendroid betasında mövcuddur.</string>
+    <string name="drive_requires_v_preview">Bu disk GPT yolu fiziki sınaqdan keçənə qədər Vendroid beta tələb edir.</string>
+    <string name="large_drive_requires_v_preview">2 TiB-dən böyük disklər, böyük disk dəstəyi fiziki sınaqdan keçənə qədər Vendroid beta tələb edir.</string>
+    <string name="large_drive_requires_gpt">Bu disk 2 TiB-dən böyükdür. Davam etmək üçün GPT seçin; MBR bu tutumu istifadə edə bilməz.</string>
+    <string name="get_v_preview">Vendroid betasına qoşulun</string>
+    <string name="privacy_policy">Məxfilik siyasəti</string>
+    <string name="check_online_ventoy_update">Onlayn yeniləməni yoxla</string>
+    <string name="checking_online_ventoy_update">Ventoy buraxılışları yoxlanılır…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s endirilir…</string>
+    <string name="online_ventoy_download_percent">%1$d%% endirildi</string>
+    <string name="using_downloaded_ventoy">Doğrulanmış onlayn Ventoy %1$s istifadə edilir</string>
+    <string name="no_newer_ventoy_online">Seçilmiş Ventoy məzmunu artıq ən son mövcud versiyadır.</string>
+    <string name="online_ventoy_update_failed">Onlayn Ventoy yeniləməsi endirilə bilmədi.</string>
+    <string name="check_again">Yenidən yoxla</string>
+    <string name="percent_complete">%1$d%% tamamlandı</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Telefonu və ya onun USB kabelini hərəkət etdirmək, Vendroid diskə yazarkən əlaqənin kəsilməsinə səbəb ola bilər.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Telefon düz və hərəkətsiz qoyulduqda Vendroid özü başlayır, yaxud indi başlamaq üçün Ötür düyməsinə toxunun.</string>
+    <string name="about_project_summary">Vendroid, USB disklərə Ventoy quraşdırmaq və yükləmə imic fayllarını idarə etmək üçün açıq mənbəli Android tətbiqidir.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">%1$s tərəfindən hazırlanıb.</string>
+    <string name="project_source">Layihənin mənbə kodu: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid, %1$s-in dəyişdirilmiş versiyasıdır, © Davide Depau və iştirakçılar, GNU GPLv3 lisenziyası altında istifadə olunur. 4 iyul 2026-cı il tarixindən dəyişdirilib; dəyişikliklər © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Daxil edilmiş Ventoy %1$s, GNU GPLv3 lisenziyası altında azad proqramdır. Mənbə kodu: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid, GNU GPLv3 lisenziyası altında azad proqramdır. Heç bir zəmanət olmadan gəlir və siz onu bu lisenziya altında yenidən paylaya bilərsiniz.</string>
+    <string name="ventoy_installer_name">Ventoy quraşdırıcı</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid USB diskə Ventoy yazdı, lakin geri oxuduğda %1$d baytında fərqli məlumat qaytardı. Disk saxta, zədəli və ya böyük köçürmələri idarə edə bilməyən ola bilər. Yenidən istifadə etmək üçün diski formatlayın. Sonra Qabaqcıl seçimlərdə Daha kiçik USB köçürmələrini açıb yenidən cəhd edin, ya da başqa disk istifadə edin.</string>
+    <string name="close">Bağla</string>
+    <string name="menu">Menyu</string>
+    <string name="language">Dil</string>
+    <string name="language_automatic">Avtomatik (cihaz dili)</string>
+    <string name="language_english">İngilis dili</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Aşağıdakı siyasət ingilis dilində təqdim olunur.</string>
+    <string name="open_source_licenses">Açıq mənbə lisenziyaları</string>
+    <string name="licenses_language_note">Bu bildirişlər və lisenziya mətnləri ingilis dilində təqdim olunur.</string>
+    <string name="licenses_back">Geri</string>
+    <string name="project_website">Layihə veb saytı</string>
+    <string name="help_and_contact">Kömək və əlaqə</string>
+    <string name="ventoy_mirror_name">Vendroid yeniləmə güzgüsü</string>
+    <string name="ventoy_mirror_disclosure">İstəyə bağlı endirmələr Vendroid-in yeniləmə güzgüsündən istifadə edir. Xidmət sizin IP ünvanınızı və sorğu məlumatlarını alır. Haqqında → Məxfilik siyasətinə baxın.</string>
 </resources>

@@ -94,4 +94,90 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Az írási kísérlet elindult, de sajnos néhány információ elveszett út közben. Kérjük, próbálja meg újra.</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Kérjük, jelentse ezt a problémát a GitHubon, és mellékelje azokat a lépéseket, amelyek ehhez a hibához vezettek.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub problémák</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy telepítése</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Kényszerített telepítés</string>
+    <string name="installing_ventoy">Ventoy telepítése erre:</string>
+    <string name="updating_ventoy">Ventoy frissítése erre:</string>
+    <string name="ventoy_installed_successfully">A Ventoy telepítése sikerült</string>
+    <string name="ventoy_updated_successfully">A Ventoy frissítése sikerült</string>
+    <string name="install_ventoy_another_drive">Ventoy telepítése másik meghajtóra</string>
+    <string name="update_ventoy">Frissítés</string>
+    <string name="update_ventoy_title">Ventoy frissítése</string>
+    <string name="repair_ventoy">Javítás</string>
+    <string name="advanced_options">Speciális beállítások</string>
+    <string name="volume_label">Kötet címke</string>
+    <string name="exfat_label_limit">1–11 karakter</string>
+    <string name="cluster_size">Fürt méret</string>
+    <string name="automatic">Automatikus</string>
+    <string name="reserve_space">Hely fenntartása a végén</string>
+    <string name="reserve_space_description">Hagyj kiosztatlan területet a Ventoy partíciók után.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Kisebb USB átvitelek</string>
+    <string name="small_usb_transfers_description">Lassabb, de segíthet azoknak a meghajtóknak, amelyek nem mennek át az ellenőrzésen, vagy telepítés közben megszakad a kapcsolat.</string>
+    <string name="maximum_reserved_space">Maximum: %1$d %2$s</string>
+    <string name="reserved_space">Fenntartott terület</string>
+    <string name="partitions_aligned_4k">✓ A partíciók mindig 4 KiB határokhoz vannak igazítva.</string>
+    <string name="apply">Alkalmaz</string>
+    <string name="unknown_version">ismeretlen</string>
+    <string name="grant_access_to_check_ventoy">Adj USB hozzáférést egy meglévő Ventoy telepítés ellenőrzéséhez.</string>
+    <string name="checking_ventoy_installation">Az USB meghajtó ellenőrzése…</string>
+    <string name="ready_to_install_ventoy_version">Készen áll a Ventoy %1$s telepítésére</string>
+    <string name="ventoy_update_available">Ventoy %1$s telepítve · %2$s elérhető</string>
+    <string name="ventoy_ready_to_repair">A Ventoy %1$s telepítve van és javítható.</string>
+    <string name="ventoy_newer_than_bundled">Ezen a meghajtón a Vendroid %2$s-jénél újabb Ventoy %1$s van. A visszalépés blokkolva van.</string>
+    <string name="ventoy_unknown_version_blocked">A telepített Ventoy verziója nem határozható meg. A frissítés és a javítás blokkolva van az esetleges visszalépés elkerülése végett.</string>
+    <string name="ventoy_metadata_only_repair">Csak a sérült GPT partíciómetaadatok kerülnek javításra. A telepített Ventoy tartalom és a fájljaid megmaradnak.</string>
+    <string name="existing_partitions_use_force_install">Ezen a meghajtón már vannak partíciók. Lépj vissza, és a törléshez válaszd a Kényszerített telepítést.</string>
+    <string name="could_not_check_ventoy">Nem sikerült ellenőrizni ezt az USB meghajtót.</string>
+    <string name="files_will_be_preserved">A fájljaid megmaradnak</string>
+    <string name="updating_ventoy_preserves_files">Csak a Ventoy rendszerindító összetevői frissülnek. Tartsd csatlakoztatva a meghajtót, és először készíts biztonsági másolatot a pótolhatatlan fájlokról.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Címke: %2$s · Fürt: %3$s · Fenntartott: %4$s</string>
+    <string name="partition_style">Partíciós stílus</string>
+    <string name="partition_style_description">Az MBR az ajánlott alapértelmezett. A 2 TiB-nél nagyobb meghajtók GPT-t és a Vendroid bétát igényelnek.</string>
+    <string name="partition_style_mbr">MBR (ajánlott)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Kísérleti: GPT-vel történő telepítés előtt készíts biztonsági másolatot az USB meghajtóról.</string>
+    <string name="gpt_available_in_v_preview">A GPT telepítés a Google Play-en elérhető Vendroid bétában érhető el.</string>
+    <string name="drive_requires_v_preview">Ez a meghajtó a Vendroid bétát igényli, amíg a GPT út fizikai teszten nem megy át.</string>
+    <string name="large_drive_requires_v_preview">A 2 TiB-nél nagyobb meghajtók a Vendroid bétát igénylik, amíg a nagy meghajtók támogatása fizikai teszten nem megy át.</string>
+    <string name="large_drive_requires_gpt">Ez a meghajtó nagyobb mint 2 TiB. A folytatáshoz válassz GPT-t; az MBR nem használhatja ezt a kapacitást.</string>
+    <string name="get_v_preview">Csatlakozz a Vendroid bétához</string>
+    <string name="privacy_policy">Adatvédelmi irányelvek</string>
+    <string name="check_online_ventoy_update">Online frissítés keresése</string>
+    <string name="checking_online_ventoy_update">A Ventoy kiadások ellenőrzése…</string>
+    <string name="downloading_online_ventoy">A Ventoy %1$s letöltése…</string>
+    <string name="online_ventoy_download_percent">%1$d%% letöltve</string>
+    <string name="using_downloaded_ventoy">Ellenőrzött online Ventoy %1$s használata</string>
+    <string name="no_newer_ventoy_online">A kiválasztott Ventoy tartalom már a legújabb elérhető.</string>
+    <string name="online_ventoy_update_failed">Nem sikerült letölteni az online Ventoy frissítést.</string>
+    <string name="check_again">Ellenőrzés újra</string>
+    <string name="percent_complete">%1$d%% kész</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">A telefon vagy az USB kábel mozgatása megszakíthatja a meghajtó kapcsolatát, miközben a Vendroid ír rá.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">A Vendroid magától elindul, amint a telefon síkban és mozdulatlanul fekszik, vagy koppints a Kihagyásra az azonnali indításhoz.</string>
+    <string name="about_project_summary">A Vendroid egy nyílt forráskódú Android alkalmazás Ventoy USB meghajtókra történő telepítésére és rendszerindító képfájlok kezelésére.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Fejlesztette: %1$s.</string>
+    <string name="project_source">A projekt forráskódja: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">A Vendroid a %1$s módosított változata, © Davide Depau és közreműködők, a GNU GPLv3 licenc alatt használva. 2026. július 4. óta módosítva; változtatások © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">A mellékelt Ventoy %1$s szabad szoftver a GNU GPLv3 licenc szerint. Forráskódja: %2$s.</string>
+    <string name="gpl_license_notice">A Vendroid szabad szoftver a GNU GPLv3 licenc szerint. Garancia nélkül érkezik, és az adott licenc alatt újra terjeszthető.</string>
+    <string name="ventoy_installer_name">Ventoy telepítő</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">Az USB meghajtó túl nagy, a Vendroid nem támogatja.</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">A Vendroid Ventoy-t írt az USB meghajtóra, de a visszaolvasáskor a %1$d. bájtnál eltérő adatokat kapott. A meghajtó hamisítvány, hibás, vagy nem képes nagy átviteleket kezelni. Formázd újra a meghajtót a használathoz. Ezután próbáld újra a Kisebb USB átvitelek bekapcsolásával a Speciális beállításokban, vagy használj másik meghajtót.</string>
+    <string name="close">Bezárás</string>
+    <string name="menu">Menü</string>
+    <string name="language">Nyelv</string>
+    <string name="language_automatic">Automatikus (eszköz nyelve)</string>
+    <string name="language_english">Angol</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Az alábbi irányelvek angol nyelven érhetők el.</string>
+    <string name="open_source_licenses">Nyílt forráskódú licencek</string>
+    <string name="licenses_language_note">Ezek az értesítések és licencszövegek angol nyelven érhetők el.</string>
+    <string name="licenses_back">Vissza</string>
+    <string name="project_website">A projekt weboldala</string>
+    <string name="help_and_contact">Segítség és kapcsolat</string>
+    <string name="ventoy_mirror_name">Vendroid frissítési tükör</string>
+    <string name="ventoy_mirror_disclosure">Az opcionális letöltések a Vendroid frissítési tükrét használják. A szolgáltatás megkapja az IP-címedet és a kérés adatait. Lásd: Névjegy → Adatvédelmi irányelvek.</string>
 </resources>

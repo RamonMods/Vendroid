@@ -93,4 +93,89 @@
     <string name="view_github_issues">دیدن ایرادها در گیت‌هاب</string>
     <string name="please_report_fatal_issue">اگر می توانید، خواهشمندم این ایراد را در گیت‌هاب به همراه مراحل بازآفرینی این نادرستی گزارش دهید.</string>
     <string name="worker_null_device_error">کوششی برای نوشتن آغاز شد ولی شوربختانه برخی از داده‌ها در درازای راه از میان رفتند. خواهشمندم دوباره آزمایش کنید</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">نصب Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">نصب اجباری</string>
+    <string name="installing_ventoy">در حال نصب Ventoy بر روی</string>
+    <string name="updating_ventoy">در حال بهروزرسانی Ventoy بر روی</string>
+    <string name="ventoy_installed_successfully">Ventoy با موفقیت نصب شد</string>
+    <string name="ventoy_updated_successfully">Ventoy با موفقیت بهروزرسانی شد</string>
+    <string name="install_ventoy_another_drive">نصب Ventoy بر روی درایو دیگر</string>
+    <string name="update_ventoy">بهروزرسانی</string>
+    <string name="update_ventoy_title">بهروزرسانی Ventoy</string>
+    <string name="repair_ventoy">تعمیر</string>
+    <string name="advanced_options">گزینههای پیشرفته</string>
+    <string name="volume_label">برچسب حجم</string>
+    <string name="exfat_label_limit">۱ تا ۱۱ کاراکتر</string>
+    <string name="cluster_size">اندازه خوشه</string>
+    <string name="automatic">خودکار</string>
+    <string name="reserve_space">رزرو فضا در انتها</string>
+    <string name="reserve_space_description">فضای تخصیصنیافته پس از پارتیشنهای Ventoy باقی بگذارید.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">انتقالهای کوچکتر USB</string>
+    <string name="small_usb_transfers_description">کندتر است، اما ممکن است به درایوهایی که تأیید را پشت سر نگذاشته یا در حین نصب قطع میشوند کمک کند.</string>
+    <string name="maximum_reserved_space">حداکثر: %1$d %2$s</string>
+    <string name="reserved_space">فضای رزروشده</string>
+    <string name="partitions_aligned_4k">✓ پارتیشنها همیشه با مرزهای ۴ کیبایگابایت همتراز میشوند.</string>
+    <string name="apply">اعمال</string>
+    <string name="unknown_version">نامشخص</string>
+    <string name="grant_access_to_check_ventoy">برای بررسی وجود نصبقبلی Ventoy، دسترسی USB را اعطا کنید.</string>
+    <string name="checking_ventoy_installation">در حال بررسی درایو USB…</string>
+    <string name="ready_to_install_ventoy_version">آماده نصب Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s نصب است · %2$s در دسترس است</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s نصب است و قابل تعمیر میباشد.</string>
+    <string name="ventoy_newer_than_bundled">این درایو دارای Ventoy %1$s است که جدیدتر از %2$s موجود در Vendroid میباشد. تنزل مسدود شده است.</string>
+    <string name="ventoy_unknown_version_blocked">نسخه نصبشده Ventoy قابل تشخیص نبود. بهروزرسانی و تعمیر برای جلوگیری از تنزل احتمالی مسدود شدهاند.</string>
+    <string name="ventoy_metadata_only_repair">تنها فرادادههای آسیبدیده پارتیشن GPT تعمیر میشوند. بار Ventoy نصبشده و فایلهای شما حفظ میشوند.</string>
+    <string name="existing_partitions_use_force_install">این درایو از قبل پارتیشن دارد. بازگردید و نصب اجباری را برای پاک کردن آن انتخاب کنید.</string>
+    <string name="could_not_check_ventoy">نمیتوان این درایو USB را بررسی کرد.</string>
+    <string name="files_will_be_preserved">فایلهای شما حفظ میشوند</string>
+    <string name="updating_ventoy_preserves_files">تنها مؤلفههای بوت Ventoy بهروزرسانی میشوند. درایو را متصل نگه دارید و ابتدا فایلهای غیرقابلجایگزین را پشتیبانگیری کنید.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · برچسب: %2$s · خوشه: %3$s · رزرو: %4$s</string>
+    <string name="partition_style">سبک پارتیشنبندی</string>
+    <string name="partition_style_description">MBR گزینه پیشنهادی است. درایوهای بزرگتر از ۲ تیبایگابایت به GPT و نسخه بتای Vendroid نیاز دارند.</string>
+    <string name="partition_style_mbr">MBR (پیشنهادی)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">تجربی: قبل از نصب با GPT از درایو USB پشتیبان بگیرید.</string>
+    <string name="gpt_available_in_v_preview">نصب GPT در نسخه بتای Vendroid در Google Play در دسترس است.</string>
+    <string name="drive_requires_v_preview">این درایو تا زمانی که مسیر GPT بهطور فیزیکی آزمایش شود، به نسخه بتای Vendroid نیاز دارد.</string>
+    <string name="large_drive_requires_v_preview">درایوهای بزرگتر از ۲ تیبایگابایت تا زمانی که پشتیبانی از درایوهای بزرگ بهطور فیزیکی آزمایش شود، به نسخه بتای Vendroid نیاز دارند.</string>
+    <string name="large_drive_requires_gpt">این درایو بزرگتر از ۲ تیبایگابایت است. برای ادامه GPT را انتخاب کنید؛ MBR نمیتواند از این ظرفیت استفاده کند.</string>
+    <string name="get_v_preview">به نسخه بتای Vendroid بپیوندید</string>
+    <string name="privacy_policy">سیاست حریم خصوصی</string>
+    <string name="check_online_ventoy_update">بررسی بهروزرسانی آنلاین</string>
+    <string name="checking_online_ventoy_update">در حال بررسی انتشارات Ventoy…</string>
+    <string name="downloading_online_ventoy">در حال بارگیری Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% بارگیری شد</string>
+    <string name="using_downloaded_ventoy">استفاده از Ventoy %1$s تأییدشده آنلاین</string>
+    <string name="no_newer_ventoy_online">بار Ventoy انتخابشده از قبل جدیدترین نسخه موجود است.</string>
+    <string name="online_ventoy_update_failed">بارگیری بهروزرسانی آنلاین Ventoy ممکن نشد.</string>
+    <string name="check_again">دوباره بررسی کنید</string>
+    <string name="percent_complete">%1$d%% تکمیل شد</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">جابهجایی تلفن یا کابل USB آن میتواند در حین نوشتن Vendroid بر روی درایو، اتصال آن را قطع کند.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid به محض صاف و بیحرکت بودن تلفن بهطور خودکار شروع میکند، یا برای شروع فوری گزینه رد کردن را لمس کنید.</string>
+    <string name="about_project_summary">Vendroid یک برنامه اندرویدی متنباز است برای نصب Ventoy بر روی درایوهای USB و مدیریت فایلهای تصویر بوت.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">توسعهدهنده: %1$s.</string>
+    <string name="project_source">کد منبع پروژه: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid نسخهای اصلاحشده از %1$s است، © Davide Depau و مشارکتکنندگان، تحت مجوز GNU GPLv3. از ۴ ژوئیه ۲۰۲۶ اصلاح شده است؛ تغییرات © ۲۰۲۶ %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s همراه، نرمافزار آزادی تحت مجوز GNU GPLv3 است. کد منبع آن: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid نرمافزاری آزاد تحت مجوز GNU GPLv3 است. بدون هیچ گارانتی ارائه میشود و میتوانید آن را تحت همان مجوز توزیع کنید.</string>
+    <string name="ventoy_installer_name">نصبکننده Ventoy</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid Ventoy را بر روی درایو USB نوشت، اما خواندن مجدد آن در بایت %1$d دادههای متفاوتی بازگرداند. ممکن است درایو تقلبی، معیوب یا ناتوان از انجام انتقالهای بزرگ باشد. برای استفاده مجدد آن را فرمت کنید. سپس با فعال کردن انتقالهای کوچکتر USB در گزینههای پیشرفته دوباره تلاش کنید، یا از درایو دیگری استفاده کنید.</string>
+    <string name="close">بستن</string>
+    <string name="menu">منو</string>
+    <string name="language">زبان</string>
+    <string name="language_automatic">خودکار (زبان دستگاه)</string>
+    <string name="language_english">انگلیسی</string>
+    <string name="language_arabic">العربی</string>
+    <string name="privacy_policy_language_note">سیاست زیر به زبان انگلیسی ارائه شده است.</string>
+    <string name="open_source_licenses">مجوزهای متنباز</string>
+    <string name="licenses_language_note">این اطلاعیهها و متون مجوز به زبان انگلیسی ارائه شدهاند.</string>
+    <string name="licenses_back">بازگشت</string>
+    <string name="project_website">وبسایت پروژه</string>
+    <string name="help_and_contact">کمک و تماس</string>
+    <string name="ventoy_mirror_name">آینه بهروزرسانی Vendroid</string>
+    <string name="ventoy_mirror_disclosure">بارگیریهای اختیاری از آینه بهروزرسانی Vendroid استفاده میکنند. این سرویس آدرس IP و اطلاعات درخواست شما را دریافت میکند. به درباره → سیاست حریم خصوصی مراجعه کنید.</string>
 </resources>

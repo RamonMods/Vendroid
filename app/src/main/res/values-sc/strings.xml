@@ -93,4 +93,89 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Unu tentativu de iscritura est partiu però calincuna informatzione no\' est erribada. Po favore, prova un\'atra bia.</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Ci podes, naranosì de custu problema in GitHub, narandunosì totu su ci as fatu chi a portau a custu errore.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Problemas in GitHub</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Installa Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Installatzione fortzada</string>
+    <string name="installing_ventoy">Installende Ventoy in</string>
+    <string name="updating_ventoy">Agiornende Ventoy in</string>
+    <string name="ventoy_installed_successfully">Ventoy installadu cun sucessu</string>
+    <string name="ventoy_updated_successfully">Ventoy agiornadu cun sucessu</string>
+    <string name="install_ventoy_another_drive">Installa Ventoy in un'àteru discu</string>
+    <string name="update_ventoy">Agiorna</string>
+    <string name="update_ventoy_title">Agiorna Ventoy</string>
+    <string name="repair_ventoy">Acconza</string>
+    <string name="advanced_options">Opziones avanzadas</string>
+    <string name="volume_label">Eticheta de volume</string>
+    <string name="exfat_label_limit">1–11 caràteres</string>
+    <string name="cluster_size">Mannària de cluster</string>
+    <string name="automatic">Automàticu</string>
+    <string name="reserve_space">Riserva ispàtziu a sa fine</string>
+    <string name="reserve_space_description">Lassa ispàtziu non allocadu depois de is partitziones de Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Trasferimentos USB prus pitticos</string>
+    <string name="small_usb_transfers_description">Prus lentu, ma podet agiudare is discos chi non passant sa verificatzione o si disconnectant durante s'installatzione.</string>
+    <string name="maximum_reserved_space">Màssimu: %1$d %2$s</string>
+    <string name="reserved_space">Ispàtziu reservadu</string>
+    <string name="partitions_aligned_4k">✓ Is partitziones sunt semper alliniadas a is làcanas de 4 KiB.</string>
+    <string name="apply">Aplica</string>
+    <string name="unknown_version">non connotu</string>
+    <string name="grant_access_to_check_ventoy">Dona s'accessu USB pro verificare si bi est un'installatzione de Ventoy.</string>
+    <string name="checking_ventoy_installation">Verifichende su discu USB…</string>
+    <string name="ready_to_install_ventoy_version">Prontu pro installare Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s installadu · %2$s disponìbile</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s est installadu e si podet acconzare.</string>
+    <string name="ventoy_newer_than_bundled">In custu discu bi est Ventoy %1$s, prus nou de su %2$s de Vendroid. S'abbassamentu de versione est blocadu.</string>
+    <string name="ventoy_unknown_version_blocked">No est istadu possìbile determinare sa versione installada de Ventoy. S'agiornamentu e s'acconzu sunt blocados pro evitare unu possìbile abbassamentu.</string>
+    <string name="ventoy_metadata_only_repair">Solo is metadatos de sa partitzione GPT dannegiados sunt acconzados. Su càrrigu de Ventoy installadu e is files tuos sunt cunservados.</string>
+    <string name="existing_partitions_use_force_install">Custu discu tenet giai partitziones. Torra a segus e scebera Installatzione fortzada pro lu cancellare.</string>
+    <string name="could_not_check_ventoy">No est istadu possìbile verificare custu discu USB.</string>
+    <string name="files_will_be_preserved">Is files tuos sunt cunservados</string>
+    <string name="updating_ventoy_preserves_files">Solo is cumponentes de aviu de Ventoy sunt agiornados. Mantene su discu collegadu e fai una còpia de is files insostituìbiles prima.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Eticheta: %2$s · Cluster: %3$s · Reservadu: %4$s</string>
+    <string name="partition_style">Stile de partitzione</string>
+    <string name="partition_style_description">MBR est su predefinidu cunsigiadu. Is discos prus mannos de 2 TiB bisògnios de GPT e de sa beta de Vendroid.</string>
+    <string name="partition_style_mbr">MBR (cunsigiadu)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Iperimentale: fai una còpia de su discu USB prima de installare cun GPT.</string>
+    <string name="gpt_available_in_v_preview">S'installatzione GPT est disponìbile in sa beta de Vendroid in Google Play.</string>
+    <string name="drive_requires_v_preview">Custu discu cheret sa beta de Vendroid finas a cando sa via GPT passat is probas fìsicas.</string>
+    <string name="large_drive_requires_v_preview">Is discos prus mannos de 2 TiB cherent sa beta de Vendroid finas a cando su suportu pro discos mannos passat is probas fìsicas.</string>
+    <string name="large_drive_requires_gpt">Custu discu est prus mannu de 2 TiB. Scebera GPT pro sighire; MBR non podet impreare custa capacidade.</string>
+    <string name="get_v_preview">Unidi a sa beta de Vendroid</string>
+    <string name="privacy_policy">Polìtica de riservatezza</string>
+    <string name="check_online_ventoy_update">Verifica agiornamentu in lìnia</string>
+    <string name="checking_online_ventoy_update">Verifichende is versiones de Ventoy…</string>
+    <string name="downloading_online_ventoy">Iscarrighende Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% iscarrigadu</string>
+    <string name="using_downloaded_ventoy">Impreende Ventoy %1$s verificadu in lìnia</string>
+    <string name="no_newer_ventoy_online">Su càrrigu de Ventoy sceberadu est giai s'ùltimu disponìbile.</string>
+    <string name="online_ventoy_update_failed">No est istadu possìbile iscarrigare s'agiornamentu de Ventoy in lìnia.</string>
+    <string name="check_again">Verifica torra</string>
+    <string name="percent_complete">%1$d%% cumpletu</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Movere su telefunu o su càbulu USB suo podet disconnettere su discu mentras Vendroid iscriet in cue.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid partit solu cando su telefunu est abbiatzu e firmu, o toca Salta pro partire immadiamente.</string>
+    <string name="about_project_summary">Vendroid est un'aplicatzione Android a còdighe abertu pro installare Ventoy in discos USB e gestire is files de immàgine de aviu.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Sviluppadu dae %1$s.</string>
+    <string name="project_source">Còdighe fonte de su progetu: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid est una versione modificada de %1$s, © Davide Depau e collaboradores, impreada suta sa litzèntzia GNU GPLv3. Modificada dae su 4 de juliu 2026; mudàntzias © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s incluidu est software lìberu suta sa litzèntzia GNU GPLv3. Su còdighe fonte suo: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid est software lìberu suta sa litzèntzia GNU GPLv3. Benit chene garantzia, e lu podis distribuire suta cussa litzèntzia.</string>
+    <string name="ventoy_installer_name">Installadore de Ventoy</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid at iscritu Ventoy in su discu USB, ma legendendelu torra at otentu datos diferentes a su byte %1$d. Su discu podet èssere falsu, guastu o non capatzu de gestire trasferimentos mannos. Formata su discu pro lu impreare torra. Tando prova torra cun Trasferimentos USB prus pitticos attivados in Opziones avanzadas, o imprea un'àteru discu.</string>
+    <string name="close">Serra</string>
+    <string name="menu">Menu</string>
+    <string name="language">Lingua</string>
+    <string name="language_automatic">Automàticu (lingua de su dispositivu)</string>
+    <string name="language_english">Inglesu</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Sa polìtica chi sighit est in inglesu.</string>
+    <string name="open_source_licenses">Litzèntzias a còdighe abertu</string>
+    <string name="licenses_language_note">Custas notìficas e custos testos de litzèntzia sunt in inglesu.</string>
+    <string name="licenses_back">Segus</string>
+    <string name="project_website">Situ web de su progetu</string>
+    <string name="help_and_contact">Agiudu e cuntatu</string>
+    <string name="ventoy_mirror_name">Ispecchiu de agiornamentu de Vendroid</string>
+    <string name="ventoy_mirror_disclosure">Is iscarrigamentos optzionales impreant s'ispecchiu de agiornamentu de Vendroid. Su servìtziu retzit s'indiritzu IP e is informatziones de sa richiesta. Bidi Informatziones → Polìtica de riservatezza.</string>
 </resources>

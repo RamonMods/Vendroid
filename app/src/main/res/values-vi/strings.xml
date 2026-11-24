@@ -94,4 +94,90 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Những thông tin không may bị mất trong quá trình bắt đầu ghi chép, Vui lòng thử lại.</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Bạn có thể báo cáo vấn đề này lên GitHub kèm theo bước đã gây ra lỗi nếu có thể.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Xem vấn đề trên GitHub</string>
+
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Cài đặt Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Cài đặt bắt buộc</string>
+    <string name="installing_ventoy">Đang cài đặt Ventoy vào</string>
+    <string name="updating_ventoy">Đang cập nhật Ventoy trên</string>
+    <string name="ventoy_installed_successfully">Đã cài đặt Ventoy thành công</string>
+    <string name="ventoy_updated_successfully">Đã cập nhật Ventoy thành công</string>
+    <string name="install_ventoy_another_drive">Cài đặt Ventoy vào ổ khác</string>
+    <string name="update_ventoy">Cập nhật</string>
+    <string name="update_ventoy_title">Cập nhật Ventoy</string>
+    <string name="repair_ventoy">Sửa chữa</string>
+    <string name="advanced_options">Tùy chọn nâng cao</string>
+    <string name="volume_label">Nhãn âm lượng</string>
+    <string name="exfat_label_limit">1–11 ký tự</string>
+    <string name="cluster_size">Kích thước cụm</string>
+    <string name="automatic">Tự động</string>
+    <string name="reserve_space">Dành chỗ ở cuối</string>
+    <string name="reserve_space_description">Chừa không gian chưa phân bổ sau các phân vùng Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Truyền USB nhỏ hơn</string>
+    <string name="small_usb_transfers_description">Chậm hơn, nhưng có thể giúp các ổ không vượt qua kiểm tra hoặc bị ngắt kết nối trong quá trình cài đặt.</string>
+    <string name="maximum_reserved_space">Tối đa: %1$d %2$s</string>
+    <string name="reserved_space">Không gian đã dành</string>
+    <string name="partitions_aligned_4k">✓ Các phân vùng luôn được căn chỉnh theo ranh giới 4 KiB.</string>
+    <string name="apply">Áp dụng</string>
+    <string name="unknown_version">không rõ</string>
+    <string name="grant_access_to_check_ventoy">Cấp quyền truy cập USB để kiểm tra xem đã cài đặt Ventoy chưa.</string>
+    <string name="checking_ventoy_installation">Đang kiểm tra ổ USB…</string>
+    <string name="ready_to_install_ventoy_version">Sẵn sàng cài đặt Ventoy %1$s</string>
+    <string name="ventoy_update_available">Đã cài Ventoy %1$s · có phiên bản %2$s</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s đã được cài đặt và có thể sửa chữa.</string>
+    <string name="ventoy_newer_than_bundled">Ổ này có Ventoy %1$s, mới hơn bản %2$s đi kèm Vendroid. Đã chặn hạ cấp.</string>
+    <string name="ventoy_unknown_version_blocked">Không xác định được phiên bản Ventoy đã cài đặt. Cập nhật và sửa chữa bị chặn để tránh khả năng hạ cấp.</string>
+    <string name="ventoy_metadata_only_repair">Chỉ siêu dữ liệu phân vùng GPT bị hỏng mới được sửa chữa. Dữ liệu Ventoy đã cài đặt và tệp của bạn sẽ được giữ nguyên.</string>
+    <string name="existing_partitions_use_force_install">Ổ này đã có phân vùng. Hãy quay lại và chọn Cài đặt bắt buộc để xóa sạch.</string>
+    <string name="could_not_check_ventoy">Không thể kiểm tra ổ USB này.</string>
+    <string name="files_will_be_preserved">Tệp của bạn sẽ được giữ lại</string>
+    <string name="updating_ventoy_preserves_files">Chỉ các thành phần khởi động của Ventoy được làm mới. Giữ ổ kết nối và sao lưu các tệp không thay thế được trước.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Nhãn: %2$s · Cụm: %3$s · Dành chỗ: %4$s</string>
+    <string name="partition_style">Kiểu phân vùng</string>
+    <string name="partition_style_description">MBR là mặc định được khuyến nghị. Ổ lớn hơn 2 TiB cần GPT và bản beta của Vendroid.</string>
+    <string name="partition_style_mbr">MBR (Khuyến nghị)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+        <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Thử nghiệm: hãy sao lưu ổ USB trước khi cài đặt với GPT.</string>
+    <string name="gpt_available_in_v_preview">Cài đặt GPT có trong bản beta của Vendroid trên Google Play.</string>
+    <string name="drive_requires_v_preview">Ổ này cần bản beta của Vendroid cho đến khi luồng GPT vượt qua kiểm tra thực tế.</string>
+    <string name="large_drive_requires_v_preview">Ổ lớn hơn 2 TiB cần bản beta của Vendroid cho đến khi hỗ trợ ổ lớn vượt qua kiểm tra thực tế.</string>
+    <string name="large_drive_requires_gpt">Ổ này lớn hơn 2 TiB. Chọn GPT để tiếp tục; MBR không thể dùng dung lượng này.</string>
+    <string name="get_v_preview">Tham gia bản beta Vendroid</string>
+    <string name="privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="check_online_ventoy_update">Kiểm tra cập nhật trực tuyến</string>
+    <string name="checking_online_ventoy_update">Đang kiểm tra các bản phát hành Ventoy…</string>
+    <string name="downloading_online_ventoy">Đang tải Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">Đã tải %1$d%%</string>
+    <string name="using_downloaded_ventoy">Đang dùng Ventoy %1$s đã xác minh từ mạng</string>
+    <string name="no_newer_ventoy_online">Gói Ventoy đã chọn là phiên bản mới nhất hiện có.</string>
+    <string name="online_ventoy_update_failed">Không thể tải bản cập nhật Ventoy trực tuyến.</string>
+    <string name="check_again">Kiểm tra lại</string>
+    <string name="percent_complete">Hoàn thành %1$d%%</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Di chuyển điện thoại hoặc cáp USB có thể làm ngắt kết nối ổ trong lúc Vendroid ghi dữ liệu.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid sẽ tự bắt đầu khi điện thoại nằm phẳng và yên, hoặc nhấn Bỏ qua để bắt đầu ngay.</string>
+    <string name="about_project_summary">Vendroid là ứng dụng Android mã nguồn mở để cài đặt Ventoy trên ổ USB và quản lý các tệp ảnh khởi động.</string>
+        <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Phát triển bởi %1$s.</string>
+    <string name="project_source">Mã nguồn dự án: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid là phiên bản chỉnh sửa của %1$s, © Davide Depau và các cộng tác viên, được dùng theo giấy phép GNU GPLv3. Chỉnh sửa từ ngày 4 tháng 7 năm 2026; thay đổi © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s đi kèm là phần mềm tự do theo giấy phép GNU GPLv3. Mã nguồn: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid là phần mềm tự do theo giấy phép GNU GPLv3. Không có bảo hành, và bạn có thể phân phối lại theo giấy phép đó.</string>
+    <string name="ventoy_installer_name">Trình cài đặt Ventoy</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">Ổ USB quá lớn và Vendroid không hỗ trợ.</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid đã ghi Ventoy vào ổ USB, nhưng khi đọc lại thì dữ liệu tại byte %1$d khác đi. ổ có thể là hàng giả, bị hỏng hoặc không xử lý được các lần truyền lớn. Hãy định dạng lại ổ để dùng lại. Sau đó thử lại với tùy Truyền USB nhỏ hơn được bật trong Tùy chọn nâng cao, hoặc dùng ổ khác.</string>
+    <string name="close">Đóng</string>
+    <string name="menu">Menu</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="language_automatic">Tự động (ngôn ngữ thiết bị)</string>
+    <string name="language_english">Tiếng Anh</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Chính sách bên dưới được cung cấp bằng tiếng Anh.</string>
+    <string name="open_source_licenses">Giấy phép mã nguồn mở</string>
+    <string name="licenses_language_note">Các thông báo và văn bản giấy phép này được cung cấp bằng tiếng Anh.</string>
+    <string name="licenses_back">Quay lại</string>
+    <string name="project_website">Trang web dự án</string>
+    <string name="help_and_contact">Trợ giúp và liên hệ</string>
+    <string name="ventoy_mirror_name">Gương cập nhật Vendroid</string>
+    <string name="ventoy_mirror_disclosure">Các lần tải tùy chọn dùng gương cập nhật của Vendroid. Dịch vụ nhận địa chỉ IP và thông tin yêu cầu của bạn. Xem Giới thiệu → Chính sách quyền riêng tư.</string>
 </resources>
