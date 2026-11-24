@@ -11,8 +11,10 @@ import tarfile
 import tempfile
 import unittest
 import zipfile
+from unittest import mock
+from urllib.error import HTTPError
 
-from prepare import apply_jni_release_mode_patch, extract_source, replace_native_entries
+from prepare import apply_jni_release_mode_patch, extract_source, pinned_download, replace_native_entries
 from verify import ABI_MACHINES, USB_LIBRARIES, VerificationError, bundle_alignment, inspect_artifact, inspect_elf
 
 
@@ -342,6 +344,55 @@ class SourcePackagingFixtures(unittest.TestCase):
                     source.addfile(second)
                 with self.assertRaisesRegex(ValueError, "regular file|cycle"):
                     extract_source(archive, cache / "sources", cache)
+
+
+class PinnedDownloadTest(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.destination = Path(directory.name) / "artifact.bin"
+
+    @staticmethod
+    def response(data):
+        return io.BytesIO(data)
+
+    def test_rate_limited_download_retries_and_verifies_checksum(self):
+        data = b"pinned bytes"
+        outcomes = [HTTPError("https://example.invalid/a", 429, "Too Many Requests", {}, None),
+                    self.response(data)]
+
+        def fake_urlopen(url, timeout):
+            outcome = outcomes.pop(0)
+            if isinstance(outcome, Exception):
+                raise outcome
+            return outcome
+
+        with mock.patch("prepare.urlopen", side_effect=fake_urlopen), mock.patch("prepare.time.sleep"):
+            result = pinned_download("https://example.invalid/a", hashlib.sha256(data).hexdigest(), self.destination)
+        self.assertEqual(result.read_bytes(), data)
+
+    def test_rate_limited_primary_falls_back_to_the_mirror(self):
+        data = b"mirrored bytes"
+        requested = []
+
+        def fake_urlopen(url, timeout):
+            requested.append(url)
+            if url == "https://primary.invalid/a":
+                raise HTTPError(url, 429, "Too Many Requests", {}, None)
+            return self.response(data)
+
+        with mock.patch("prepare.urlopen", side_effect=fake_urlopen), mock.patch("prepare.time.sleep"):
+            pinned_download("https://primary.invalid/a", hashlib.sha256(data).hexdigest(), self.destination,
+                            ("https://mirror.invalid/a",))
+        self.assertEqual(requested, ["https://primary.invalid/a", "https://mirror.invalid/a"])
+
+    def test_checksum_mismatch_is_not_retried(self):
+        with mock.patch("prepare.urlopen", return_value=self.response(b"tampered")), \
+                mock.patch("prepare.time.sleep") as sleep:
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                pinned_download("https://example.invalid/a", hashlib.sha256(b"expected").hexdigest(),
+                                self.destination)
+        sleep.assert_not_called()
 
 
 if __name__ == "__main__":

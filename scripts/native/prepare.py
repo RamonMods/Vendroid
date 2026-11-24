@@ -13,7 +13,7 @@ import subprocess
 import sys
 import tarfile
 import time
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 import zipfile
 
@@ -23,29 +23,47 @@ from verify import inspect_elf, sha256_file
 SCRIPT_DIRECTORY = Path(__file__).resolve().parent
 ROOT = SCRIPT_DIRECTORY.parents[1]
 MAVEN_BASE = "https://repo.maven.apache.org/maven2/me/jahnen/libaums"
+MAVEN_MIRRORS = (
+    MAVEN_BASE,
+    "https://maven-central.storage-download.googleapis.com/maven2/me/jahnen/libaums",
+    "https://repo1.maven.org/maven2/me/jahnen/libaums",
+)
 MAX_DOWNLOAD_BYTES = 20 * 1024 * 1024
+DOWNLOAD_ATTEMPTS = 6
+RETRYABLE_HTTP_STATUS = frozenset({408, 425, 429, 500, 502, 503, 504})
 
 
-def pinned_download(url, expected_sha256, destination):
+def maven_urls(path):
+    return [f"{base}/{path}" for base in MAVEN_MIRRORS]
+
+
+def pinned_download(url, expected_sha256, destination, fallback_urls=()):
     destination.parent.mkdir(parents=True, exist_ok=True)
     if destination.is_file() and sha256_file(destination) == expected_sha256:
         return destination
-    for attempt in range(3):
+    urls = (url, *fallback_urls)
+    last_error = None
+    for attempt in range(DOWNLOAD_ATTEMPTS):
+        candidate = urls[attempt % len(urls)]
         try:
-            with urlopen(url, timeout=90) as response:
+            with urlopen(candidate, timeout=90) as response:
                 data = response.read(MAX_DOWNLOAD_BYTES + 1)
             if len(data) > MAX_DOWNLOAD_BYTES:
-                raise ValueError(f"Pinned download exceeds the size limit: {url}")
+                raise ValueError(f"Pinned download exceeds the size limit: {candidate}")
             actual_sha256 = hashlib.sha256(data).hexdigest()
             if actual_sha256 != expected_sha256:
-                raise ValueError(f"Pinned download checksum mismatch: {url}")
+                raise ValueError(f"Pinned download checksum mismatch: {candidate}")
             destination.write_bytes(data)
             return destination
-        except (URLError, TimeoutError, OSError):
-            if attempt == 2:
-                raise
-            time.sleep(attempt + 1)
-    raise RuntimeError("Download did not complete")
+        except HTTPError as error:
+            if error.code not in RETRYABLE_HTTP_STATUS:
+                raise ValueError(f"Pinned download failed with HTTP {error.code}: {candidate}") from error
+            last_error = error
+        except (URLError, TimeoutError, OSError) as error:
+            last_error = error
+        if attempt + 1 < DOWNLOAD_ATTEMPTS:
+            time.sleep(min(2 ** attempt, 30))
+    raise ValueError(f"Pinned download did not complete: {url}") from last_error
 
 
 def extract_source(archive, destination, cache_boundary):
@@ -236,10 +254,12 @@ def prepare(sdk_root, cache_root, parallel):
     for name, spec in lock["artifacts"].items():
         version = spec["version"]
         filename = f"{name}-{version}"
-        original = pinned_download(f"{MAVEN_BASE}/{name}/{version}/{filename}.aar", spec["aar_sha256"],
-                                   cache_root / "downloads" / f"{filename}.aar")
-        pom = pinned_download(f"{MAVEN_BASE}/{name}/{version}/{filename}.pom", spec["pom_sha256"],
-                              cache_root / "downloads" / f"{filename}.pom")
+        aar_urls = maven_urls(f"{name}/{version}/{filename}.aar")
+        original = pinned_download(aar_urls[0], spec["aar_sha256"],
+                                   cache_root / "downloads" / f"{filename}.aar", aar_urls[1:])
+        pom_urls = maven_urls(f"{name}/{version}/{filename}.pom")
+        pom = pinned_download(pom_urls[0], spec["pom_sha256"],
+                              cache_root / "downloads" / f"{filename}.pom", pom_urls[1:])
         module_root = cache_root / "maven/me/jahnen/libaums" / name / version
         output = module_root / f"{filename}.aar"
         asset_root = f"assets/native-source/{name}"
