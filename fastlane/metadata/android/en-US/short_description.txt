@@ -1,0 +1,1 @@
+Install and manage Ventoy on USB drives from Android. No root required.

@@ -1,0 +1,52 @@
+[CmdletBinding()]
+param(
+    [string]$Ref = 'main',
+    [switch]$Wait,
+    [string]$RunId,
+    [switch]$SignedCandidate
+)
+
+$ErrorActionPreference = 'Stop'
+$repository = 'RamonMods/Vendroid'
+
+function Invoke-GitHub {
+    param([string[]]$Arguments)
+    $output = & gh @Arguments
+    if ($LASTEXITCODE -ne 0) {
+        throw "GitHub CLI failed: gh $($Arguments -join ' ')"
+    }
+    return $output
+}
+
+Get-Command gh -ErrorAction Stop | Out-Null
+if ($RunId) {
+    if ($RunId -notmatch '^\d+$') { throw 'RunId must be a numeric GitHub Actions run ID.' }
+    if ($SignedCandidate) { throw 'SignedCandidate applies to a new dispatch. Follow an existing signed-candidate run with -RunId and -Wait.' }
+} else {
+    $validationId = [Guid]::NewGuid().ToString('N')
+    $dispatchArguments = @('workflow', 'run', 'build-test-debug.yml', '--repo', $repository,
+        '--ref', $Ref, '-f', "validation_id=$validationId")
+    if ($SignedCandidate) { $dispatchArguments += @('-f', 'signed_candidate=true') }
+    Invoke-GitHub $dispatchArguments | Out-Null
+    $deadline = [DateTime]::UtcNow.AddSeconds(60)
+    do {
+        $runs = Invoke-GitHub @('run', 'list', '--repo', $repository,
+            '--workflow', 'build-test-debug.yml', '--event', 'workflow_dispatch',
+            '--branch', $Ref, '--limit', '30', '--json', 'databaseId,displayTitle') | ConvertFrom-Json
+        $match = $runs | Where-Object { $_.displayTitle -eq "Build and test $validationId" } | Select-Object -First 1
+        if ($match) { $RunId = [string]$match.databaseId; break }
+        Start-Sleep -Seconds 3
+    } while ([DateTime]::UtcNow -lt $deadline)
+    if (-not $RunId) {
+        throw "Dispatch accepted, but run lookup timed out. Find 'Build and test $validationId' in GitHub Actions."
+    }
+}
+
+Write-Host "Validation runs on GitHub Actions. No local build or USB write is performed."
+Write-Host "https://github.com/$repository/actions/runs/$RunId"
+Write-Host "Download evidence when the run finishes: gh run download $RunId --repo $repository --dir validation-$RunId"
+if ($Wait) {
+    & gh run watch $RunId --repo $repository --exit-status
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+}
+Invoke-GitHub @('run', 'view', $RunId, '--repo', $repository)

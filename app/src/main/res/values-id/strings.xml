@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="cancel" comment="Cancel string, used all over the place">Batal</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">Penulisan selesai</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s berhasil ditulis ke %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Penulisan gagal</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Tindakan diperlukan</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Digunakan untuk menunjukkan kemajuan pekerjaan saat ini</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">Kemajuan pekerjaan</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">Digunakan untuk menunjukkan hasil pekerjaan yang telah selesai</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">Hasil pekerjaan</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Menulis image…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Memverifikasi image…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Aktifkan pemberitahuan untuk kemajuan • Menulis %1$s ke %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Ketuk untuk melihat kemajuan • Menulis %1$s ke %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s ke %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s terhadap %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">Nama file tidak diketahui</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Izin ditolak untuk perangkat USB %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">Perangkat USB dicabut</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Menulis image</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Instal Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Instal paksa</string>
+    <string name="installing_ventoy">Menginstal Ventoy di</string>
+    <string name="updating_ventoy">Memperbarui Ventoy di</string>
+    <string name="ventoy_installed_successfully">Ventoy berhasil diinstal</string>
+    <string name="ventoy_updated_successfully">Ventoy berhasil diperbarui</string>
+    <string name="install_ventoy_another_drive">Instal Ventoy di drive lain</string>
+    <string name="update_ventoy">Perbarui</string>
+    <string name="update_ventoy_title">Perbarui Ventoy</string>
+    <string name="repair_ventoy">Perbaiki</string>
+    <string name="advanced_options">Opsi lanjutan</string>
+    <string name="volume_label">Label volume</string>
+    <string name="exfat_label_limit">1–11 karakter</string>
+    <string name="cluster_size">Ukuran klaster</string>
+    <string name="automatic">Otomatis</string>
+    <string name="reserve_space">Sisipkan ruang di akhir</string>
+    <string name="reserve_space_description">Biarkan ruang yang tidak dialokasikan setelah partisi Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Transfer USB lebih kecil</string>
+    <string name="small_usb_transfers_description">Lebih lambat, tetapi dapat membantu drive yang gagal diverifikasi atau terputus saat instalasi.</string>
+    <string name="maximum_reserved_space">Maksimum: %1$d %2$s</string>
+    <string name="reserved_space">Ruang yang disisihkan</string>
+    <string name="partitions_aligned_4k">✓ Partisi selalu disejajarkan ke batas 4 KiB.</string>
+    <string name="apply">Terapkan</string>
+    <string name="unknown_version">tidak diketahui</string>
+    <string name="grant_access_to_check_ventoy">Berikan akses USB untuk memeriksa keberadaan instalasi Ventoy.</string>
+    <string name="checking_ventoy_installation">Memeriksa drive USB…</string>
+    <string name="ready_to_install_ventoy_version">Siap menginstal Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s terinstal · %2$s tersedia</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s terinstal dan dapat diperbaiki.</string>
+    <string name="ventoy_newer_than_bundled">Drive ini memiliki Ventoy %1$s, lebih baru daripada %2$s bawaan Vendroid. Penurunan versi diblokir.</string>
+    <string name="ventoy_unknown_version_blocked">Versi Ventoy yang terinstal tidak dapat ditentukan. Pembaruan dan perbaikan diblokir untuk mencegah kemungkinan penurunan versi.</string>
+    <string name="ventoy_metadata_only_repair">Hanya metadata partisi GPT yang rusak yang akan diperbaiki. Payload Ventoy yang terinstal dan file Anda akan tetap dipertahankan.</string>
+    <string name="existing_partitions_use_force_install">Drive ini sudah memiliki partisi. Kembali dan pilih Instal paksa untuk menghapusnya.</string>
+    <string name="could_not_check_ventoy">Tidak dapat memeriksa drive USB ini.</string>
+    <string name="files_will_be_preserved">File Anda akan tetap dipertahankan</string>
+    <string name="updating_ventoy_preserves_files">Hanya komponen boot Ventoy yang akan diperbarui. Tetapkan drive tetap terhubung dan cadangkan file yang tidak bisa diganti terlebih dahulu.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Label: %2$s · Klaster: %3$s · Ruang: %4$s</string>
+    <string name="partition_style">Gaya partisi</string>
+    <string name="partition_style_description">MBR adalah pilihan bawaan yang disarankan. Drive lebih besar dari 2 TiB memerlukan GPT dan Vendroid beta.</string>
+    <string name="partition_style_mbr">MBR (Disarankan)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Eksperimen: cadangkan drive USB sebelum menginstal dengan GPT.</string>
+    <string name="gpt_available_in_v_preview">Instalasi GPT tersedia di Vendroid beta di Google Play.</string>
+    <string name="drive_requires_v_preview">Drive ini memerlukan Vendroid beta hingga jalur GPT lulus pengujian fisik.</string>
+    <string name="large_drive_requires_v_preview">Drive lebih besar dari 2 TiB memerlukan Vendroid beta hingga dukungan drive besar lulus pengujian fisik.</string>
+    <string name="large_drive_requires_gpt">Drive ini lebih besar dari 2 TiB. Pilih GPT untuk melanjutkan; MBR tidak dapat menggunakan kapasitas ini.</string>
+    <string name="get_v_preview">Gabung Vendroid beta</string>
+    <string name="privacy_policy">Kebijakan privasi</string>
+    <string name="check_online_ventoy_update">Periksa pembaruan online</string>
+    <string name="checking_online_ventoy_update">Memeriksa rilis Ventoy…</string>
+    <string name="downloading_online_ventoy">Mengunduh Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% terunduh</string>
+    <string name="using_downloaded_ventoy">Menggunakan Ventoy %1$s dari online yang sudah diverifikasi</string>
+    <string name="no_newer_ventoy_online">Payload Ventoy yang dipilih sudah merupakan versi terbaru yang tersedia.</string>
+    <string name="online_ventoy_update_failed">Tidak dapat mengunduh pembaruan Ventoy dari online.</string>
+    <string name="check_again">Periksa lagi</string>
+    <string name="percent_complete">%1$d%% selesai</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Gaya</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Pengaturan perangkat</string>
+    <string name="light" comment="Style menu option that selects the light theme">Terang</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Gelap</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Warna dinamis</string>
+    <string name="about" comment="Menu option that opens the about page">Tentang</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Apakah ini ISO Windows?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">ISO Windows biasa tidak akan bekerja dengan Vendroid, kecuali jika ISO tersebut secara khusus disiapkan untuk digunakan dengan Vendroid, Etcher, atau dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Tetap lanjutkan</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Pilih drive USB</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Hubungkan drive USB</string>
+    <string name="looking_for_usb_drives">Mencari drive USB</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Konfirmasi operasi</string>
+    <string name="disk_image">Disk image</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Image yang akan ditulis</string>
+    <string name="usb_drive">Drive USB</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Perangkat USB tujuan</string>
+    <string name="unknown_device" comment="Device name placeholder">Perangkat tidak dikenal</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Berikan akses</string>
+    <string name="permission_granted">Izin diberikan</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Hati-hati!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Menginstal Ventoy akan menghapus semua data pada drive yang dipilih</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Instal</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Letakkan perangkat Anda mendatar di atas meja sebelum melanjutkan.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Lanjutkan</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Letakkan perangkat Anda mendatar di atas meja dan jangan sentuh</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Lewati</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Menggerakkan ponsel atau kabel USB dapat memutuskan drive saat Vendroid menulisnya.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid mulai dengan sendirinya setelah ponsel terbaring mendatar dan diam, atau ketuk Lewati untuk mulai sekarang.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Dikembangkan oleh %1$s dan %2$s lainnya.\nKode sumber tersedia di %3$s.\nDilisensikan di bawah lisensi GNU GPLv3.</string>
+    <string name="about_project_summary">Vendroid adalah aplikasi Android sumber terbuka untuk menginstal Ventoy pada drive USB dan mengelola file image boot.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Dikembangkan oleh %1$s.</string>
+    <string name="project_source">Kode sumber proyek: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid adalah versi modifikasi dari %1$s, © Davide Depau dan para kontributor, digunakan di bawah GNU GPLv3. Dimodifikasi sejak 4 Juli 2026; perubahan © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$s bawaan adalah perangkat lunak bebas di bawah GNU GPLv3. Kode sumbernya: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid adalah perangkat lunak bebas di bawah GNU GPLv3. Tidak disertakan jaminan apa pun, dan Anda dapat mendistribusikannya kembali di bawah lisensi tersebut.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">kontributor</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Memverifikasi image</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Menulis image</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Harap hindari menggunakan perangkat Anda</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Ingin diberi tahu saat selesai? Hanya pembaruan kemajuan, tanpa spam atau iklan.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Tidak, terima kasih</string>
+    <string name="sure" comment="Button to accept receiving notifications">Tentu</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Memverifikasi</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Menyalin</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">terhadap</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">ke</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Sedang bersiap…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Lewati verifikasi</string>
+    <string name="image_written_successfully" comment="Title of the success page">Image berhasil ditulis!</string>
+    <string name="ventoy_installer_name">Pemasang Ventoy</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Tulis ulasan</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Beri bintang di GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Terjadi kesalahan</string>
+    <string name="error">Kesalahan</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Mulai dari awal</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Coba lagi</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Saya tidak mencabutnya!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Bagaimana ini bisa terjadi?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Mungkin port USB Anda kotor, adaptor Anda rusak, atau perangkat Anda tidak dapat memberikan daya listrik yang cukup. Pertimbangkan untuk mencoba adaptor atau perangkat lain.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">Drive USB tidak andal, dan Android tidak memberikan izin yang cukup untuk pemulihan otomatis. Kita harus memanfaatkan apa yang ada!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Ini tidak terduga, kemungkinan besar ini bug. Silakan laporkan!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Untuk memulihkan, cabut drive USB Anda, colokkan kembali, dan berikan izin akses lagi.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Representasi langkah yang diperlukan: cabut, sambungkan kembali, beri izin</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Colokkan perangkat USB yang sama seperti sebelumnya!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">Perangkat USB tersambung kembali, melanjutkan</string>
+    <string name="the_device_is_not_responding" comment="Error message">Perangkat tidak merespons</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Izin untuk mengakses perangkat USB tidak ada</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">Drive USB terlalu besar dan tidak didukung Vendroid.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Image (%1$s) lebih besar dari perangkat (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Tidak dapat membuka file sumber</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Terjadi kesalahan yang tidak diketahui: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">Drive USB telah dicabut</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">Drive USB berhenti merespons</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Isi perangkat USB tidak cocok dengan image</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid menulis Ventoy ke drive USB, tetapi saat dibaca kembali hasilnya berbeda pada byte %1$d. Drive mungkin palsu, rusak, atau tidak mampu menangani transfer besar. Format ulang drive untuk menggunakannya kembali. Lalu coba lagi dengan mengaktifkan Transfer USB lebih kecil di Opsi lanjutan, atau gunakan drive lain.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Tulis image lain</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Konfirmasi operasi</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Tidak ada URI image yang diberikan</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Tidak ada perangkat tujuan yang dipilih</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Proses penulisan tampaknya macet. Silakan coba lagi.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Upaya penulisan dimulai, tetapi sayangnya beberapa informasi hilang di tengah jalan. Silakan coba lagi.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Jika memungkinkan, silakan laporkan masalah ini di GitHub beserta langkah-langkah yang menyebabkan kesalahan ini.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Lihat isu GitHub</string>
+    <string name="close">Tutup</string>
+    <string name="menu">Menu</string>
+    <string name="language">Bahasa</string>
+    <string name="language_automatic">Otomatis (bahasa perangkat)</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Kebijakan di bawah ini disediakan dalam bahasa Inggris.</string>
+    <string name="open_source_licenses">Lisensi sumber terbuka</string>
+    <string name="licenses_language_note">Pemberitahuan dan teks lisensi ini disediakan dalam bahasa Inggris.</string>
+    <string name="licenses_back">Kembali</string>
+    <string name="project_website">Situs web proyek</string>
+    <string name="help_and_contact">Bantuan dan kontak</string>
+    <string name="ventoy_mirror_name">Server pembaruan Vendroid</string>
+    <string name="ventoy_mirror_disclosure">Unduhan opsional menggunakan server pembaruan Vendroid. Layanan tersebut menerima alamat IP dan informasi permintaan Anda. Lihat Tentang → Kebijakan privasi.</string>
+</resources>

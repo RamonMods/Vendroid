@@ -1,0 +1,82 @@
+name: Bug report
+description: Report a reproducible problem in Vendroid
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Vendroid. Search existing issues first, then retry after reconnecting the USB drive and restarting the phone.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Preliminary checks
+      options:
+        - label: I searched existing Vendroid issues and did not find this problem.
+          required: true
+        - label: I retried after reconnecting the USB drive and restarting Android.
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Vendroid version
+      description: Copy the full value from the About screen.
+      placeholder: io.github.ramonmods.vendroid v0.1+27, foss+release
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Installation source
+      options:
+        - GitHub Actions artifact
+        - GitHub Release
+        - Self-compiled
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Android device
+      placeholder: Samsung Galaxy S23, Android 15
+    validations:
+      required: true
+
+  - type: input
+    id: usb_device
+    attributes:
+      label: USB drive or adapter
+      placeholder: Brand, model, capacity, and adapter/hub if applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Vendroid.
+        2. Connect the USB drive.
+        3. Choose Install Ventoy.
+        4. Observe the error.
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: Actual and expected result
+      description: Include the exact error message and explain what you expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or additional context
+      description: Attach relevant screenshots or logs after removing private information.

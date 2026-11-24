@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="cancel" comment="Cancel string, used all over the place">Annuleren</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">Wegschrijven voltooid</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s is succesvol weggeschreven naar %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Wegschrijven mislukt</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Actie vereist</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Wordt gebruikt om de voortgang van de huidige taak te tonen</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">Taakvoortgang</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">Wordt gebruikt om het resultaat van een voltooide taak te tonen</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">Taakresultaat</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Bezig met wegschrijven…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Bezig met verifiëren…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Schakel meldingen in voor de voortgang • Bezig met wegschrijven van %1$s naar %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Tik voor voortgang • Bezig met wegschrijven van %1$s naar %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s naar %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s tegen %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">Onbekende bestandsnaam</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Toegang geweigerd tot USB-apparaat %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB-apparaat is afgekoppeld</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Een schijfkopie wegschrijven</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy installeren</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">Gedwongen installeren</string>
+    <string name="installing_ventoy">Ventoy installeren op</string>
+    <string name="updating_ventoy">Ventoy bijwerken op</string>
+    <string name="ventoy_installed_successfully">Ventoy is succesvol geïnstalleerd</string>
+    <string name="ventoy_updated_successfully">Ventoy is succesvol bijgewerkt</string>
+    <string name="install_ventoy_another_drive">Ventoy op een andere schijf installeren</string>
+    <string name="update_ventoy">Bijwerken</string>
+    <string name="update_ventoy_title">Ventoy bijwerken</string>
+    <string name="repair_ventoy">Repareren</string>
+    <string name="advanced_options">Geavanceerde opties</string>
+    <string name="volume_label">Volumelabel</string>
+    <string name="exfat_label_limit">1–11 tekens</string>
+    <string name="cluster_size">Clustergrootte</string>
+    <string name="automatic">Automatisch</string>
+    <string name="reserve_space">Ruimte aan het einde reserveren</string>
+    <string name="reserve_space_description">Laat on toegewezen ruimte over na de Ventoy-partities.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">Kleinere USB-overdrachten</string>
+    <string name="small_usb_transfers_description">Langzamer, maar kan helpen bij schijven die verificatie mislukken of tijdens de installatie loskoppelen.</string>
+    <string name="maximum_reserved_space">Maximum: %1$d %2$s</string>
+    <string name="reserved_space">Gereserveerde ruimte</string>
+    <string name="partitions_aligned_4k">✓ Partities zijn altijd uitgelijnd op 4 KiB-grenzen.</string>
+    <string name="apply">Toepassen</string>
+    <string name="unknown_version">onbekend</string>
+    <string name="grant_access_to_check_ventoy">Verleen USB-toegang om te controleren of Ventoy al is geïnstalleerd.</string>
+    <string name="checking_ventoy_installation">De USB-schijf wordt gecontroleerd…</string>
+    <string name="ready_to_install_ventoy_version">Klaar om Ventoy %1$s te installeren</string>
+    <string name="ventoy_update_available">Ventoy %1$s geïnstalleerd · %2$s beschikbaar</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s is geïnstalleerd en kan worden gerepareerd.</string>
+    <string name="ventoy_newer_than_bundled">Deze schijf heeft Ventoy %1$s, nieuwer dan de %2$s van Vendroid. Downgraden is geblokkeerd.</string>
+    <string name="ventoy_unknown_version_blocked">De geïnstalleerde Ventoy-versie kon niet worden bepaald. Bijwerken en repareren zijn geblokkeerd om een mogelijke downgrade te voorkomen.</string>
+    <string name="ventoy_metadata_only_repair">Alleen beschadigde GPT-partitiemetadata wordt gerepareerd. De geïnstalleerde Ventoy-inhoud en je bestanden blijven behouden.</string>
+    <string name="existing_partitions_use_force_install">Deze schijf heeft al partities. Ga terug en kies Gedwongen installeren om deze te wissen.</string>
+    <string name="could_not_check_ventoy">Kon deze USB-schijf niet controleren.</string>
+    <string name="files_will_be_preserved">Je bestanden blijven behouden</string>
+    <string name="updating_ventoy_preserves_files">Alleen de Ventoy-opstartonderdelen worden vernieuwd. Houd de schijf aangesloten en maak eerst een back-up van onvervangbare bestanden.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · Label: %2$s · Cluster: %3$s · Gereserveerd: %4$s</string>
+    <string name="partition_style">Partitiestijl</string>
+    <string name="partition_style_description">MBR is de aanbevolen standaard. Schijven groter dan 2 TiB vereisen GPT en de Vendroid-bèta.</string>
+    <string name="partition_style_mbr">MBR (aanbevolen)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">Experimenteel: maak een back-up van de USB-schijf voordat je met GPT installeert.</string>
+    <string name="gpt_available_in_v_preview">GPT-installatie is beschikbaar in de Vendroid-bèta op Google Play.</string>
+    <string name="drive_requires_v_preview">Deze schijf vereist de Vendroid-bèta totdat het GPT-pad fysiek is getest.</string>
+    <string name="large_drive_requires_v_preview">Schijven groter dan 2 TiB vereisen de Vendroid-bèta totdat ondersteuning voor grote schijven fysiek is getest.</string>
+    <string name="large_drive_requires_gpt">Deze schijf is groter dan 2 TiB. Kies GPT om door te gaan; MBR kan deze capaciteit niet gebruiken.</string>
+    <string name="get_v_preview">Deelnemen aan Vendroid-bèta</string>
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="check_online_ventoy_update">Controleren op online update</string>
+    <string name="checking_online_ventoy_update">Ventoy-releases worden gecontroleerd…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s wordt gedownload…</string>
+    <string name="online_ventoy_download_percent">%1$d%% gedownload</string>
+    <string name="using_downloaded_ventoy">Geverifieerde online Ventoy %1$s wordt gebruikt</string>
+    <string name="no_newer_ventoy_online">De geselecteerde Ventoy-inhoud is al de nieuwste beschikbare.</string>
+    <string name="online_ventoy_update_failed">Kon de online Ventoy-update niet downloaden.</string>
+    <string name="check_again">Opnieuw controleren</string>
+    <string name="percent_complete">%1$d%% voltooid</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Thema</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Apparaatinstelling</string>
+    <string name="light" comment="Style menu option that selects the light theme">Licht</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Donker</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Dynamische kleuren</string>
+    <string name="about" comment="Menu option that opens the about page">Over</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Is dit een Windows ISO?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Een gewone Windows ISO werkt niet met Vendroid, tenzij deze speciaal is voorbereid voor gebruik met Vendroid, Etcher of dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Toch doorgaan</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Selecteer een USB-schijf</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Koppel een USB-schijf aan</string>
+    <string name="looking_for_usb_drives">Op zoek naar USB-schijven</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Bewerking bevestigen</string>
+    <string name="disk_image">Schijfkopie</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Weg te schrijven schijfkopie</string>
+    <string name="usb_drive">USB-schijf</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Doel-USB-apparaat</string>
+    <string name="unknown_device" comment="Device name placeholder">Onbekend apparaat</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Toegang verlenen</string>
+    <string name="permission_granted">Toegang verleend</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Wees voorzichtig!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Met het installeren van Ventoy worden alle gegevens op de geselecteerde schijf gewist</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Installeren</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Leg je apparaat plat op een tafel voordat je doorgaat.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Doorgaan</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Leg je apparaat plat op een tafel en raak het niet aan</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Overslaan</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Bewegen van de telefoon of de USB-kabel kan de schijf loskoppelen terwijl Vendroid ernaar schrijft.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid start vanzelf zodra de telefoon plat en stil ligt, of tik op Overslaan om nu te starten.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Ontwikkeld door %1$s en andere %2$s.\nBroncode beschikbaar op %3$s.\nGelicentieerd onder de GNU GPLv3-licentie.</string>
+    <string name="about_project_summary">Vendroid is een open-source Android-app voor het installeren van Ventoy op USB-schijven en het beheren van opstartimagebestanden.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">Ontwikkeld door %1$s.</string>
+    <string name="project_source">Projectbroncode: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid is een aangepaste versie van %1$s, © Davide Depau en bijdragers, gebruikt onder de GNU GPLv3. Gewijzigd sinds 4 juli 2026; wijzigingen © 2026 %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">De meegeleverde Ventoy %1$s is vrije software onder de GNU GPLv3. De broncode: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid is vrije software onder de GNU GPLv3. Er wordt geen garantie gegeven, en je mag het onder die licentie herdistribueren.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">bijdragers</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Schijfkopie verifiëren</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Schijfkopie wegschrijven</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Gebruik je apparaat alstublieft niet</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Wil je een melding krijgen als het klaar is? Alleen voortgangsupdates, geen spam of advertenties.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Nee, bedankt</string>
+    <string name="sure" comment="Button to accept receiving notifications">Ja, graag</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Verifiëren</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Kopiëren</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">tegen</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">naar</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Bezig met voorbereiden…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Verificatie overslaan</string>
+    <string name="image_written_successfully" comment="Title of the success page">Schijfkopie succesvol weggeschreven!</string>
+    <string name="ventoy_installer_name">Ventoy-installatieprogramma</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Een recensie schrijven</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Ster geven op GitHub</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Er is een fout opgetreden</string>
+    <string name="error">Fout</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Opnieuw beginnen</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Opnieuw proberen</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Ik heb het niet afgekoppeld!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Hoe kon dit gebeuren?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Misschien is je USB-poort vuil, is je adapter defect of kan je apparaat niet genoeg stroom leveren. Probeer een andere adapter of een ander apparaat.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB-schijven zijn onbetrouwbaar en Android geeft niet genoeg rechten om automatisch te herstellen. We moeten het met de middelen die we hebben doen!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Dit is onverwacht, waarschijnlijk een bug. Meld het alsjeblieft!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Om te herstellen: koppel je USB-schijf los, sluit hem weer aan en verleen opnieuw toegang.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Weergave van de vereiste stappen: loskoppelen, opnieuw aansluiten, toegang verlenen</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Koppel hetzelfde USB-apparaat aan als eerder!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB-apparaat opnieuw aangesloten, taak wordt hervat</string>
+    <string name="the_device_is_not_responding" comment="Error message">Het apparaat reageert niet</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Geen toegang tot het USB-apparaat</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">De USB-schijf is te groot en Vendroid ondersteunt deze niet.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">De schijfkopie (%1$s) is groter dan het apparaat (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Kon het bronbestand niet openen</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Er is een onbekende fout opgetreden: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">De USB-schijf is afgekoppeld</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">De USB-schijf reageert niet meer</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">De inhoud van het USB-apparaat komt niet overeen met de schijfkopie</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid heeft Ventoy naar de USB-schijf weggeschreven, maar bij het teruglezen waren de gegevens op byte %1$d anders. De schijf is mogelijk nep, defect of kan grote overdrachten niet aan. Formatteer de schijf om deze weer te gebruiken. Probeer het daarna opnieuw met Kleinere USB-overdrachten ingeschakeld in Geavanceerde opties, of gebruik een andere schijf.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Nog een schijfkopie wegschrijven</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Bewerking bevestigen</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Geen URI voor de schijfkopie opgegeven</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Geen doelapparaat geselecteerd</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Het wegschrijfproces lijkt te zijn vastgelopen. Probeer het opnieuw.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Er is een wegschrijfpoging gestart, maar onderweg zijn gegevens verloren gegaan. Probeer het opnieuw.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Meld dit probleem als je kunt op GitHub, samen met de stappen die tot deze fout leidden.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub-problemen bekijken</string>
+    <string name="close">Sluiten</string>
+    <string name="menu">Menu</string>
+    <string name="language">Taal</string>
+    <string name="language_automatic">Automatisch (taal van het apparaat)</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">Het onderstaande beleid is in het Engels.</string>
+    <string name="open_source_licenses">Open-source-licenties</string>
+    <string name="licenses_language_note">Deze kennisgevingen en licentieteksten zijn in het Engels.</string>
+    <string name="licenses_back">Terug</string>
+    <string name="project_website">Projectwebsite</string>
+    <string name="help_and_contact">Hulp en contact</string>
+    <string name="ventoy_mirror_name">Vendroid-updatemirror</string>
+    <string name="ventoy_mirror_disclosure">Optionele downloads gebruiken de updatemirror van Vendroid. De dienst ontvangt je IP-adres en verzoekgegevens. Zie Over → Privacybeleid.</string>
+</resources>

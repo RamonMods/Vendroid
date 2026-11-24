@@ -1,0 +1,682 @@
+name: Build and test
+run-name: Build and test ${{ inputs.validation_id || github.sha }}
+
+on:
+  workflow_call:
+  push:
+    branches: [main, 'release/*']
+    tags: ['v*']
+  pull_request:
+    branches: [main, 'release/*']
+  workflow_dispatch:
+    inputs:
+      validation_id:
+        description: Optional identifier used by scripts/verify.ps1
+        type: string
+        required: false
+      signed_candidate:
+        description: Build a signed GPT candidate after validation, without publishing a release
+        type: boolean
+        default: false
+      signed_play_bundle:
+        description: Prepare a signed beta APK and Google Play bundle after validation, without publishing
+        type: boolean
+        default: false
+      export_play_signing_key:
+        description: Export only the existing signing key encrypted for Google Play enrollment
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-test-${{ github.workflow }}-${{ github.ref }}-${{ inputs.export_play_signing_key && 'key-export' || 'validation' }}
+  cancel-in-progress: true
+
+env:
+  BLISSOS_FILE: Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso
+  BLISSOS_URL: https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/
+  VENTOY_VERSION: '1.1.18'
+  # Public certificate from the signed 0.1.2 APK; see docs/validation.md.
+  VENDROID_SIGNER_SHA256: b388ad9d2290967480630cbd4a48f4f8c6784305c05da3541ad780821d9fbeb1
+  # Raise when a build leaves CI; see the version code section of docs/google-play.md.
+  VENDROID_HIGHEST_DISTRIBUTED_CODE: '38'
+  VM_DIR: /appium-vm
+
+jobs:
+  export-play-signing-key:
+    name: Encrypt existing signing key for Google Play
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.export_play_signing_key }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Require a dedicated enrollment export
+        env:
+          SIGNED_CANDIDATE: ${{ inputs.signed_candidate }}
+          SIGNED_PLAY_BUNDLE: ${{ inputs.signed_play_bundle }}
+        run: test "$SIGNED_CANDIDATE" != true && test "$SIGNED_PLAY_BUNDLE" != true
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Verify export boundaries before accessing credentials
+        run: python3 -m unittest discover -s scripts/play -p test_export_signing_key.py -v
+      - name: Export encrypted key and public certificate
+        env:
+          VENDROID_KEYSTORE_BASE64: ${{ secrets.VENDROID_KEYSTORE_BASE64 }}
+          VENDROID_KEYSTORE_PASSWORD: ${{ secrets.VENDROID_KEYSTORE_PASSWORD }}
+          VENDROID_KEY_ALIAS: ${{ secrets.VENDROID_KEY_ALIAS }}
+          VENDROID_KEY_PASSWORD: ${{ secrets.VENDROID_KEY_PASSWORD }}
+        run: python3 scripts/play/export_signing_key.py --output-dir pepk-export --commit "$GITHUB_SHA"
+      - name: Retain only the Google-encrypted export and public evidence
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-google-play-key-import
+          path: |
+            pepk-export/vendroid-play-signing-key.zip
+            pepk-export/certificate.pem
+            pepk-export/export-evidence.json
+            pepk-export/SHA256SUMS
+          if-no-files-found: error
+          retention-days: 3
+
+  validation-tools:
+    name: Verify disk inspector and build boot probe
+    if: ${{ !inputs.export_play_signing_key }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test independent disk inspector
+        working-directory: appium-tests
+        run: python3 -m unittest discover -s tests -p test_disk_validation.py -v
+      - name: Test validation evidence requirements
+        working-directory: appium-tests
+        run: python3 -m unittest discover -s tests -p test_validation_summary.py -v
+      - name: Test BIOS/UEFI and Linux boot harness
+        working-directory: appium-tests
+        run: python3 -m unittest discover -s tests -p test_firmware_validation.py -v
+      - name: Test confirmed USB permission readiness
+        working-directory: appium-tests
+        run: |
+          python3 -m pip install 'Appium-Python-Client>=5.0.0'
+          python3 -m unittest discover -s tests -p test_usb_permission.py -v
+      - name: Test foreground-service recording evidence
+        working-directory: appium-tests
+        run: python3 -m unittest discover -s tests -p test_service_recording.py -v
+      - name: Test bounded VM preparation
+        working-directory: appium-tests
+        run: python3 -m unittest discover -s scripts -p test_prepare_vm.py -v
+      - name: Test Google Play publishing boundaries
+        run: |
+          python3 -m pip install -r scripts/play/requirements.txt
+          python3 -m unittest discover -s scripts/play -p 'test_*.py' -v
+      - name: Test native library validation and SDK retries
+        run: python3 -m unittest discover -s scripts/native -p 'test_*.py' -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test first-party Ventoy mirror boundaries
+        run: |
+          python3 -m unittest discover -s scripts/mirror -p 'test_*.py' -v
+          node --test services/ventoy-mirror/*.test.mjs
+      - name: Test license assets and third-party source checks
+        run: python3 -m unittest discover -s scripts/licenses -p 'test_*.py' -v
+      - name: Test store listing and removed branding
+        run: python3 -m unittest discover -s scripts/store -p 'test_*.py' -v
+      - uses: astral-sh/setup-uv@v5
+      - name: Install boot probe tools
+        run: |
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
+          sudo apt-get update -o Acquire::Retries=3
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
+            grub-pc-bin grub-efi-amd64-bin grub-common xorriso mtools qemu-system-x86 ffmpeg
+      - name: Verify Appium MJPEG recording with FFmpeg
+        working-directory: appium-tests
+        run: python3 -m scripts.check_mjpeg_recording
+      - name: Verify repeated QMP image lifecycle
+        working-directory: appium-tests
+        run: uv run python -m scripts.check_qmp_lifecycle
+      - name: Build boot probe
+        run: bash appium-tests/scripts/build-boot-probe.sh vm-outputs/boot-probe.iso
+      - uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-ci-boot-probe
+          path: vm-outputs/boot-probe.iso
+          retention-days: 30
+          if-no-files-found: error
+
+  third-party-source:
+    name: Verify third-party source for releases
+    if: ${{ !inputs.export_play_signing_key }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download and verify the pinned Ventoy and BusyBox source
+        run: python3 scripts/licenses/prepare_sources.py --output third-party-source
+      - name: Retain the files that accompany a release
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-third-party-source
+          path: third-party-source/
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: ${{ startsWith(github.ref, 'refs/tags/') && 30 || 5 }}
+
+  verify:
+    name: Build, unit tests, and lint
+    if: ${{ !inputs.export_play_signing_key }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      version_code: ${{ steps.version.outputs.version_code }}
+    env:
+      JAVA_TOOL_OPTIONS: -Xmx4g
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Read the checked-in distribution version
+        id: version
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts/play')
+          from release_plan import checked_in_version
+          code, name = checked_in_version(Path('app/build.gradle.kts').read_text())
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'version={name}\nversion_code={code}\n')
+          PY
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: wrapper
+          add-job-summary: on-failure
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Rebuild USB libraries for 16 KB pages
+        run: |
+          python3 scripts/native/install_sdk.py 'ndk;28.2.13676358' 'cmake;3.22.1'
+          python3 scripts/native/prepare.py --sdk-root "$ANDROID_HOME"
+
+      - name: Download Ventoy payload
+        run: |
+          mkdir -p .vendroid-cache
+          curl --fail --location --retry 3 \
+            --output ".vendroid-cache/ventoy-${VENTOY_VERSION}-linux.tar.gz" \
+            "https://github.com/ventoy/Ventoy/releases/download/v${VENTOY_VERSION}/ventoy-${VENTOY_VERSION}-linux.tar.gz"
+
+      - name: Unit tests
+        run: ./gradlew verifyDependencyLicenses testFossDebugUnitTest
+
+      - name: Build and lint
+        run: ./gradlew assembleFossDebug assembleFossOptimized assembleFossPreview assembleFossGptCandidate lint
+
+      - name: Verify packaged native libraries
+        run: |
+          mkdir -p app/build/reports/native
+          cp .vendroid-cache/native-16kb/provenance.json app/build/reports/native/provenance.json
+          for variant in debug optimized preview gptCandidate; do
+            python3 scripts/native/verify.py "app/build/outputs/apk/foss/$variant/app-foss-$variant.apk" \
+              --output "app/build/reports/native/$variant.json"
+          done
+
+      - name: Verify packaged Ventoy licenses
+        run: |
+          for variant in debug optimized preview gptCandidate; do
+            python3 scripts/licenses/verify_apk.py "app/build/outputs/apk/foss/$variant/app-foss-$variant.apk" \
+              --output "app/build/reports/licenses/$variant.json"
+          done
+
+      - name: Upload stable APK for end-to-end tests
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-e2e-stable-apk
+          path: app/build/outputs/apk/foss/optimized/app-foss-optimized.apk
+          retention-days: 30
+
+      - name: Upload Preview APK for end-to-end tests
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-e2e-preview-apk
+          path: app/build/outputs/apk/foss/preview/app-foss-preview.apk
+          retention-days: 30
+
+      - name: Upload optimized GPT candidate for end-to-end tests
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-e2e-gpt-candidate-apk
+          path: app/build/outputs/apk/foss/gptCandidate/app-foss-gptCandidate.apk
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload verification reports
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: android-verification-reports
+          path: |
+            app/build/reports/
+            app/build/test-results/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  qemu-tests:
+    name: Appium tests in QEMU (${{ matrix.channel }}, ${{ matrix.controller }})
+    needs: [verify, validation-tools]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        controller: [uhci, xhci]
+        channel: [stable, preview, gpt-candidate]
+        include:
+          - channel: stable
+            app_name: Vendroid
+            artifact: vendroid-e2e-stable-apk
+            package: io.github.ramonmods.vendroid
+            partition_style: MBR (Recommended)
+            version_suffix: ''
+          - channel: preview
+            app_name: Vendroid
+            artifact: vendroid-e2e-preview-apk
+            package: io.github.ramonmods.vendroid
+            partition_style: GPT (Preview)
+            version_suffix: '-beta'
+          - channel: gpt-candidate
+            app_name: Vendroid
+            artifact: vendroid-e2e-gpt-candidate-apk
+            package: io.github.ramonmods.vendroid
+            partition_style: GPT
+            version_suffix: '-gpt-candidate'
+    env:
+      VENDROID_TEST_CHANNEL: ${{ matrix.channel }}
+      VENDROID_APP_NAME: ${{ matrix.app_name }}
+      VENDROID_PACKAGE_NAME: ${{ matrix.package }}
+      VENDROID_PARTITION_STYLE: ${{ matrix.partition_style }}
+      VENDROID_VERSION: ${{ needs.verify.outputs.version }}
+      VENDROID_EXPECTED_VERSION: ${{ needs.verify.outputs.version }}${{ matrix.version_suffix }}
+      VENDROID_TEST_USB_BUS: ${{ matrix.controller }}.0
+      VENDROID_EVIDENCE_DIR: ${{ github.workspace }}/vm-outputs/validation
+      VENDROID_BOOT_PROBE_ISO: ${{ github.workspace }}/vm-outputs/boot-probe.iso
+      VENDROID_LINUX_BOOT_ISO: ${{ github.workspace }}/.vendroid-cache/alpine-standard-3.24.4-x86_64.iso
+      VENDROID_PAYLOAD_FIXTURES: ${{ github.workspace }}/.vendroid-cache
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download test APK
+        uses: actions/download-artifact@v5
+        with:
+          name: ${{ matrix.artifact }}
+          path: apk
+
+      - name: Download boot probe
+        uses: actions/download-artifact@v5
+        with:
+          name: vendroid-ci-boot-probe
+          path: vm-outputs
+
+      - name: Install QEMU
+        run: |
+          sudo sed -i \
+            's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' \
+            /etc/apt/apt-mirrors.txt
+          sudo apt-get update -o Acquire::Retries=3
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
+            qemu-system-x86 qemu-utils ovmf exfatprogs exfat-fuse ffmpeg mtools xz-utils
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Fetch pinned version fixtures
+        run: |
+          mkdir -p vm-outputs/validation .vendroid-cache
+          curl --fail --location --retry 3 --output .vendroid-cache/ventoy-1.1.15-linux.tar.gz \
+            https://github.com/ventoy/Ventoy/releases/download/v1.1.15/ventoy-1.1.15-linux.tar.gz
+          curl --fail --location --retry 3 --output .vendroid-cache/ventoy-1.1.18-linux.tar.gz \
+            https://github.com/ventoy/Ventoy/releases/download/v1.1.18/ventoy-1.1.18-linux.tar.gz
+          echo 'dfed601b689fa4f552bc4c44dc0a45ef893226630fb11f43ca3ab618ff429279  .vendroid-cache/ventoy-1.1.15-linux.tar.gz' | sha256sum -c -
+          echo 'd86ff9de63d94c8b8f1f6b14d23c55af4b88e8207bf2893890892a6a97b1ad54  .vendroid-cache/ventoy-1.1.18-linux.tar.gz' | sha256sum -c -
+          # No release is newer than the bundled 1.1.18: relabel its verified boot files as 1.1.99
+          # so the lifecycle can prove that a newer installed payload is never replaced.
+          bash appium-tests/scripts/make-relabelled-payload.sh \
+            .vendroid-cache/ventoy-1.1.18-linux.tar.gz 1.1.18 1.1.99 .vendroid-cache/ventoy-1.1.99-linux.tar.gz
+          # Test-only Linux ISO for the Ventoy Linux-hook boot; never packaged.
+          if [ "${{ matrix.controller }}" = xhci ]; then
+            curl --fail --location --retry 3 --output "$VENDROID_LINUX_BOOT_ISO" \
+              https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-standard-3.24.4-x86_64.iso
+            echo "92e3e4e4c6b8e265a889278de2a633c0f1456ca52820952666ecb395c3d23582  $VENDROID_LINUX_BOOT_ISO" | sha256sum -c -
+          fi
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: appium-tests/package-lock.json
+
+      - name: Install Appium and prepare directories
+        run: |
+          cd appium-tests
+          npm ci
+          sudo mkdir -p "$VM_DIR"
+          sudo chown "$USER" "$VM_DIR"
+          mkdir -p ../vm-outputs/logcat
+
+      - name: Restore Bliss OS cache
+        id: bliss-cache
+        uses: actions/cache/restore@v4
+        with:
+          key: blissos-${{ env.BLISSOS_FILE }}-${{ hashFiles('appium-tests/scripts/prepare-vm.sh') }}
+          path: ${{ env.VM_DIR }}
+
+      - name: Prepare Bliss OS
+        timeout-minutes: 15
+        run: |
+          set -o pipefail
+          ./appium-tests/scripts/prepare-vm.sh 2>&1 | tee vm-outputs/bliss-preparation.log
+          rm -f "${VM_DIR}/${BLISSOS_FILE}"
+
+      - name: Save pristine Bliss OS cache
+        if: steps.bliss-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          key: blissos-${{ env.BLISSOS_FILE }}-${{ hashFiles('appium-tests/scripts/prepare-vm.sh') }}
+          path: ${{ env.VM_DIR }}
+
+      - name: Run QEMU and Appium tests
+        uses: etchdroid/qemu-kvm-action@v1
+        with:
+          kernel: ${{ env.VM_DIR }}/kernel
+          initrd: ${{ env.VM_DIR }}/initrd.img
+          cmdline: root=/dev/ram0 androidboot.selinux=permissive console=ttyS0 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1
+          flags: |
+            -chardev
+            stdio,id=char0,logfile=vm-outputs/serial.log,signal=off
+            -serial
+            chardev:char0
+            -netdev
+            user,id=network,hostfwd=tcp::5556-:5555
+            -device
+            virtio-net-pci,netdev=network
+            -device
+            virtio-vga
+            -display
+            none
+            -drive
+            index=0,if=virtio,id=system,file=${{ env.VM_DIR }}/system.efs,format=raw,readonly=on
+            -usb
+            -device
+            usb-tablet,bus=usb-bus.0
+            -device
+            nec-usb-xhci,id=xhci
+            -device
+            ich9-usb-uhci1,id=uhci
+            -drive
+            if=none,id=usbstick,file=${{ env.VM_DIR }}/usb-storage.qcow2,format=qcow2
+            -device
+            usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on
+            -qmp
+            unix:/tmp/qmp.sock,server=on,wait=off
+            -monitor
+            unix:/tmp/qemu-monitor.sock,server=on,wait=off
+          run: |
+            cd appium-tests
+            export LOGCAT_DIR="$PWD/../vm-outputs/logcat"
+            ./scripts/wait-vm-startup.sh
+            adb install -r ../apk/*.apk
+            sha256sum ../apk/*.apk > ../vm-outputs/apk.sha256
+            git rev-parse HEAD > ../vm-outputs/commit.txt
+            adb shell dumpsys package "$VENDROID_PACKAGE_NAME" | tee ../vm-outputs/package.txt
+            grep -q "versionName=${VENDROID_EXPECTED_VERSION}$" ../vm-outputs/package.txt
+            adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
+            uv run pytest -sv --ignore=tests/test_store_screenshots.py --tb=native --junit-xml=../vm-outputs/junit.xml
+            uv run pytest -sv tests/test_store_screenshots.py --tb=native --junit-xml=../vm-outputs/store-screenshots-junit.xml
+
+      - name: Upload QEMU validation evidence
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: qemu-diagnostics-${{ matrix.channel }}-${{ matrix.controller }}
+          path: |
+            vm-outputs/validation/
+            vm-outputs/*.txt
+            vm-outputs/*.sha256
+            vm-outputs/*.xml
+            vm-outputs/*.log
+            vm-outputs/logcat/
+          if-no-files-found: ignore
+          retention-days: 30
+
+  validation-summary:
+    name: Validate collected evidence
+    if: ${{ always() && !inputs.export_play_signing_key }}
+    needs: [verify, validation-tools, third-party-source, qemu-tests]
+    runs-on: ubuntu-24.04
+    env:
+      VENDROID_VERSION: ${{ needs.verify.outputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: qemu-diagnostics-*
+          path: validation-evidence
+      - name: Require complete results for every channel and controller
+        run: python3 appium-tests/scripts/summarize-validation.py validation-evidence
+      - name: Require successful build and test jobs
+        env:
+          BUILD_RESULT: ${{ needs.verify.result }}
+          TEST_RESULT: ${{ needs.qemu-tests.result }}
+          TOOLS_RESULT: ${{ needs.validation-tools.result }}
+          SOURCE_RESULT: ${{ needs.third-party-source.result }}
+        run: |
+          test "$BUILD_RESULT" = success && test "$TEST_RESULT" = success && test "$TOOLS_RESULT" = success
+          test "$SOURCE_RESULT" = success
+
+  signed-apk:
+    name: Signed Vendroid APK
+    if: (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && !contains(github.ref_name, '-')) || (github.event_name == 'workflow_dispatch' && (inputs.signed_candidate || inputs.signed_play_bundle))
+    needs: [validation-summary, verify]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    env:
+      JAVA_TOOL_OPTIONS: -Xmx4g
+      VENDROID_VERSION: ${{ needs.verify.outputs.version }}
+      VENDROID_VERSION_CODE: ${{ needs.verify.outputs.version_code }}
+      IS_SIGNED_CANDIDATE: ${{ github.event_name == 'workflow_dispatch' && inputs.signed_candidate }}
+      IS_PLAY_BUNDLE: ${{ github.event_name == 'workflow_dispatch' && inputs.signed_play_bundle }}
+      VENDROID_KEYSTORE_BASE64: ${{ secrets.VENDROID_KEYSTORE_BASE64 }}
+      VENDROID_KEYSTORE_PASSWORD: ${{ secrets.VENDROID_KEYSTORE_PASSWORD }}
+      VENDROID_KEY_ALIAS: ${{ secrets.VENDROID_KEY_ALIAS }}
+      VENDROID_KEY_PASSWORD: ${{ secrets.VENDROID_KEY_PASSWORD }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: wrapper
+          add-job-summary: on-failure
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Rebuild USB libraries for 16 KB pages
+        run: |
+          python3 scripts/native/install_sdk.py 'ndk;28.2.13676358' 'cmake;3.22.1'
+          python3 scripts/native/prepare.py --sdk-root "$ANDROID_HOME"
+
+      - name: Check release readiness
+        run: |
+          test "$VENDROID_VERSION_CODE" -gt "$VENDROID_HIGHEST_DISTRIBUTED_CODE" || {
+            echo "versionCode $VENDROID_VERSION_CODE was already distributed; increment defaultVersionCode"
+            exit 1
+          }
+          if [ "$IS_PLAY_BUNDLE" = true ]; then
+            test "$IS_SIGNED_CANDIDATE" != true || { echo 'Choose one signed artifact type per version code'; exit 1; }
+            echo "DISTRIBUTION_VERSION=${VENDROID_VERSION}-beta" >> "$GITHUB_ENV"
+            echo "DISTRIBUTION_VARIANT=preview" >> "$GITHUB_ENV"
+          elif [ "$IS_SIGNED_CANDIDATE" = true ]; then
+            echo "DISTRIBUTION_VERSION=${VENDROID_VERSION}-gpt-candidate" >> "$GITHUB_ENV"
+            echo "DISTRIBUTION_VARIANT=gptCandidate" >> "$GITHUB_ENV"
+          else
+            test "$GITHUB_REF_NAME" = "v${VENDROID_VERSION}"
+            grep -q '^val stableGptEnabled = true$' app/build.gradle.kts
+            echo "DISTRIBUTION_VERSION=${VENDROID_VERSION}" >> "$GITHUB_ENV"
+            echo "DISTRIBUTION_VARIANT=release" >> "$GITHUB_ENV"
+          fi
+
+      - name: Require release-signing secrets
+        run: |
+          test -n "$VENDROID_KEYSTORE_BASE64" || { echo "Missing VENDROID_KEYSTORE_BASE64"; exit 1; }
+          test -n "$VENDROID_KEYSTORE_PASSWORD" || { echo "Missing VENDROID_KEYSTORE_PASSWORD"; exit 1; }
+          test -n "$VENDROID_KEY_ALIAS" || { echo "Missing VENDROID_KEY_ALIAS"; exit 1; }
+          test -n "$VENDROID_KEY_PASSWORD" || { echo "Missing VENDROID_KEY_PASSWORD"; exit 1; }
+
+      - name: Prepare release inputs
+        run: |
+          mkdir -p .vendroid-cache
+          curl --fail --location --retry 3 \
+            --output ".vendroid-cache/ventoy-${VENTOY_VERSION}-linux.tar.gz" \
+            "https://github.com/ventoy/Ventoy/releases/download/v${VENTOY_VERSION}/ventoy-${VENTOY_VERSION}-linux.tar.gz"
+          printf '%s' "$VENDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/vendroid-release.jks"
+          echo "VENDROID_KEYSTORE_PATH=$RUNNER_TEMP/vendroid-release.jks" >> "$GITHUB_ENV"
+
+      - name: Build signed APK
+        run: |
+          if [ "$IS_PLAY_BUNDLE" = true ]; then
+            ./gradlew assembleFossPreview bundleFossPreview
+          elif [ "$IS_SIGNED_CANDIDATE" = true ]; then
+            ./gradlew assembleFossGptCandidate
+          else
+            ./gradlew assembleFossRelease
+          fi
+
+      - name: Verify and name release APK
+        run: |
+          sdkmanager 'build-tools;36.0.0'
+          apk="app/build/outputs/apk/foss/${DISTRIBUTION_VARIANT}/app-foss-${DISTRIBUTION_VARIANT}.apk"
+          mkdir -p distribution
+          cp .vendroid-cache/native-16kb/provenance.json distribution/native-provenance.json
+          python3 scripts/native/verify.py "$apk" --output distribution/native-libraries.json
+          python3 scripts/licenses/verify_apk.py "$apk" --output distribution/ventoy-licenses.json
+          output="distribution/vendroid-v${DISTRIBUTION_VERSION}.apk"
+          checksum="${output}.sha256"
+          aapt="$ANDROID_HOME/build-tools/36.0.0/aapt"
+          apksigner="$ANDROID_HOME/build-tools/36.0.0/apksigner"
+          "$apksigner" verify --verbose --print-certs "$apk" | tee distribution/signature.txt
+          signer="$(sed -n 's/^Signer #1 certificate SHA-256 digest: //p' distribution/signature.txt)"
+          test "$signer" = "$VENDROID_SIGNER_SHA256"
+          test "$(grep -c '^Signer #[0-9][0-9]* certificate SHA-256 digest:' distribution/signature.txt)" -eq 1
+          "$aapt" dump badging "$apk" | tee distribution/apk-metadata.txt
+          grep -q "package: name='io.github.ramonmods.vendroid'" distribution/apk-metadata.txt
+          grep -q "versionCode='${VENDROID_VERSION_CODE}'" distribution/apk-metadata.txt
+          grep -q "versionName='${DISTRIBUTION_VERSION}'" distribution/apk-metadata.txt
+          git rev-parse HEAD > distribution/commit.txt
+          cp "$apk" "$output"
+          (cd "$(dirname "$output")" && sha256sum "$(basename "$output")" > "$(basename "$checksum")")
+
+      - name: Verify signed Google Play beta bundle
+        if: env.IS_PLAY_BUNDLE == 'true'
+        run: |
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/bundletool.jar" \
+            https://github.com/google/bundletool/releases/download/1.18.3/bundletool-all-1.18.3.jar
+          echo "a099cfa1543f55593bc2ed16a70a7c67fe54b1747bb7301f37fdfd6d91028e29  $RUNNER_TEMP/bundletool.jar" | sha256sum -c -
+          bundle="distribution/vendroid-v${DISTRIBUTION_VERSION}.aab"
+          cp app/build/outputs/bundle/fossPreview/app-foss-preview.aab "$bundle"
+          python3 scripts/native/verify.py "$bundle" --output distribution/aab-native-libraries.json
+          python3 scripts/licenses/verify_apk.py "$bundle" --output distribution/aab-ventoy-licenses.json
+          python3 scripts/play/verify_bundle.py \
+            --bundle "$bundle" --bundletool "$RUNNER_TEMP/bundletool.jar" \
+            --native-report distribution/aab-native-libraries.json \
+            --version-code "$VENDROID_VERSION_CODE" --version-name "$DISTRIBUTION_VERSION" \
+            --commit "$(git rev-parse HEAD)" --output distribution/play-metadata.json
+          umask 077
+          printf '%s' "$VENDROID_KEYSTORE_PASSWORD" > "$RUNNER_TEMP/vendroid-keystore.pass"
+          printf '%s' "$VENDROID_KEY_PASSWORD" > "$RUNNER_TEMP/vendroid-key.pass"
+          java -jar "$RUNNER_TEMP/bundletool.jar" build-apks \
+            --bundle="$bundle" --output="$RUNNER_TEMP/vendroid.apks" --mode=universal \
+            --ks="$VENDROID_KEYSTORE_PATH" --ks-key-alias="$VENDROID_KEY_ALIAS" \
+            --ks-pass="file:$RUNNER_TEMP/vendroid-keystore.pass" --key-pass="file:$RUNNER_TEMP/vendroid-key.pass"
+          unzip -p "$RUNNER_TEMP/vendroid.apks" universal.apk > distribution/vendroid-generated.apk
+          python3 scripts/native/verify.py distribution/vendroid-generated.apk --output distribution/generated-apk-native.json
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --verbose --print-certs distribution/vendroid-generated.apk > distribution/generated-apk-signature.txt
+          test "$(sed -n 's/^Signer #1 certificate SHA-256 digest: //p' distribution/generated-apk-signature.txt)" = "$VENDROID_SIGNER_SHA256"
+          "$ANDROID_HOME/build-tools/36.0.0/aapt" dump badging distribution/vendroid-generated.apk > distribution/generated-apk-metadata.txt
+          grep -q "package: name='io.github.ramonmods.vendroid'" distribution/generated-apk-metadata.txt
+          grep -q "versionCode='${VENDROID_VERSION_CODE}'" distribution/generated-apk-metadata.txt
+          grep -q "versionName='${DISTRIBUTION_VERSION}'" distribution/generated-apk-metadata.txt
+          (cd distribution && sha256sum "vendroid-v${DISTRIBUTION_VERSION}.aab" > "vendroid-v${DISTRIBUTION_VERSION}.aab.sha256")
+          (cd distribution && sha256sum vendroid-generated.apk > vendroid-generated.apk.sha256)
+
+      - name: Upload signed distribution artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: vendroid-v${{ env.DISTRIBUTION_VERSION }}
+          path: distribution/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Remove temporary signing material
+        if: always()
+        run: rm -f "$RUNNER_TEMP/vendroid-release.jks" "$RUNNER_TEMP/vendroid-keystore.pass" "$RUNNER_TEMP/vendroid-key.pass" "$RUNNER_TEMP/vendroid.apks"
+
+      - name: Download verified third-party source
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        uses: actions/download-artifact@v5
+        with:
+          name: vendroid-third-party-source
+          path: third-party-source
+
+      - name: Create draft GitHub release for final physical check
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The Ventoy and BusyBox source travels with every binary release.
+          (cd third-party-source && sha256sum --check --strict third-party-sources.sha256)
+          # The website links to this fixed name through releases/latest/download.
+          cp "distribution/vendroid-v${VENDROID_VERSION}.apk" distribution/vendroid.apk
+          gh release create "$GITHUB_REF_NAME" \
+            "distribution/vendroid-v${VENDROID_VERSION}.apk" \
+            "distribution/vendroid-v${VENDROID_VERSION}.apk.sha256" \
+            distribution/vendroid.apk \
+            third-party-source/* \
+            --verify-tag \
+            --draft \
+            --title "Vendroid ${VENDROID_VERSION}" \
+            --notes-file "docs/releases/${VENDROID_VERSION}.md"

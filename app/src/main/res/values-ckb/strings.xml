@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="cancel" comment="Cancel string, used all over the place">هەڵوەشاندنەوە</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">نووسین تەواو بوو</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s بە سەرکەوتوویی نووسرا بۆ %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">نووسین شکستی هێنا</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">کردارێک پێویستە</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">بۆ نیشاندانی پێشکەوتنی ئەرکی ئێستا بەکاردێت</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">پێشکەوتنی ئەرک</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">بۆ نیشاندانی ئەنجامی ئەرکێکی تەواوبوو بەکاردێت</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">ئەنجامی ئەرک</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">نووسینی وێنە…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">پشتڕاستکردنەوەی وێنە…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">ئاگادارکردنەوەکان چالاک بکە بۆ پێشکەوتن • نووسینی %1$s بۆ %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">کرتە بکە بۆ پێشکەوتن • نووسینی %1$s بۆ %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s بۆ %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s بەرامبەر %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">ناوی پەڕگەی نەزانراو</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"مۆڵەت ڕەتکرایەوە بۆ ئامێری USB %1$s"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">ئامێری USB هەڵکرایەوە</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">نووسینی وێنەیەک</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">دامەزراندنی Ventoy</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">دامەزراندنی بەزۆر</string>
+    <string name="installing_ventoy">دامەزراندنی Ventoy لەسەر</string>
+    <string name="updating_ventoy">نوێکردنەوەی Ventoy لەسەر</string>
+    <string name="ventoy_installed_successfully">Ventoy بە سەرکەوتوویی دامەزرا</string>
+    <string name="ventoy_updated_successfully">Ventoy بە سەرکەوتوویی نوێکرایەوە</string>
+    <string name="install_ventoy_another_drive">دامەزراندنی Ventoy لەسەر دیسکێکی تر</string>
+    <string name="update_ventoy">نوێکردنەوە</string>
+    <string name="update_ventoy_title">نوێکردنەوەی Ventoy</string>
+    <string name="repair_ventoy">چاککردنەوە</string>
+    <string name="advanced_options">هەڵبژاردنە پێشکەوتووەکان</string>
+    <string name="volume_label">ناوی بەش</string>
+    <string name="exfat_label_limit">١–١١ پیت</string>
+    <string name="cluster_size">قەبارەی کڵاستەر</string>
+    <string name="automatic">خۆکار</string>
+    <string name="reserve_space">هێشتنەوەی بۆشایی لە کۆتاییدا</string>
+    <string name="reserve_space_description">بۆشایی بەخەرج نەدراو بەجێبهێڵە دوای بەشەکانی Ventoy.</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">گواستنەوەی بچووکتری USB</string>
+    <string name="small_usb_transfers_description">هێواشترە، بەڵام لەوانەیە یارمەتی ئەو دیسکانە بدات کە لە پشتڕاستکردنەوەدا شکست دەهێنن یان لە کاتی دامەزراندندا دەبرێن.</string>
+    <string name="maximum_reserved_space">زۆرترین: %1$d %2$s</string>
+    <string name="reserved_space">بۆشایی هەڵگیراو</string>
+    <string name="partitions_aligned_4k">✓ بەشەکان هەمیشە لەسەر سنووری 4 KiB ڕێکخراون.</string>
+    <string name="apply">جێبەجێکردن</string>
+    <string name="unknown_version">نەزانراو</string>
+    <string name="grant_access_to_check_ventoy">مۆڵەتی USB بدە بۆ پشکنینی ئەوەی کە Ventoy ئێستا دامەزراوە.</string>
+    <string name="checking_ventoy_installation">پشکنینی دیسکی USB…</string>
+    <string name="ready_to_install_ventoy_version">ئامادەیە بۆ دامەزراندنی Ventoy %1$s</string>
+    <string name="ventoy_update_available">Ventoy %1$s دامەزراوە · %2$s بەردەستە</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s دامەزراوە و دەکرێت چاک بکرێتەوە.</string>
+    <string name="ventoy_newer_than_bundled">ئەم دیسکە Ventoy %1$sـی تێدایە، کە نوێترە لە %2$sـی Vendroid. پاشگەزبوونەوە ڕێگەپێدراو نییە.</string>
+    <string name="ventoy_unknown_version_blocked">نەتوانرا ئەو وەشانی Ventoyـەی دامەزراوە دیاری بکرێت. نوێکردنەوە و چاککردنەوە ڕێگەپێنەدراون بۆ ڕێگریکردن لە پاشگەزبوونەوەی ئەگەری.</string>
+    <string name="ventoy_metadata_only_repair">تەنها زانیاری مێتاداتای تێکچووی بەشەکانی GPT چاک دەکرێتەوە. باری Ventoyـی دامەزراو و فایلەکانت پارێزراو دەبن.</string>
+    <string name="existing_partitions_use_force_install">ئەم دیسکە پێشتر بەشی تێدایە. بگەڕێوە و «دامەزراندنی بەزۆر» هەڵبژێرە بۆ سڕینەوەی.</string>
+    <string name="could_not_check_ventoy">نەتوانرا ئەم دیسکی USBـە بپشکنرێت.</string>
+    <string name="files_will_be_preserved">فایلەکانت پارێزراو دەبن</string>
+    <string name="updating_ventoy_preserves_files">تەنها پێکهاتەکانی دەستپێکی Ventoy نوێ دەکرێنەوە. دیسکەکە بەستراو ڕابگرە و پێشتر کۆپی یەدەگی فایلە گرنگەکان بکەرەوە.</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · ناو: %2$s · کڵاستەر: %3$s · هەڵگیراو: %4$s</string>
+    <string name="partition_style">شێوازی بەشکردن</string>
+    <string name="partition_style_description">MBR بەپێی پێشنیار هەڵبژاردەی سەرەکییە. دیسکەکانی گەورەتر لە 2 TiB پێویستیان بە GPT و بێتای Vendroid هەیە.</string>
+    <string name="partition_style_mbr">MBR (پێشنیارکراو)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">تاقیکاری: پێش دامەزراندن بە GPT، کۆپی یەدەگی دیسکی USB بکەرەوە.</string>
+    <string name="gpt_available_in_v_preview">دامەزراندن بە GPT لە بێتای Vendroidـدا بەردەستە لەسەر Google Play.</string>
+    <string name="drive_requires_v_preview">ئەم دیسکە پێویستی بە بێتای Vendroid هەیە تا ڕێگەی GPT لە تاقیکردنەوەی ڕاستەقینەدا دەردەچێت.</string>
+    <string name="large_drive_requires_v_preview">دیسکەکانی گەورەتر لە 2 TiB پێویستیان بە بێتای Vendroid هەیە تا پشتگیریی دیسکی گەورە لە تاقیکردنەوەی ڕاستەقینەدا دەردەچێت.</string>
+    <string name="large_drive_requires_gpt">ئەم دیسکە گەورەترە لە 2 TiB. GPT هەڵبژێرە بۆ بەردەوامبوون؛ MBR ناتوانێت ئەم قەبارەیە بەکاربهێنێت.</string>
+    <string name="get_v_preview">بەشداری بێتای Vendroid بکە</string>
+    <string name="privacy_policy">سیاسەتی تایبەتمەندی</string>
+    <string name="check_online_ventoy_update">پشکنینی نوێکردنەوە بە ئۆنلاین</string>
+    <string name="checking_online_ventoy_update">پشکنینی وەشانەکانی Ventoy…</string>
+    <string name="downloading_online_ventoy">دابەزاندنی Ventoy %1$s…</string>
+    <string name="online_ventoy_download_percent">%1$d%% دابەزێنراوە</string>
+    <string name="using_downloaded_ventoy">بەکاردێت Ventoy %1$sـی ئۆنلاین کە پشتڕاستکراوەتەوە</string>
+    <string name="no_newer_ventoy_online">باری Ventoyـی هەڵبژێردراو ئێستا نوێترین وەشانی بەردەستە.</string>
+    <string name="online_ventoy_update_failed">نەتوانرا نوێکردنەوەی ئۆنلاینی Ventoy دابەزێنرێت.</string>
+    <string name="check_again">دووبارە پشکنین بکەرەوە</string>
+    <string name="percent_complete">%1$d%% تەواو بوو</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">شێواز</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">ڕێکخستنی ئامێر</string>
+    <string name="light" comment="Style menu option that selects the light theme">ڕووناک</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">تاریک</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">ڕەنگە دینامیکییەکان</string>
+    <string name="about" comment="Menu option that opens the about page">دەربارە</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">ئایا ئەمە ISOـی Windowsـە؟</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">ISOـی ئاسایی Windows لەگەڵ Vendroid کار ناکات، مەگەر بە تایبەتی بۆ بەکارهێنان لەگەڵ Vendroid، Etcher یان dd ئامادە کرابێت.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">هەرچۆنێک بێت بەردەوام بە</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">دیسکی USB هەڵبژێرە</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">دیسکی USB ببەستە</string>
+    <string name="looking_for_usb_drives">بەدوای دیسکی USBـدا دەگەڕێت</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">پشتڕاستکردنەوەی ئۆپەراسیۆن</string>
+    <string name="disk_image">وێنەی دیسک</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">وێنەی بۆ نووسراو</string>
+    <string name="usb_drive">دیسکی USB</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">ئامێری USBـی مەبەست</string>
+    <string name="unknown_device" comment="Device name placeholder">ئامێری نەزانراو</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">مۆڵەت بەخشین</string>
+    <string name="permission_granted">مۆڵەت بەخشرا</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">ئاگادار بە!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">دامەزراندنی Ventoy هەموو داتاکانی سەر دیسکی هەڵبژێردراو دەسڕێتەوە</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">دامەزراندن</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">ئامێرەکەت بە تەختی لەسەر مێزێک دابنێ پێش بەردەوامبوون.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">بەردەوام بە</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">ئامێرەکەت بە تەختی لەسەر مێزێک دابنێ و دەستی لێ مەدە</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">تێپەڕاندن</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">جوڵاندنی تەلەفۆنەکە یان کابڵی USBـەکەی دەکرێت دیسکەکە بپچڕێنێت لە کاتێکدا Vendroid دەینووسێت.</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">Vendroid بە خۆی دەست پێ دەکات کاتێک تەلەفۆنەکە بە تەختی و بێ جوڵە دەخەوێت، یان کرتە لە تێپەڕاندن بکە بۆ دەستپێکردن ئێستا.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">پەرەپێدراو لەلایەن %1$s و %2$sـی تر.\nکۆدی سەرچاوە لە %3$s بەردەستە.\nبە مۆڵەتی GNU GPLv3 بڵاوکراوەتەوە.</string>
+    <string name="about_project_summary">Vendroid ئەپێکی Androidـی سەرچاوە کراوەیە بۆ دامەزراندنی Ventoy لەسەر دیسکی USB و بەڕێوەبردنی فایلەکانی وێنەی دەستپێک.</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">پەرەپێدراو لەلایەن %1$s.</string>
+    <string name="project_source">کۆدی سەرچاوەی پڕۆژە: %1$s.</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid وەشانی دەستکاریکراوی %1$s~ە، © Davide Depau و بەشداربووان، بە مۆڵەتی GNU GPLv3 بەکاردێت. لە ٤ی تەمموزی ٢٠٢٦ەوە دەستکاری کراوە؛ گۆڕانکارییەکان © ٢٠٢٦ %2$s.</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">Ventoy %1$sـی ناوەکی نەرمەکاڵای ئازادە بە مۆڵەتی GNU GPLv3. کۆدی سەرچاوەکەی: %2$s.</string>
+    <string name="gpl_license_notice">Vendroid نەرمەکاڵای ئازادە بە مۆڵەتی GNU GPLv3. بە هیچ گەرەنتیەک نایەت، و دەتوانیت بەو مۆڵەتە بڵاوی بکەیتەوە.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">بەشداربووان</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">پشتڕاستکردنەوەی وێنە</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">نووسینی وێنە</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">تکایە ئامێرەکەت بەکار مەهێنە</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">دەتەوێت ئاگادار بکرێیتەوە کاتێک تەواو دەبێت؟ تەنها نوێکاریی پێشکەوتن، بەبێ سپام یان ڕیکلام.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">نەخێر، سوپاس</string>
+    <string name="sure" comment="Button to accept receiving notifications">بەڵێ</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">پشتڕاستکردنەوە</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">کۆپیکردن</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">بەرامبەر</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">بۆ</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">ئامادە دەبێت…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">تێپەڕاندنی پشتڕاستکردنەوە</string>
+    <string name="image_written_successfully" comment="Title of the success page">وێنە بە سەرکەوتوویی نووسرا!</string>
+    <string name="ventoy_installer_name">دامەزرێنەری Ventoy</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">پێداچوونەوەیەک بنووسە</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">ئەستێرە لە GitHub بدە</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">هەڵەیەک ڕوویدا</string>
+    <string name="error">هەڵە</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">لە سەرەتاوە دەست پێ بکەرەوە</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">دووبارە هەوڵ بدەرەوە</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">من هەڵم نەکرایەوە!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">ئەمە چۆن ڕوویدا؟</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">لەوانەیە دەرچەی USBـەکەت پیس بێت، ئاداپتەرەکە تێکچووبێت، یان ئامێرەکەت بە هێزێکی بەس نەتوانێت دابین بکات. ئاداپتەر یان ئامێرێکی تر تاقی بکەرەوە.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">دیسکەکانی USB متمانەیان پێ ناکرێت، و Android مۆڵەتی بەس نادات بۆ چاکبوونەوەی خۆکار. دەبێت بەوەی هەمانە بسازێین!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">ئەمە چاوەڕوان نەکراوە، لەوانەیە کێشەیەک بێت. تکایە ڕاپۆرتی بدە!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">بۆ چاکبوونەوە، دیسکی USBـەکە هەڵبکەرەوە، دووبارە بیبەستەوە و مۆڵەتی دەستپێگەیشتن پێ بدەرەوە.</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">نوێنەرایەتی هەنگاوە پێویستەکان: هەڵکردنەوە، دووبارە بەستنەوە، بەخشینی مۆڵەت</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">هەمان ئامێری USB کە پێشتر بەکارت هێنابوو بیبەستە!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">ئامێری USB دووبارە بەسترایەوە، دەست دەکرێتەوە بە کار</string>
+    <string name="the_device_is_not_responding" comment="Error message">ئامێرەکە وەڵام ناداتەوە</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">مۆڵەتی دەستپێگەیشتن بە ئامێری USB نییە</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">دیسکی USB زۆر گەورەیە و Vendroid پشتگیریی ناکات.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">وێنەکە (%1$s) گەورەترە لە ئامێرەکە (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">نەتوانرا فایلی سەرچاوە بکرێتەوە</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">هەڵەیەکی نەزانراو ڕوویدا: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">دیسکی USB هەڵکرایەوە</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">دیسکی USB وەڵامدانی وەستاند</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">ناوەڕۆکی ئامێری USB لەگەڵ وێنەکە ناگونجێت</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid Ventoyـی نووسی بۆ دیسکی USB، بەڵام کاتێک دووبارە خوێندرایەوە داتا لە بایتی %1$dـدا جیاواز بوو. لەوانەیە دیسکەکە ساختە بێت، تێکچووبێت، یان نەتوانێت گواستنەوەی گەورە بەڕێوە ببات. دیسکەکە فۆرمات بکەرەوە بۆ بەکارهێنانی دووبارە. دواتر دووبارە هەوڵ بکەرەوە بە چالاککردنی «گواستنەوەی بچووکتری USB» لە هەڵبژاردنە پێشکەوتووەکاندا، یان دیسکێکی تر بەکاربهێنە.</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">وێنەیەکی تر بنووسە</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">پشتڕاستکردنەوەی ئۆپەراسیۆن</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">هیچ URIـی وێنەیەک نەدراوە</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">هیچ ئامێری مەبەست هەڵنەبژێردراوە</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">وا دەردەکەوێت پرۆسەی نووسین گیری خواردبێت. تکایە دووبارە هەوڵ بکەرەوە.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">هەوڵێکی نووسین دەستی پێ کرد، بەڵام بەداخەوە هەندێک زانیاری لە ڕێگادا ون بوو. تکایە دووبارە هەوڵ بکەرەوە.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">ئەگەر دەتوانیت، تکایە ئەم کێشەیە لە GitHub ڕاپۆرت بکە لەگەڵ ئەو هەنگاوانەی بوونە هۆی ئەم هەڵەیە.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">بینینی کێشەکانی GitHub</string>
+    <string name="close">داخستن</string>
+    <string name="menu">لیست</string>
+    <string name="language">زمان</string>
+    <string name="language_automatic">خۆکار (زمانی ئامێر)</string>
+    <string name="language_english">ئینگلیزی</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">سیاسەتی خوارەوە بە زمانی ئینگلیزی دابین کراوە.</string>
+    <string name="open_source_licenses">مۆڵەتەکانی سەرچاوە کراوە</string>
+    <string name="licenses_language_note">ئەم ئاگادارییانە و دەقەکانی مۆڵەت بە زمانی ئینگلیزی دابین کراون.</string>
+    <string name="licenses_back">گەڕانەوە</string>
+    <string name="project_website">ماڵپەڕی پڕۆژە</string>
+    <string name="help_and_contact">یارمەتی و پەیوەندی</string>
+    <string name="ventoy_mirror_name">ئاوێنەی نوێکردنەوەی Vendroid</string>
+    <string name="ventoy_mirror_disclosure">دابەزاندنە ئاختیارییەکان ئاوێنەی نوێکردنەوەی Vendroid بەکاردەهێنن. خزمەتگوزارییەکە ناونیشانی IPـەکەت و زانیاری داواکاری وەردەگرێت. بڕوانە دەربارە → سیاسەتی تایبەتمەندی.</string>
+</resources>

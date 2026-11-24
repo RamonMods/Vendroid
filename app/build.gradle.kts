@@ -1,0 +1,361 @@
+@file:Suppress("UnstableApiUsage")
+
+import java.security.MessageDigest
+import java.util.Locale
+
+val pinnedVentoyVersion = "1.1.18"
+val ventoyPayloadArchive = providers.gradleProperty("ventoyPayloadArchive")
+    .orElse(providers.environmentVariable("VENTOY_PAYLOAD_ARCHIVE"))
+    .orElse(
+        rootProject.layout.projectDirectory
+            .file(".vendroid-cache/ventoy-$pinnedVentoyVersion-linux.tar.gz")
+            .asFile
+            .absolutePath
+    )
+val generatedVentoyPayloadAssets = layout.buildDirectory.dir("generated/ventoyPayload/assets")
+val generatedPrivacyAssets = layout.buildDirectory.dir("generated/privacyPolicy/assets")
+val releaseKeystorePath = providers.environmentVariable("VENDROID_KEYSTORE_PATH").orNull
+val releaseKeystorePassword = providers.environmentVariable("VENDROID_KEYSTORE_PASSWORD").orNull
+val releaseKeyAlias = providers.environmentVariable("VENDROID_KEY_ALIAS").orNull
+val releaseKeyPassword = providers.environmentVariable("VENDROID_KEY_PASSWORD").orNull
+val releaseSigningConfigured = listOf(
+    releaseKeystorePath,
+    releaseKeystorePassword,
+    releaseKeyAlias,
+    releaseKeyPassword,
+).all { !it.isNullOrBlank() }
+val defaultVersionCode = 39
+val vendroidVersionCode = providers.environmentVariable("VENDROID_VERSION_CODE")
+    .orElse(defaultVersionCode.toString())
+    .map { value ->
+        val code = value.toIntOrNull()
+        require(code != null && code in defaultVersionCode..2_100_000_000) {
+            "VENDROID_VERSION_CODE must be an integer from $defaultVersionCode to 2100000000"
+        }
+        code
+    }
+val stableGptEnabled = true
+// Distribution sets a numbered suffix from the release tag, such as -beta.2.
+val betaVersionSuffix = providers.environmentVariable("VENDROID_BETA_SUFFIX").orNull
+    ?.takeIf { it.isNotEmpty() }
+    ?: "-beta"
+
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.android.junit5)
+    alias(libs.plugins.robolectric.junit5)
+}
+
+// The vendored License folder and source lock describe exactly one Ventoy release.
+val ventoyVendorDirectory = rootProject.layout.projectDirectory.dir("third_party/ventoy")
+val ventoySourceLock = ventoyVendorDirectory.file("source-lock.json").asFile.readText()
+fun ventoyLockValue(name: String): String =
+    Regex("^  \"$name\": \"([^\"]+)\",?$", RegexOption.MULTILINE).find(ventoySourceLock)?.groupValues?.get(1)
+        ?: error("third_party/ventoy/source-lock.json has no top-level $name")
+val ventoySourceCommit = ventoyLockValue("commit")
+check(ventoyLockValue("version") == pinnedVentoyVersion) {
+    "third_party/ventoy holds the licenses and source lock of Ventoy ${ventoyLockValue("version")}, " +
+        "but the bundled payload is $pinnedVentoyVersion. Update both together."
+}
+val generatedVentoyLicenseAssets = layout.buildDirectory.dir("generated/ventoyLicenses/assets")
+val generatedNoticeAssets = layout.buildDirectory.dir("generated/openSourceNotices/assets")
+
+android {
+    val sdkMin = 23
+    val sdkTarget = 36
+
+    namespace = "io.github.ramonmods.vendroid"
+    compileSdk = sdkTarget
+
+    defaultConfig {
+        applicationId = "io.github.ramonmods.vendroid"
+        minSdk = sdkMin
+        targetSdk = sdkTarget
+        versionCode = vendroidVersionCode.get()
+        versionName = "0.2.0"
+        buildConfigField("boolean", "IS_PREVIEW", "false")
+        buildConfigField("boolean", "GPT_ENABLED", stableGptEnabled.toString())
+        buildConfigField("String", "VENTOY_VERSION", "\"$pinnedVentoyVersion\"")
+        buildConfigField("String", "VENTOY_SOURCE_COMMIT", "\"$ventoySourceCommit\"")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+    signingConfigs {
+        if (releaseSigningConfigured) {
+            create("release") {
+                storeFile = file(releaseKeystorePath!!)
+                storePassword = releaseKeystorePassword
+                keyAlias = releaseKeyAlias
+                keyPassword = releaseKeyPassword
+            }
+        }
+    }
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            if (releaseSigningConfigured) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        debug {
+            isMinifyEnabled = false
+            isPseudoLocalesEnabled = true
+        }
+        create("optimized") {
+            // Optimized like release (minify + shrinkResources + proguard) but debug-signed
+            // and non-debuggable, so it installs in CI and runs fast on the slow e2e VM.
+            initWith(getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+        }
+        create("preview") {
+            // The beta track updates the same Vendroid app and retains Preview capabilities.
+            initWith(getByName("optimized"))
+            matchingFallbacks += listOf("release")
+            versionNameSuffix = betaVersionSuffix
+            buildConfigField("boolean", "IS_PREVIEW", "true")
+            buildConfigField("boolean", "GPT_ENABLED", "true")
+            signingConfig = if (releaseSigningConfigured) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+        }
+        create("gptCandidate") {
+            // Stable package with GPT, kept for signed candidates now that stable has GPT too.
+            // Large-drive permission remains tied to IS_PREVIEW, which stays false.
+            initWith(getByName("optimized"))
+            matchingFallbacks += listOf("release")
+            versionNameSuffix = "-gpt-candidate"
+            buildConfigField("boolean", "GPT_ENABLED", "true")
+            signingConfig = if (releaseSigningConfigured) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+        }
+    }
+    flavorDimensions += "store"
+    productFlavors {
+        create("foss") {
+            isDefault = true
+            dimension = "store"
+        }
+    }
+    dependenciesInfo {
+        // F-Droid and IzzyOnDroid reject this Google-encrypted APK signing block.
+        includeInApk = false
+    }
+    packaging {
+        resources {
+            excludes += "META-INF/libaums_release.kotlin_module"
+        }
+    }
+    compileOptions {
+        encoding = "UTF-8"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+        resValues = true
+    }
+    sourceSets {
+        getByName("main") {
+            assets.srcDir(generatedVentoyPayloadAssets.get().asFile)
+            assets.srcDir(generatedVentoyLicenseAssets.get().asFile)
+            assets.srcDir(generatedPrivacyAssets.get().asFile)
+            assets.srcDir(generatedNoticeAssets.get().asFile)
+        }
+    }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+        unitTests.all {
+            it.useJUnitPlatform()
+            it.maxHeapSize = "4g"
+            it.systemProperty("robolectric.dependency.proxy.host", project.findProperty("systemProp.https.proxyHost") ?: System.getenv("ROBOLECTRIC_PROXY_HOST"))
+            it.systemProperty("robolectric.dependency.proxy.port", project.findProperty("systemProp.https.proxyPort") ?: System.getenv("ROBOLECTRIC_PROXY_PORT"))
+        }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+dependencies {
+    implementation(libs.activity.compose)
+    implementation(libs.appcompat)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.constraintlayout.compose)
+    implementation(libs.core.ktx)
+    implementation(libs.documentfile)
+    // Pins the coroutines runtime that the test-only debug artifact used to bring in.
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.libaums.core)
+    implementation(libs.libaums.libusbcommunication)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.service)
+    implementation(libs.localbroadcastmanager)
+    implementation(libs.lottie.compose)
+    implementation(libs.material)
+    implementation(libs.material.icons.extended)
+    implementation(libs.material3)
+    implementation(libs.material3.adaptive)
+    implementation(libs.xz.java)
+    implementation(platform(libs.compose.bom))
+
+    debugImplementation(libs.compose.ui.test.manifest)
+    debugImplementation(libs.compose.ui.tooling)
+
+    androidTestImplementation(libs.compose.ui.test.junit4)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.test.runner)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(platform(libs.compose.bom))
+
+    testImplementation(libs.junit.jupiter)
+    // DebugProbes bundles desktop JNA binaries, so it must stay out of the APK.
+    testImplementation(libs.kotlinx.coroutines.debug)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.test.core)
+}
+
+fun File.sha256(): String {
+    val digest = MessageDigest.getInstance("SHA-256")
+    inputStream().use { input ->
+        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+        while (true) {
+            val read = input.read(buffer)
+            if (read < 0) break
+            digest.update(buffer, 0, read)
+        }
+    }
+    return digest.digest().joinToString("") { "%02x".format(Locale.US, it.toInt() and 0xff) }
+}
+
+val prepareVentoyPayload = tasks.register("prepareVentoyPayload") {
+    group = "vendroid"
+    description = "Imports and verifies the pinned Ventoy release payload into generated app assets."
+    notCompatibleWithConfigurationCache("Uses Gradle archive and copy APIs to import a local release archive.")
+
+    val archivePath = ventoyPayloadArchive.get()
+    val outputAssetsDir = generatedVentoyPayloadAssets.get().asFile
+    inputs.property("pinnedVentoyVersion", pinnedVentoyVersion)
+    inputs.property("ventoyPayloadArchive", archivePath)
+    outputs.dir(outputAssetsDir)
+
+    doLast {
+        val archive = file(archivePath)
+        check(archive.isFile) {
+            "Missing Ventoy payload archive: ${archive.absolutePath}. " +
+                "Download the official Linux release package or set -PventoyPayloadArchive=/path/to/ventoy-$pinnedVentoyVersion-linux.tar.gz"
+        }
+
+        val requiredPaths = listOf(
+            "boot/boot.img",
+            "boot/core.img.xz",
+            "ventoy/ventoy.disk.img.xz",
+            "ventoy/version",
+        )
+
+        val payloadRoot = outputAssetsDir.resolve("ventoy_payload")
+        delete(payloadRoot)
+        payloadRoot.mkdirs()
+
+        val archiveTree = tarTree(resources.gzip(archive))
+        requiredPaths.forEach { payloadPath ->
+            val match = archiveTree.files.singleOrNull { candidate ->
+                val normalized = candidate.path.replace(File.separatorChar, '/')
+                normalized.endsWith("/$payloadPath") || normalized == payloadPath
+            }
+            check(match != null) { "Ventoy archive ${archive.absolutePath} is missing $payloadPath" }
+
+            copy {
+                from(match)
+                into(payloadRoot.resolve(payloadPath).parentFile)
+            }
+        }
+
+        val version = payloadRoot.resolve("ventoy/version").readText().trim()
+        check(version == pinnedVentoyVersion) {
+            "Ventoy payload version mismatch: expected $pinnedVentoyVersion, found $version"
+        }
+
+        val manifest = buildString {
+            appendLine("version=$version")
+            requiredPaths.forEach { payloadPath ->
+                val file = payloadRoot.resolve(payloadPath)
+                appendLine("file=$payloadPath|${file.length()}|${file.sha256()}")
+            }
+        }
+        payloadRoot.resolve("payload.manifest").writeText(manifest)
+    }
+}
+
+val preparePrivacyPolicy = tasks.register<Copy>("preparePrivacyPolicy") {
+    from(rootProject.layout.projectDirectory.file("docs/privacy-policy.md"))
+    into(generatedPrivacyAssets)
+}
+
+val prepareVentoyLicenses = tasks.register<Sync>("prepareVentoyLicenses") {
+    group = "vendroid"
+    description = "Packages the vendored Ventoy License folder, notice, and source lock as app assets."
+    from(ventoyVendorDirectory)
+    into(generatedVentoyLicenseAssets.map { it.dir("ventoy_licenses") })
+}
+
+val prepareOpenSourceNotices = tasks.register<Sync>("prepareOpenSourceNotices") {
+    group = "vendroid"
+    description = "Packages Vendroid's notice and the license texts it refers to as app assets."
+    from(rootProject.layout.projectDirectory.file("NOTICE")) { rename { "NOTICE.txt" } }
+    from(rootProject.layout.projectDirectory.file("LICENSE")) { rename { "GPL-3.0.txt" } }
+    from(rootProject.layout.projectDirectory.dir("third_party/licenses")) {
+        include("*.txt")
+        exclude("dependency-groups.txt")
+    }
+    into(generatedNoticeAssets.map { it.dir("licenses") })
+}
+
+val verifyDependencyLicenses = tasks.register("verifyDependencyLicenses") {
+    group = "vendroid"
+    description = "Fails when the release runtime classpath has a Maven group without a recorded license."
+    val recorded = rootProject.layout.projectDirectory.file("third_party/licenses/dependency-groups.txt").asFile
+    inputs.file(recorded)
+    doLast {
+        val prefixes = recorded.readLines().map { it.trim() }
+            .filter { it.isNotEmpty() && !it.startsWith("#") }
+            .map { it.substringBefore(' ') }
+        val groups = configurations.getByName("fossReleaseRuntimeClasspath").incoming.resolutionResult.allComponents
+            .mapNotNull { (it.id as? org.gradle.api.artifacts.component.ModuleComponentIdentifier)?.group }
+            .toSortedSet()
+        val unknown = groups.filter { group -> prefixes.none { group == it || group.startsWith("$it.") } }
+        check(unknown.isEmpty()) {
+            "No license recorded for: ${unknown.joinToString()}. Find each license, then add the group to " +
+                "third_party/licenses/dependency-groups.txt and its notice to NOTICE."
+        }
+    }
+}
+
+tasks.named("preBuild") {
+    dependsOn(prepareVentoyPayload, preparePrivacyPolicy, prepareVentoyLicenses, prepareOpenSourceNotices)
+}

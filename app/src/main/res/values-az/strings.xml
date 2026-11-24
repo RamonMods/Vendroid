@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="write_finished">Yazım bitdi</string>
+    <string name="success_notif_content_text">%1$s uğurla %2$s üzərinə yazıldı</string>
+    <string name="write_failed">Yazma uğursuz oldu</string>
+    <string name="action_required">Fəaliyyət tələb olunur</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description">Cari işin gedişatını göstərmək üçün istifadə olunur</string>
+    <string name="notif_channel_job_progress_name">İş prossesi</string>
+    <string name="notif_channel_job_result_name">İşin nəticəsi</string>
+    <string name="notification_write_progress_title">İmaj yazılır…</string>
+    <string name="notification_verify_progress_title">İmaj təsdiqlənir…</string>
+    <string name="notification_write_tap_for_progress_text">Prosses üçün toxunun • %1$s - %2$s yazın</string>
+    <string name="unknown_filename">Naməlum fayl adı</string>
+    <string name="permission_denied_for_usb_device">USB cihazı üçün icazə rədd edildi %1$s</string>
+    <string name="write_an_image">İmaj yazın</string>
+    <string name="style">Stil</string>
+    <string name="device_setting">Device settings</string>
+    <string name="light">İşıqlı</string>
+    <string name="dark">Tünd</string>
+    <string name="dynamic_colors">Dinamik rənglər</string>
+    <string name="about">Haqqında</string>
+    <string name="is_this_a_windows_iso">Bu Windows ISO-dur\?</string>
+    <string name="continue_anyway">Hər halda davam edin</string>
+    <string name="select_a_usb_drive">USB sürücüsünü seçin</string>
+    <string name="connect_a_usb_drive">USB sürücüsünü qoşun</string>
+    <string name="looking_for_usb_drives">USB disklər axtarılır</string>
+    <string name="confirm_operation">Əməliyyatı təsdiqləyin</string>
+    <string name="disk_image">Disk imajı</string>
+    <string name="image_to_write">Yazılacaq imaj</string>
+    <string name="usb_drive">USB sürücü</string>
+    <string name="destination_usb_device">Hədəf USB cihazı</string>
+    <string name="unknown_device">Naməlum cihaz</string>
+    <string name="grant_access">Giriş icazəsi ver</string>
+    <string name="permission_granted">İcazə verildi</string>
+    <string name="be_careful">Diqqətli ol!</string>
+    <string name="writing_the_image_will_erase">İmaj yazılması seçilmiş diskdəki bütün məlumatları siləcək</string>
+    <string name="write_image">İmajı yazın</string>
+    <string name="lay_your_device_flat_no_accel">Davam etməzdən əvvəl cihazınızı masanın üzərinə düz qoyun.</string>
+    <string name="continue_">Davam edin</string>
+    <string name="contributors">töhfə verənlər</string>
+    <string name="verifying_image">İmaj təsdiqlənir</string>
+    <string name="writing_image">imaj yazılır</string>
+    <string name="please_avoid_using_your_device">Zəhmət olmasa cihazınızdan istifadə etməyin</string>
+    <string name="no_thanks">Xeyr, təşəkkürlər</string>
+    <string name="sure">Əlbəttə</string>
+    <string name="against">qarşı</string>
+    <string name="to">üçün</string>
+    <string name="getting_ready">Hazırlanır…</string>
+    <string name="skip_verification">Doğrulamanı keçin</string>
+    <string name="image_written_successfully">İmaj uğurla yazılıb!</string>
+    <string name="star_on_github">GitHub-da ulduz verin</string>
+    <string name="there_was_an_error">Bir xəta baş verdi</string>
+    <string name="error">Xəta</string>
+    <string name="start_over">Yenidən başlamaq</string>
+    <string name="try_again">Təkrar cəhd</string>
+    <string name="how_did_this_happen">Bu necə oldu\?</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Bu gözlənilməzdir, yəqin ki, səhvdir. Zəhmət olmasa xəbər verin!</string>
+    <string name="to_recover_unplug">Bərpa etmək üçün USB diskinizi ayırın, yenidən qoşun və yenidən daxil olmaq üçün icazə verin.</string>
+    <string name="representation_of_the_required_steps">Tələb olunan addımların təsviri: ayırın, yenidən qoşun, icazə verin</string>
+    <string name="plug_in_the_same_usb">Əvvəllər istifadə etdiyiniz eyni USB cihazını qoşun!</string>
+    <string name="usb_device_reconnected_resuming">USB cihazı yenidən qoşuldu, davam etdirilir</string>
+    <string name="the_device_is_not_responding">Cihaz cavab vermir</string>
+    <string name="the_image_is_is_larger_than_the_device">İmaj (%1$s) cihazdan (%2$s) böyükdür</string>
+    <string name="the_usb_drive_is_too_large">USB disk çox böyükdür və Vendroid bunu dəstəkləmir.</string>
+    <string name="could_not_open_the_source_file">Mənbə faylı açmaq mümkün olmadı</string>
+    <string name="the_usb_drive_was_unplugged">USB sürücüsü ayrıldı</string>
+    <string name="the_usb_device_content_does_not_match_the_image">USB cihazının məzmunu imaj ilə uyğun gəlmir</string>
+    <string name="write_another_image">Başqa bir imaj yazın</string>
+    <string name="cancel">Ləğv Et</string>
+    <string name="lay_your_device_flat">Cihazınızı masanın üzərinə düz qoyun və ona toxunmayın</string>
+    <string name="notification_verify_progress_content">%1$s qarşı %2$s</string>
+    <string name="notif_channel_job_result_desc">Tamamlanmış iş nəticəsini göstərmək üçün istifadə olunur</string>
+    <string name="notification_write_no_notifications_text">Prosses üçün bildirişləri aktivləşdirin • %1$s-in %2$s-ə yazılması</string>
+    <string name="notification_write_progress_content">%1$s - %2$s</string>
+    <string name="usb_device_was_unplugged">USB cihazı ayrıldı</string>
+    <string name="a_regular_windows_iso_won_t_work">Adi bir Windows ISO faylı Vendroid ilə işləməyəcək, yalnız Etcher, dd və ya Droid ilə istifadə üçün xüsusi hazırlanıbsa işləyə bilər.</string>
+    <string name="skip">Keç</string>
+    <string name="developed_by">%1$s və digər %2$s tərəfindən hazırlanmışdır.
+\nMənbə kodu %3$s-də mövcuddur.
+\nGNU GPLv3 lisenziyası ilə lisenziyalaşdırılıb.</string>
+    <string name="would_you_like_to_be_notified">Bitirdikdə xəbərdar olmaq istərdinizmi\? Yalnız prosses yeniləmələri, spam və ya reklam yoxdur.</string>
+    <string name="verifying">Doğrulanır</string>
+    <string name="copying">Kopyalanır</string>
+    <string name="write_a_review">Rəy yazın</string>
+    <string name="i_did_not_unplug_it">Mən onu ayırmadım!</string>
+    <string name="perhaps_your_usb_port_is_dirty">Ola bilsin ki, USB portunuz çirklənib, adapteriniz nasazdır və ya cihazınız kifayət qədər elektrik enerjisi təmin edə bilmir. Fərqli adapter və ya cihaz sınamağı düşünün.</string>
+    <string name="usb_drives_are_unreliable">USB sürücüləri etibarsızdır və Android avtomatik bərpa etmək üçün kifayət qədər icazə vermir. Əlimizdə olanlarla kifayətlənməliyik!</string>
+    <string name="the_usb_drive_stopped_responding">USB sürücüsü cavab vermədi</string>
+    <string name="missing_permission_to_access_the_usb_device">USB cihazına daxil olmaq üçün icazə yoxdur</string>
+    <string name="an_unknown_error_occurred">Naməlum xəta baş verdi: %1$s</string>
+    <string name="title_activity_confirm_operation">Əməliyyatı təsdiqləyin</string>
+    <string name="no_image_uri_provided">Üzlük URI təmin edilməyib</string>
+    <string name="no_destination_device_selected">Heç bir təyinat cihazı seçilməyib</string>
+    <string name="service_timeout_message">Deyəsən yazı prosesi ilişib qalıb. Yenidən cəhd edin.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Diskə yazma prosesi başlandı, lakin təəssüf ki, proses zamanı bəzi məlumatlar itdi. Zəhmət olmasa, yenidən cəhd edin.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Əgər mümkündürsə, bu problemi GitHub-da və bu xətaya gətirib çıxaran addımlarla birlikdə qeyd edin.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">\"GitHub issues\" -də görüntülə</string>
+</resources>

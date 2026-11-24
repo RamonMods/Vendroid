@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">Vendroid</string>
+    <string name="cancel" comment="Cancel string, used all over the place">रद्द करें</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">लिखना पूरा हुआ</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s को %2$s पर सफलतापूर्वक लिखा गया</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">लिखना विफल</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">कार्रवाई आवश्यक</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">वर्तमान कार्य की प्रगति दिखाने के लिए उपयोग किया जाता है</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">कार्य की प्रगति</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">पूरे हुए कार्य का परिणाम दिखाने के लिए उपयोग किया जाता है</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">कार्य का परिणाम</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">इमेज लिखी जा रही है…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">इमेज की जाँच की जा रही है…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">प्रगति के लिए सूचनाएँ चालू करें • %1$s को %2$s पर लिखा जा रहा है</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">प्रगति देखने के लिए टैप करें • %1$s को %2$s पर लिखा जा रहा है</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s से %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s की तुलना %2$s से</string>
+    <string name="unknown_filename" comment="Placeholder file name">अज्ञात फ़ाइल नाम</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"USB डिवाइस %1$s के लिए अनुमति अस्वीकृत"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB डिवाइस अनप्लग हो गया था</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">इमेज लिखें</string>
+    <string name="install_ventoy" comment="Displayed in the home page main call-to-action button">Ventoy इंस्टॉल करें</string>
+    <string name="force_install_ventoy" comment="Displayed as a secondary destructive install action">बलपूर्वक इंस्टॉल</string>
+    <string name="installing_ventoy">Ventoy इंस्टॉल किया जा रहा है:</string>
+    <string name="updating_ventoy">Ventoy अपडेट किया जा रहा है:</string>
+    <string name="ventoy_installed_successfully">Ventoy सफलतापूर्वक इंस्टॉल हो गया</string>
+    <string name="ventoy_updated_successfully">Ventoy सफलतापूर्वक अपडेट हो गया</string>
+    <string name="install_ventoy_another_drive">किसी दूसरे ड्राइव पर Ventoy इंस्टॉल करें</string>
+    <string name="update_ventoy">अपडेट करें</string>
+    <string name="update_ventoy_title">Ventoy अपडेट करें</string>
+    <string name="repair_ventoy">मरम्मत करें</string>
+    <string name="advanced_options">उन्नत विकल्प</string>
+    <string name="volume_label">वॉल्यूम लेबल</string>
+    <string name="exfat_label_limit">1–11 अक्षर</string>
+    <string name="cluster_size">क्लस्टर आकार</string>
+    <string name="automatic">स्वचालित</string>
+    <string name="reserve_space">अंत में जगह आरक्षित करें</string>
+    <string name="reserve_space_description">Ventoy विभाजनों के बाद असावंट की गई जगह छोड़ें।</string>
+    <string name="small_usb_transfers" comment="Advanced Ventoy option that sends smaller USB storage commands">छोटे USB ट्रांसफ़र</string>
+    <string name="small_usb_transfers_description">धीमा है, लेकिन उन ड्राइव की मदद कर सकता है जिनकी जाँच विफल होती है या जो इंस्टॉलेशन के दौरान डिस्कनेक्ट हो जाती हैं।</string>
+    <string name="maximum_reserved_space">अधिकतम: %1$d %2$s</string>
+    <string name="reserved_space">आरक्षित जगह</string>
+    <string name="partitions_aligned_4k">✓ विभाजन हमेशा 4 KiB सीमाओं के अनुरूप रखे जाते हैं।</string>
+    <string name="apply">लागू करें</string>
+    <string name="unknown_version">अज्ञात</string>
+    <string name="grant_access_to_check_ventoy">यह देखने के लिए USB एक्सेस दें कि Ventoy पहले से इंस्टॉल है या नहीं।</string>
+    <string name="checking_ventoy_installation">USB ड्राइव की जाँच की जा रही है…</string>
+    <string name="ready_to_install_ventoy_version">Ventoy %1$s इंस्टॉल करने के लिए तैयार है</string>
+    <string name="ventoy_update_available">Ventoy %1$s इंस्टॉल है · %2$s उपलब्ध</string>
+    <string name="ventoy_ready_to_repair">Ventoy %1$s इंस्टॉल है और इसकी मरम्मत की जा सकती है।</string>
+    <string name="ventoy_newer_than_bundled">इस ड्राइव पर Ventoy %1$s है, जो Vendroid के %2$s से नया है। डाउनग्रेड ब्लॉक है।</string>
+    <string name="ventoy_unknown_version_blocked">इंस्टॉल Ventoy संस्करण निर्धारित नहीं किया जा सका। संभावित डाउनग्रेड से बचने के लिए अपडेट और मरम्मत ब्लॉक हैं।</string>
+    <string name="ventoy_metadata_only_repair">केवल क्षतिग्रस्त GPT विभाजन मेटाडेटा की मरम्मत की जाएगी। इंस्टॉल Ventoy और आपकी फ़ाइलें सुरक्षित रहेंगी।</string>
+    <string name="existing_partitions_use_force_install">इस ड्राइव पर पहले से विभाजन हैं। वापस जाकर इसे मिटाने के लिए बलपूर्वक इंस्टॉल चुनें।</string>
+    <string name="could_not_check_ventoy">इस USB ड्राइव की जाँच नहीं हो सकी।</string>
+    <string name="files_will_be_preserved">आपकी फ़ाइलें सुरक्षित रहेंगी</string>
+    <string name="updating_ventoy_preserves_files">केवल Ventoy बूट घटक अपडेट किए जाएँगे। ड्राइव को जोड़े रखें और पहले अमूल्य फ़ाइलों का बैकअप ले लें।</string>
+    <string name="ventoy_options_summary">%1$s · exFAT · लेबल: %2$s · क्लस्टर: %3$s · आरक्षित: %4$s</string>
+    <string name="partition_style">विभाजन शैली</string>
+    <string name="partition_style_description">MBR डिफ़ॉल्ट रूप से अनुशंसित है। 2 TiB से बड़ी ड्राइव के लिए GPT और Vendroid बीटा चाहिए।</string>
+    <string name="partition_style_mbr">MBR (अनुशंसित)</string>
+    <string name="partition_style_gpt" translatable="false">GPT</string>
+    <string name="partition_style_gpt_preview" translatable="false">GPT (Preview)</string>
+    <string name="gpt_preview_warning">प्रयोगात्मक: GPT के साथ इंस्टॉल करने से पहले USB ड्राइव का बैकअप लें।</string>
+    <string name="gpt_available_in_v_preview">GPT इंस्टॉलेशन Google Play पर Vendroid बीटा में उपलब्ध है।</string>
+    <string name="drive_requires_v_preview">इस ड्राइव के लिए Vendroid बीटा आवश्यक है, जब तक GPT विधि का भौतिक परीक्षण नहीं हो जाता।</string>
+    <string name="large_drive_requires_v_preview">2 TiB से बड़ी ड्राइव के लिए Vendroid बीटा आवश्यक है, जब तक बड़ी ड्राइव का समर्थन भौतिक परीक्षण से नहीं गुज़रता।</string>
+    <string name="large_drive_requires_gpt">यह ड्राइव 2 TiB से बड़ी है। जारी रखने के लिए GPT चुनें; MBR इस क्षमता का उपयोग नहीं कर सकता।</string>
+    <string name="get_v_preview">Vendroid बीटा में शामिल हों</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="check_online_ventoy_update">ऑनलाइन अपडेट की जाँच करें</string>
+    <string name="checking_online_ventoy_update">Ventoy रिलीज़ की जाँच की जा रही है…</string>
+    <string name="downloading_online_ventoy">Ventoy %1$s डाउनलोड किया जा रहा है…</string>
+    <string name="online_ventoy_download_percent">%1$d%% डाउनलोड हुआ</string>
+    <string name="using_downloaded_ventoy">सत्यापित ऑनलाइन Ventoy %1$s का उपयोग किया जा रहा है</string>
+    <string name="no_newer_ventoy_online">चुनी गई Ventoy सामग्री पहले से ही नवीनतम उपलब्ध है।</string>
+    <string name="online_ventoy_update_failed">ऑनलाइन Ventoy अपडेट डाउनलोड नहीं हो सका।</string>
+    <string name="check_again">फिर से जाँचें</string>
+    <string name="percent_complete">%1$d%% पूरा</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">शैली</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">डिवाइस सेटिंग</string>
+    <string name="light" comment="Style menu option that selects the light theme">लाइट</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">डार्क</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">डाइनेमिक रंग</string>
+    <string name="about" comment="Menu option that opens the about page">ऐप के बारे में</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">क्या यह Windows ISO है?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">एक सामान्य Windows ISO Vendroid के साथ काम नहीं करेगा, जब तक कि इसे विशेष रूप से Vendroid, Etcher या dd के साथ उपयोग के लिए तैयार न किया गया हो।</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">फिर भी जारी रखें</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">USB ड्राइव चुनें</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">USB ड्राइव कनेक्ट करें</string>
+    <string name="looking_for_usb_drives">USB ड्राइव खोजी जा रही हैं</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">कार्रवाई की पुष्टि करें</string>
+    <string name="disk_image">डिस्क इमेज</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">लिखी जाने वाली इमेज</string>
+    <string name="usb_drive">USB ड्राइव</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">लक्ष्य USB डिवाइस</string>
+    <string name="unknown_device" comment="Device name placeholder">अज्ञात डिवाइस</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">पहुँच दें</string>
+    <string name="permission_granted">अनुमति प्रदान की गई</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">सावधान रहें!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ventoy इंस्टॉल करने से चुनी गई ड्राइव का सारा डेटा मिट जाएगा</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">इंस्टॉल करें</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">आगे बढ़ने से पहले अपने डिवाइस को मेज़ पर सीधा रखें।</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">जारी रखें</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">अपने डिवाइस को मेज़ पर सीधा रखें और उसे छूएँ नहीं</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">छोड़ें</string>
+    <string name="lay_flat_reason" comment="Explains, below the lay-flat title, why the device should stay still during the operation">Vendroid के ड्राइव में लिखते समय फ़ोन या उसकी USB केबल हिलने से ड्राइव डिस्कनेक्ट हो सकती है।</string>
+    <string name="lay_flat_starts_automatically" comment="Follows lay_flat_reason when the device has a gravity sensor; Skip is the button label from the skip string">जैसे ही फ़ोन सीधा और स्थिर रहता है, Vendroid अपने आप शुरू हो जाता है, या अभी शुरू करने के लिए छोड़ें दबाएँ।</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">%1$s और अन्य %2$s द्वारा विकसित।\nस्रोत कोड %3$s पर उपलब्ध है।\nGNU GPLv3 लाइसेंस के तहत लाइसेंस प्राप्त।</string>
+    <string name="about_project_summary">Vendroid एक ओपन-सोर्स Android ऐप है, जिससे USB ड्राइव पर Ventoy इंस्टॉल किया जा सकता है और बूट इमेज फ़ाइलों का प्रबंधन किया जा सकता है।</string>
+    <string name="developer_name" translatable="false">RamonMods</string>
+    <string name="developer_credit">%1$s द्वारा विकसित।</string>
+    <string name="project_source">प्रोजेक्ट का स्रोत कोड: %1$s।</string>
+    <string name="etchdroid_attribution" comment="Displayed in the about page; parameters are the name EtchDroid and the Vendroid developer">Vendroid, %1$s का संशोधित संस्करण है, © Davide Depau और योगदानकर्ता, GNU GPLv3 के तहत उपयोग किया गया। 4 जुलाई 2026 से संशोधित; परिवर्तन © 2026 %2$s।</string>
+    <string name="ventoy_source_notice" comment="Displayed in the about page; parameters are the bundled Ventoy version and a link to its source code">साथ आने वाला Ventoy %1$s GNU GPLv3 के तहत मुक्त सॉफ़्टवेयर है। इसका स्रोत कोड: %2$s।</string>
+    <string name="gpl_license_notice">Vendroid GNU GPLv3 के तहत मुक्त सॉफ़्टवेयर है। इसके साथ कोई वारंटी नहीं दी जाती और आप इसे उसी लाइसेंस के तहत वितरित कर सकते हैं।</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">योगदानकर्ता</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">इमेज की जाँच की जा रही है</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">इमेज लिखी जा रही है</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">कृपया अपने डिवाइस का उपयोग न करें</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">क्या आप पूरा होने पर सूचना पाना चाहेंगे? केवल प्रगति अपडेट, कोई स्पैम या विज्ञापन नहीं।</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">नहीं, धन्यवाद</string>
+    <string name="sure" comment="Button to accept receiving notifications">हाँ, ज़रूर</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">जाँच की जा रही है</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">कॉपी की जा रही है</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">बनाम</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">को</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">तैयारी की जा रही है…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">जाँच छोड़ें</string>
+    <string name="image_written_successfully" comment="Title of the success page">इमेज सफलतापूर्वक लिखी गई!</string>
+    <string name="ventoy_installer_name">Ventoy इंस्टॉलर</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">समीक्षा लिखें</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">GitHub पर स्टार दें</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">एक त्रुटि हुई</string>
+    <string name="error">त्रुटि</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">शुरू से करें</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">फिर से कोशिश करें</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">मैंने इसे अनप्लग नहीं किया!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">ऐसा कैसे हुआ?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">हो सकता है कि आपका USB पोर्ट गंदा हो, अडैप्टर खराब हो या डिवाइस पर्याप्त बिजली न दे पा रहा हो। किसी दूसरे अडैप्टर या डिवाइस का उपयोग करके देखें।</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB ड्राइव भरोसेमंद नहीं होतीं और Android स्वतः रिकवरी के लिए पर्याप्त अनुमति नहीं देता। हमें उपलब्ध संसाधनों से ही काम चलाना पड़ता है!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">यह अप्रत्याशित है, शायद कोई बग है। कृपया इसकी रिपोर्ट करें!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">ठीक करने के लिए, अपनी USB ड्राइव निकालें, उसे फिर से लगाएँ और पहुँच की अनुमति दोबारा दें।</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">आवश्यक चरणों का चित्र: निकालें, फिर से लगाएँ, अनुमति दें</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">वही USB डिवाइस लगाएँ जिसका आपने पहले उपयोग किया था!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB डिवाइस फिर से जुड़ गया, कार्य फिर से शुरू हो रहा है</string>
+    <string name="the_device_is_not_responding" comment="Error message">डिवाइस जवाब नहीं दे रहा है</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">USB डिवाइस तक पहुँच की अनुमति नहीं है</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB ड्राइव बहुत बड़ी है और Vendroid इसे समर्थन नहीं करता।</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">इमेज (%1$s) डिवाइस (%2$s) से बड़ी है</string>
+    <string name="could_not_open_the_source_file" comment="Error message">स्रोत फ़ाइल नहीं खोली जा सकी</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">एक अज्ञात त्रुटि हुई: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB ड्राइव अनप्लग हो गई है</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB ड्राइव ने जवाब देना बंद कर दिया है</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">USB डिवाइस की सामग्री इमेज से मेल नहीं खाती</string>
+    <string name="ventoy_verification_failed" comment="Error message when the drive returns different Ventoy data than was written; parameter is the byte offset of the first difference">Vendroid ने USB ड्राइव पर Ventoy लिखा, लेकिन वापस पढ़ने पर बाइट %1$d पर अलग डेटा मिला। ड्राइव नकली, खराब या बड़े ट्रांसफ़र संभालने में असमर्थ हो सकती है। दोबारा उपयोग करने के लिए ड्राइव को फ़ॉर्मैट करें। फिर उन्नत विकल्प में छोटे USB ट्रांसफ़र चालू करके दोबारा कोशिश करें, या दूसरी ड्राइव का उपयोग करें।</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">दूसरी इमेज लिखें</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">कार्रवाई की पुष्टि करें</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">कोई इमेज URI प्रदान नहीं किया गया</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">कोई लक्ष्य डिवाइस नहीं चुना गया</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">ऐसा लगता है कि लिखने की प्रक्रिया अटक गई है। कृपया फिर से कोशिश करें।</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">लिखने का प्रयास शुरू हुआ, लेकिन कुछ जानकारी रास्ते में खो गई। कृपया फिर से कोशिश करें।</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">यदि संभव हो, कृपया यह समस्या उन चरणों के साथ GitHub पर रिपोर्ट करें जिनसे यह त्रुटि आई।</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub इश्यू देखें</string>
+    <string name="close">बंद करें</string>
+    <string name="menu">मेन्यू</string>
+    <string name="language">भाषा</string>
+    <string name="language_automatic">स्वचालित (डिवाइस की भाषा)</string>
+    <string name="language_english">English</string>
+    <string name="language_arabic">العربية</string>
+    <string name="privacy_policy_language_note">नीचे दी गई नीति अंग्रेज़ी में है।</string>
+    <string name="open_source_licenses">ओपन-सोर्स लाइसेंस</string>
+    <string name="licenses_language_note">ये सूचनाएँ और लाइसेंस पाठ अंग्रेज़ी में दिए गए हैं।</string>
+    <string name="licenses_back">वापस</string>
+    <string name="project_website">प्रोजेक्ट वेबसाइट</string>
+    <string name="help_and_contact">सहायता और संपर्क</string>
+    <string name="ventoy_mirror_name">Vendroid अपडेट मिरर</string>
+    <string name="ventoy_mirror_disclosure">वैकल्पिक डाउनलोड Vendroid के अपडेट मिरर का उपयोग करते हैं। इस सेवा को आपका IP पता और अनुरोध की जानकारी मिलती है। देखें: ऐप के बारे में → गोपनीयता नीति।</string>
+</resources>

@@ -1,0 +1,52 @@
+package io.github.ramonmods.vendroid.ui
+
+import android.app.Activity
+import android.content.Intent
+import io.github.ramonmods.vendroid.VendroidApplication
+import io.github.ramonmods.vendroid.plugins.reviews.WriteReviewHelper
+import io.github.ramonmods.vendroid.utils.ProjectLinks
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.robolectric.Robolectric
+import org.robolectric.Shadows.shadowOf
+import org.robolectric.annotation.Config
+import tech.apter.junit.jupiter.robolectric.RobolectricExtension
+
+@ExtendWith(RobolectricExtension::class)
+@Config(application = VendroidApplication::class, sdk = [35])
+class ProjectLinksTest {
+    @Test
+    fun `project and attribution links hand off externally without an age gate or personal extras`() {
+        val controller = Robolectric.buildActivity(Activity::class.java).setup()
+        try {
+            val activity = controller.get()
+            for (url in listOf(ProjectLinks.WEBSITE, ProjectLinks.HELP, "https://www.ventoy.net")) {
+                ProjectLinks.open(activity, url)
+                val intent = requireNotNull(shadowOf(activity).nextStartedActivity)
+                assertEquals(Intent.ACTION_VIEW, intent.action)
+                assertEquals(url, intent.data.toString())
+                assertNull(intent.component)
+                assertNull(intent.extras)
+            }
+            WriteReviewHelper(activity).launchReviewFlow()
+            val review = requireNotNull(shadowOf(activity).nextStartedActivity)
+            assertEquals(Intent.ACTION_VIEW, review.action)
+            assertEquals("https://github.com/RamonMods/Vendroid/", review.data.toString())
+            assertNull(review.extras)
+        } finally {
+            controller.pause().stop().destroy()
+        }
+    }
+
+    @Test
+    fun `EtchDroid attribution links to the exact base commit`() {
+        assertTrue(Regex("[0-9a-f]{40}").matches(ProjectLinks.ETCHDROID_BASE_COMMIT))
+        assertEquals(
+            "https://github.com/EtchDroid/EtchDroid/tree/${ProjectLinks.ETCHDROID_BASE_COMMIT}",
+            ProjectLinks.ETCHDROID_SOURCE,
+        )
+    }
+}

@@ -1,0 +1,389 @@
+package io.github.ramonmods.vendroid.ui
+
+import android.content.Context
+import android.graphics.Typeface
+import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextDirection
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import io.github.ramonmods.vendroid.AppSettings
+import io.github.ramonmods.vendroid.BuildConfig
+import io.github.ramonmods.vendroid.R
+import io.github.ramonmods.vendroid.utils.ProjectLinks
+import io.github.ramonmods.vendroid.ui.composables.appiumTag
+import io.github.ramonmods.vendroid.plugins.reviews.WriteReviewHelper
+import io.github.ramonmods.vendroid.ui.composables.MainView
+import io.github.ramonmods.vendroid.ui.composables.ScreenSizeLayoutSelector
+import io.github.ramonmods.vendroid.ui.composables.OpenSourceLicensesDialog
+import io.github.ramonmods.vendroid.ui.composables.PrivacyPolicyDialog
+import io.github.ramonmods.vendroid.utils.ktexts.activity
+
+class AboutActivity : ActivityBase() {
+    private val mViewModel: ThemeViewModel by viewModels()
+    private lateinit var mSettings: AppSettings
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        mSettings = AppSettings(this).apply {
+            addListener(mViewModel)
+            mViewModel.refreshSettings(this)
+        }
+
+        setContent {
+            MainView(viewModel = mViewModel) {
+                AboutView()
+            }
+        }
+    }
+}
+
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun AboutViewLayout(
+    modifier: Modifier = Modifier,
+    appTitle: @Composable () -> Unit,
+    versionInfo: @Composable () -> Unit,
+    logo: @Composable () -> Unit,
+    contributorsInfo: @Composable () -> Unit,
+    actionButtons: @Composable () -> Unit,
+    content: @Composable () -> Unit = {},
+) {
+    ScreenSizeLayoutSelector(
+        modifier = modifier,
+        normal = {
+            Column(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .fillMaxWidth()
+                    .safeDrawingPadding()
+                    .padding(horizontal = 16.dp)
+                    .verticalScroll(rememberScrollState()),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    appTitle()
+                    versionInfo()
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    logo()
+                }
+
+                contributorsInfo()
+
+                FlowRow(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(
+                        8.dp,
+                        Alignment.CenterHorizontally
+                    )
+                ) {
+                    actionButtons()
+                }
+
+            }
+        },
+        compact = {
+            Box(
+                Modifier
+                    .sizeIn(minWidth = 550.dp)
+                    .fillMaxSize()
+                    .safeDrawingPadding()
+                    .horizontalScroll(rememberScrollState())
+            ) {
+                Row(
+                    modifier = Modifier.align(Alignment.Center),
+                    horizontalArrangement = Arrangement.spacedBy(
+                        48.dp,
+                        Alignment.CenterHorizontally
+                    ),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(Modifier.padding(32.dp)) {
+                        logo()
+                    }
+                    Column(
+                        modifier = Modifier.verticalScroll(rememberScrollState()),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(24.dp)
+                    ) {
+                        appTitle()
+                        versionInfo()
+                        contributorsInfo()
+
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(
+                                8.dp,
+                                Alignment.CenterHorizontally
+                            )
+                        ) {
+                            actionButtons()
+                        }
+
+                    }
+                }
+            }
+        }
+    )
+
+    content()
+}
+
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun AboutView() {
+    val context = LocalContext.current
+    var showPrivacyPolicy by remember { mutableStateOf(false) }
+    var showLicenses by remember { mutableStateOf(false) }
+    AboutViewLayout(
+        modifier = Modifier.fillMaxSize(),
+        appTitle = {
+            Text(
+                text = "${stringResource(R.string.app_name)} v${BuildConfig.VERSION_NAME}",
+                style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
+                textAlign = TextAlign.Center,
+            )
+        },
+        versionInfo = {
+            SelectionContainer {
+                Text(
+                    text = "${BuildConfig.APPLICATION_ID}\n v${BuildConfig.VERSION_NAME}+${BuildConfig.VERSION_CODE}, ${BuildConfig.FLAVOR}+${BuildConfig.BUILD_TYPE}",
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        fontSize = 16.sp,
+                        fontFamily = FontFamily(Typeface.MONOSPACE)
+                    ),
+                    textAlign = TextAlign.Center,
+                )
+            }
+        },
+        logo = {
+            VendroidLogo(
+                modifier = Modifier.size(128.dp),
+                contentDescription = stringResource(R.string.app_name),
+            )
+        },
+        contributorsInfo = {
+            val linkStyle = SpanStyle(
+                color = MaterialTheme.colorScheme.primary,
+                textDecoration = TextDecoration.Underline,
+            )
+            // Lines that start with a Latin name must still follow the UI's reading direction.
+            val textDirection = if (LocalLayoutDirection.current == LayoutDirection.Rtl) {
+                TextDirection.Rtl
+            } else {
+                TextDirection.Ltr
+            }
+            val context = LocalContext.current
+            val annotatedText = aboutCreditsText(aboutCreditLines(context), linkStyle)
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = stringResource(R.string.about_project_summary),
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        color = MaterialTheme.colorScheme.onBackground,
+                        textAlign = TextAlign.Center,
+                        textDirection = textDirection,
+                    ),
+                )
+                Surface(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = MaterialTheme.shapes.large,
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                            .appiumTag("aboutCredits"),
+                        text = annotatedText,
+                        style = MaterialTheme.typography.bodyMedium.copy(
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Start,
+                            textDirection = textDirection,
+                        ),
+                    )
+                }
+            }
+
+        },
+        actionButtons = {
+            val activity = LocalContext.current.activity
+            OutlinedButton(
+                modifier = Modifier.appiumTag("projectWebsiteButton"),
+                onClick = { ProjectLinks.open(context) }
+            ) {
+                Text(stringResource(R.string.project_website))
+            }
+            OutlinedButton(
+                onClick = { ProjectLinks.open(context, "https://www.ventoy.net") }
+            ) {
+                Text("Ventoy")
+            }
+            OutlinedButton(
+                onClick = { showPrivacyPolicy = true }
+            ) {
+                Text(stringResource(R.string.privacy_policy))
+            }
+            OutlinedButton(
+                modifier = Modifier.appiumTag("licensesButton"),
+                onClick = { showLicenses = true }
+            ) {
+                Text(stringResource(R.string.open_source_licenses))
+            }
+            val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
+            if (reviewHelper != null) {
+                OutlinedButton(onClick = { reviewHelper.launchReviewFlow() }) {
+                    Text(
+                        text = if (reviewHelper.isGPlayFlavor) stringResource(
+                            R.string.write_a_review
+                        )
+                        else stringResource(R.string.star_on_github)
+                    )
+                }
+            }
+        },
+    )
+    if (showPrivacyPolicy) {
+        PrivacyPolicyDialog { showPrivacyPolicy = false }
+    }
+    if (showLicenses) {
+        OpenSourceLicensesDialog { showLicenses = false }
+    }
+}
+
+
+@PreviewScreenSizes
+@Composable
+fun AboutViewPreview() {
+    val viewModel = remember { ThemeViewModel() }
+    MainView(viewModel) {
+        AboutView()
+    }
+}
+
+/** One About credit line; [linkedText] is the visible word that opens [url]. */
+internal data class AboutCreditLine(val text: String, val linkedText: String? = null, val url: String? = null)
+
+/** Credit groups in display order, each a block of lines. Links use words, never raw addresses. */
+internal fun aboutCreditLines(context: Context): List<List<AboutCreditLine>> {
+    val developerName = context.getString(R.string.developer_name)
+    val github = "GitHub"
+    val etchDroid = "EtchDroid"
+    return listOf(
+        listOf(
+            AboutCreditLine(
+                context.getString(R.string.developer_credit, developerName),
+                developerName,
+                ProjectLinks.DEVELOPER_WEBSITE,
+            ),
+            AboutCreditLine(context.getString(R.string.project_source, github), github, ProjectLinks.SOURCE_CODE),
+        ),
+        listOf(
+            AboutCreditLine(
+                context.getString(R.string.etchdroid_attribution, etchDroid, developerName),
+                etchDroid,
+                ProjectLinks.ETCHDROID_SOURCE,
+            ),
+        ),
+        listOf(
+            // The link still opens the exact commit the bundled payload was built from.
+            AboutCreditLine(
+                context.getString(R.string.ventoy_source_notice, BuildConfig.VENTOY_VERSION, github),
+                github,
+                ProjectLinks.ventoySource(BuildConfig.VENTOY_SOURCE_COMMIT),
+            ),
+        ),
+        listOf(AboutCreditLine(context.getString(R.string.gpl_license_notice))),
+    )
+}
+
+internal fun aboutCreditsText(groups: List<List<AboutCreditLine>>, linkStyle: SpanStyle): AnnotatedString =
+    buildAnnotatedString {
+        groups.forEachIndexed { groupIndex, lines ->
+            if (groupIndex > 0) append("\n\n")
+            lines.forEachIndexed { lineIndex, line ->
+                if (lineIndex > 0) append("\n")
+                if (line.linkedText != null && line.url != null) {
+                    appendLinkedText(line.text, line.linkedText, line.url, linkStyle)
+                } else {
+                    append(line.text)
+                }
+            }
+        }
+    }
+
+private fun androidx.compose.ui.text.AnnotatedString.Builder.appendLinkedText(
+    text: String,
+    linkedPart: String,
+    url: String,
+    style: SpanStyle,
+) {
+    val lineStart = length
+    append(text)
+    val relativeStart = text.indexOf(linkedPart)
+    if (relativeStart < 0) return
+
+    val start = lineStart + relativeStart
+    val end = start + linkedPart.length
+    addStyle(style, start, end)
+    addLink(LinkAnnotation.Url(url), start, end)
+}

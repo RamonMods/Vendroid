@@ -1,0 +1,228 @@
+from appium.webdriver import Remote
+from selenium.common import (
+    TimeoutException,
+)
+from selenium.webdriver.support.ui import WebDriverWait
+
+from vendroid import activity_name, package_name
+from vendroid.utils import get_wait, wait_for_element, run_adb_command
+
+
+def basic_flow(driver: Remote, image_filename: str):
+    tap_write_image(driver)
+    find_and_open_file(driver, image_filename)
+    select_first_usb_device_if_multiple(driver)
+    grant_usb_permission(driver)
+    confirm_write_image(driver)
+    skip_lay_flat_sheet(driver)
+
+
+def tap_write_image(driver: Remote):
+    btn = wait_for_element(driver, '//*[@resource-id="writeImageCTA"]')
+    btn.click()
+
+
+def tap_install_ventoy(driver: Remote):
+    btn = wait_for_element(driver, '//*[@resource-id="installVentoyCTA"]')
+    btn.click()
+
+
+def open_ventoy_advanced_options(driver: Remote):
+    button = wait_for_element(driver, '//*[@resource-id="ventoyAdvancedOptionsButton"]', timeout=30)
+    button.click()
+
+
+def assert_mirror_controls_without_age(driver: Remote):
+    wait_for_element(driver, '//*[@resource-id="ventoyOnlineUpdateButton"]', timeout=30)
+    disclosure = wait_for_element(driver, '//*[@resource-id="ventoyMirrorDisclosure"]', timeout=15)
+    assert "Vendroid" in disclosure.get_attribute("text")
+    assert not driver.find_elements(
+        "xpath", '//*[@resource-id="onlineBirthDay" or @resource-id="onlineBirthMonth" '
+        'or @resource-id="onlineBirthYear" or @resource-id="onlineAccessRestricted"]',
+    ), "Optional mirror downloads must not require an age entry"
+
+
+def _scroll_advanced_options_to(driver: Remote, resource_id: str):
+    # Compose omits sheet rows below the viewport from the accessibility tree. Only scroll
+    # forward: UiScrollable first swipes down to the beginning, which dismisses a modal sheet.
+    target = f'//*[@resource-id="{resource_id}"]'
+    for _ in range(8):
+        if any(element.is_displayed() for element in driver.find_elements("xpath", target)):
+            return
+        sheet = wait_for_element(driver, '//*[@resource-id="ventoyAdvancedOptionsSheet"]')
+        can_scroll_more = driver.execute_script(
+            "mobile: scrollGesture", {"elementId": sheet.id, "direction": "down", "percent": 0.5},
+        )
+        if not can_scroll_more:
+            return
+
+
+def configure_ventoy_options(
+    driver: Remote,
+    label: str,
+    reserved_mib: int,
+    cluster_size: str,
+    partition_style: str | None = None,
+    small_usb_transfers: bool = False,
+):
+    if partition_style is not None:
+        partition_button = wait_for_element(driver, '//*[@resource-id="ventoyPartitionStyleButton"]')
+        partition_button.click()
+        wait_for_element(driver, f'//*[@text="{partition_style}"]').click()
+
+    label_field = wait_for_element(driver, '//*[@resource-id="ventoyVolumeLabelField"]')
+    driver.execute_script("mobile: replaceElementValue", {"elementId": label_field.id, "text": label})
+    WebDriverWait(driver, 5).until(lambda _: label_field.get_attribute("text") == label)
+
+    cluster_button = wait_for_element(driver, '//*[@resource-id="ventoyClusterSizeButton"]')
+    cluster_button.click()
+    wait_for_element(driver, f'//*[@text="{cluster_size}"]').click()
+
+    reserve_switch = wait_for_element(driver, '//*[@resource-id="ventoyReserveSpaceSwitch"]')
+    if reserve_switch.get_attribute("checked") != "true":
+        reserve_switch.click()
+    reserve_field = wait_for_element(driver, '//*[@resource-id="ventoyReservedSpaceField"]')
+    driver.execute_script(
+        "mobile: replaceElementValue", {"elementId": reserve_field.id, "text": str(reserved_mib)}
+    )
+    WebDriverWait(driver, 5).until(lambda _: reserve_field.get_attribute("text") == str(reserved_mib))
+
+    _scroll_advanced_options_to(driver, "ventoySmallUsbTransfersSwitch")
+    transfers_switch = wait_for_element(driver, '//*[@resource-id="ventoySmallUsbTransfersSwitch"]')
+    if (transfers_switch.get_attribute("checked") == "true") != small_usb_transfers:
+        transfers_switch.click()
+    WebDriverWait(driver, 5).until(
+        lambda _: (transfers_switch.get_attribute("checked") == "true") == small_usb_transfers
+    )
+    _scroll_advanced_options_to(driver, "ventoyApplyOptionsButton")
+    wait_for_element(driver, '//*[@resource-id="ventoyApplyOptionsButton"]').click()
+    summary = wait_for_element(driver, '//*[@resource-id="ventoyOptionsSummary"]', timeout=15)
+    WebDriverWait(driver, 5).until(
+        lambda _: ("Smaller USB transfers" in summary.get_attribute("text")) == small_usb_transfers
+    )
+
+
+def find_and_open_file(driver: Remote, filename: str):
+    search_btn = wait_for_element(driver, '//*[@content-desc="Search"]')
+    search_btn.click()
+    search_field = wait_for_element(driver, "//android.widget.AutoCompleteTextView")
+    search_field.send_keys(f"{filename}")
+    arch_iso = wait_for_element(
+        driver,
+        f'//android.widget.TextView[@text="{filename}"]',
+        5,
+    )
+    arch_iso.click()
+
+
+def select_first_usb_device_if_multiple(driver: Remote, timeout: int = 15):
+    selected = False
+
+    def select_or_confirm(current: Remote):
+        nonlocal selected
+        if any(element.is_displayed() for element in current.find_elements(
+            "xpath", '//*[@resource-id="writeImageButton"]',
+        )):
+            return True
+        if not selected:
+            for row in current.find_elements("xpath", '//*[@resource-id="usbDeviceListItem"]'):
+                if row.is_displayed() and row.get_attribute("enabled") == "true":
+                    row.click()
+                    selected = True
+                    break
+        return False
+
+    get_wait(driver, timeout).until(select_or_confirm)
+
+
+def grant_usb_permission(driver: Remote):
+    grant_btn = wait_for_element(driver, '//*[@resource-id="grantUsbPermissionButton"]')
+    grant_btn.click()
+
+    # A delayed system dialog must not be mistaken for an existing grant.
+    get_wait(driver, 15).until(_complete_usb_permission)
+
+
+def _complete_usb_permission(driver: Remote) -> bool:
+    if any(element.is_displayed() for element in driver.find_elements(
+        "xpath", '//*[@content-desc="Permission granted"]',
+    )):
+        return True
+    # The ready card can move the grant checkmark below the scroll viewport.
+    # This fixed footer action also requires hasUsbPermission in the app.
+    if any(element.is_displayed() and element.get_attribute("enabled") == "true"
+           for element in driver.find_elements("xpath", '//*[@resource-id="writeImageButton"]')):
+        return True
+    # This selector appears only after a permission-backed USB scan succeeds.
+    # Large drives still require GPT selection before the Install footer enables.
+    if any(element.is_displayed() for element in driver.find_elements(
+        "xpath", '//*[@resource-id="ventoyInstallPartitionStyleButton"]',
+    )):
+        return True
+    for button in driver.find_elements(
+        "xpath", '//*[@package="com.android.systemui" and @resource-id="android:id/button1" and @text="OK"]',
+    ):
+        if button.is_displayed() and button.get_attribute("enabled") == "true":
+            button.click()
+            break
+    return False
+
+
+def accept_usb_permission(driver: Remote):
+    ok_btn = wait_for_element(driver, '//*[@text="OK"]', timeout=1)
+    ok_btn.click()
+
+
+def confirm_write_image(driver: Remote):
+    write_image_btn = wait_for_element(driver, '//*[@resource-id="writeImageButton"]')
+    assert write_image_btn.is_displayed(), "Confirmation action must remain visible"
+    write_image_btn.click()
+
+
+def skip_lay_flat_sheet(driver: Remote):
+    try:
+        lay_flat_skip_btn = wait_for_element(driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]')
+    except TimeoutException:
+        return
+    # Outside the try: a missing explanation must fail here, not be skipped as "no sheet".
+    explanation = wait_for_element(driver, '//*[@resource-id="layFlatExplanation"]')
+    assert "disconnect the drive" in explanation.get_attribute("text"), "Lay-flat sheet must say why"
+    lay_flat_skip_btn.click()
+
+
+def wait_for_success(driver: Remote, timeout: int = 120):
+    wait_for_element(driver, '//android.widget.TextView[@resource-id="success_write_title"]', timeout=timeout)
+
+
+def wait_for_fatal_error(driver: Remote, timeout: int = 120):
+    wait_for_element(driver, '//android.widget.TextView[@resource-id="fatal_error_title"]', timeout=timeout)
+
+
+def wait_for_write_progress(driver: Remote, timeout: int = 120):
+    wait_for_element(driver, '//android.widget.TextView[@resource-id="write_progress_title"]', timeout=timeout)
+
+
+def get_skip_verify_button(driver: Remote, timeout: int = 120):
+    return wait_for_element(driver, '//*[@resource-id="skip_verification_button"]', timeout=timeout)
+
+
+def open_file(driver: Remote, file_name: str):
+    """
+    Open a file in the Vendroid app. Unfortunately, since Vendroid does not request storage permissions, the file
+    won't be readable. It can still read the size and file name.
+
+    :param driver: The Appium driver instance.
+    :param file_name: The full path to the file to open.
+    """
+    run_adb_command(
+        driver,
+        "am",
+        "start-activity",
+        "-a",
+        "android.intent.action.VIEW",
+        f"-n{package_name}/{activity_name}",
+        "-d",
+        f"file://{file_name}",
+        "--grant-persistable-uri-permission",
+        "--grant-read-uri-permission",
+    )

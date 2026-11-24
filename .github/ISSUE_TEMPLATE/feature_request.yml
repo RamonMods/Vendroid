@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest an improvement for Vendroid
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Vendroid currently focuses on installing and managing Ventoy on external USB drives without root. Internal SD slots and phone-as-USB gadget mode are outside the current Android-access model.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Preliminary checks
+      options:
+        - label: I searched existing Vendroid issues and did not find this request.
+          required: true
+        - label: This request is related to Vendroid's external USB/Ventoy workflow.
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the user problem rather than only the proposed interface.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Explain how the feature should behave.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe any workarounds or other designs you considered.
