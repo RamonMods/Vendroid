@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -27,12 +29,19 @@ fun LanguagePickerDialog(selected: AppLanguage, onSelect: (AppLanguage) -> Unit,
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.language)) },
         text = {
-            Column(Modifier.selectableGroup(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(max = 360.dp)
+                    .verticalScroll(rememberScrollState())
+                    .selectableGroup(),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
                 AppLanguage.entries.forEach { language ->
-                    val label = when (language) {
-                        AppLanguage.AUTOMATIC -> R.string.language_automatic
-                        AppLanguage.ENGLISH -> R.string.language_english
-                        AppLanguage.ARABIC -> R.string.language_arabic
+                    val label = if (language == AppLanguage.AUTOMATIC) {
+                        stringResource(R.string.language_automatic)
+                    } else {
+                        language.nativeName
                     }
                     Row(
                         modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)
@@ -44,7 +53,7 @@ fun LanguagePickerDialog(selected: AppLanguage, onSelect: (AppLanguage) -> Unit,
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         RadioButton(selected = selected == language, onClick = null)
-                        Text(stringResource(label))
+                        Text(label)
                     }
                 }
             }

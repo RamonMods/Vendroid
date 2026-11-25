@@ -47,15 +47,40 @@ abstract class AppLocalesTestSuite {
     }
 
     @Test
-    fun `automatic follows real system configuration without being overwritten by its resolved locale`() {
+    fun `automatic follows every translated system language without keeping an override`() {
+        RuntimeEnvironment.setQualifiers("pt-rBR")
+        AppLocales.apply(context)
+        assertLocale("pt-BR", View.LAYOUT_DIRECTION_LTR, "Instalar Ventoy", requestedTag = null)
+        assertEquals(AppLanguage.AUTOMATIC, AppSettings(context).language)
+
         RuntimeEnvironment.setQualifiers("ar-rSA")
         AppLocales.apply(context)
-        assertLocale("ar", View.LAYOUT_DIRECTION_RTL, "تثبيت Ventoy")
+        assertLocale("ar", View.LAYOUT_DIRECTION_RTL, "تثبيت Ventoy", requestedTag = null)
         assertEquals(AppLanguage.AUTOMATIC, AppSettings(context).language)
+
         RuntimeEnvironment.setQualifiers("fr")
         AppLocales.apply(context)
-        assertLocale("en", View.LAYOUT_DIRECTION_LTR, "Install Ventoy")
+        assertLocale("fr", View.LAYOUT_DIRECTION_LTR, "Installer Ventoy", requestedTag = null)
         assertEquals(AppLanguage.AUTOMATIC, AppSettings(context).language)
+
+        RuntimeEnvironment.setQualifiers("sw")
+        AppLocales.apply(context)
+        assertLocale("en", View.LAYOUT_DIRECTION_LTR, "Install Ventoy", requestedTag = null)
+        assertEquals(AppLanguage.AUTOMATIC, AppSettings(context).language)
+    }
+
+    @Test
+    fun `explicit regional choice remains after device changes and notification strings follow it`() {
+        AppSettings(context).language = AppLanguage.PORTUGUESE_BRAZIL
+        RuntimeEnvironment.setQualifiers("en")
+        AppLocales.apply(context)
+        assertLocale("pt-BR", View.LAYOUT_DIRECTION_LTR, "Instalar Ventoy")
+        assertEquals("Idioma", AppLocales.getString(context, R.string.language))
+
+        RuntimeEnvironment.setQualifiers("fr")
+        AppLocales.apply(context)
+        assertLocale("pt-BR", View.LAYOUT_DIRECTION_LTR, "Instalar Ventoy")
+        assertEquals("Português (Brasil)", AppLanguage.PORTUGUESE_BRAZIL.nativeName)
     }
 
     @Test
@@ -84,15 +109,21 @@ abstract class AppLocalesTestSuite {
         )
     }
 
-    private fun assertLocale(tag: String, direction: Int, installLabel: String) {
+    private fun assertLocale(tag: String, direction: Int, installLabel: String, requestedTag: String? = tag) {
         val localized = AppLocales.localizedContext(context)
-        assertEquals(tag, ConfigurationCompat.getLocales(localized.resources.configuration).get(0)?.language)
+        assertEquals(tag, ConfigurationCompat.getLocales(localized.resources.configuration).get(0)?.toLanguageTag())
         assertEquals(direction, localized.resources.configuration.layoutDirection)
         assertEquals(installLabel, localized.getString(R.string.install_ventoy))
         val requested = if (Build.VERSION.SDK_INT >= 33) {
-            requireNotNull(context.getSystemService(LocaleManager::class.java)).applicationLocales.get(0)?.language
-        } else AppCompatDelegate.getApplicationLocales().get(0)?.language
-        assertEquals(tag, requested)
+            requireNotNull(context.getSystemService(LocaleManager::class.java)).applicationLocales
+        } else {
+            AppCompatDelegate.getApplicationLocales()
+        }
+        if (requestedTag == null) {
+            assertEquals(0, requested.size())
+        } else {
+            assertEquals(requestedTag, requested.get(0)?.toLanguageTag())
+        }
     }
 }
 
