@@ -24,7 +24,7 @@ val releaseSigningConfigured = listOf(
     releaseKeyAlias,
     releaseKeyPassword,
 ).all { !it.isNullOrBlank() }
-val defaultVersionCode = 39
+val defaultVersionCode = 40
 val vendroidVersionCode = providers.environmentVariable("VENDROID_VERSION_CODE")
     .orElse(defaultVersionCode.toString())
     .map { value ->
@@ -74,7 +74,7 @@ android {
         minSdk = sdkMin
         targetSdk = sdkTarget
         versionCode = vendroidVersionCode.get()
-        versionName = "0.2.0"
+        versionName = "0.2.1"
         buildConfigField("boolean", "IS_PREVIEW", "false")
         buildConfigField("boolean", "GPT_ENABLED", stableGptEnabled.toString())
         buildConfigField("String", "VENTOY_VERSION", "\"$pinnedVentoyVersion\"")
